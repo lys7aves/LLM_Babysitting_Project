@@ -60,3 +60,6 @@
 
 
 
+## Limitation
+
+- You can't use the Chrome browser while the program is running.
