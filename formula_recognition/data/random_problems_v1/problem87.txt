@@ -1,0 +1,3 @@
+problem: Sum(60*x**2, (x, 1, 10))
+solution: 23100
+evalf_avlue: 23100.0000000000

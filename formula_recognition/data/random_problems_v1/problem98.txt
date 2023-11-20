@@ -1,0 +1,3 @@
+problem: Sum(cos(pi*sin(pi*cos(4**(2*x - 8)*pi/2)/2)/2), (x, 1, 10))
+solution: cos(pi*sin(pi*cos(pi/8192)/2)/2) + cos(pi*sin(pi*cos(pi/512)/2)/2) + cos(pi*sin(pi*cos(pi/32)/2)/2) + 1
+evalf_avlue: 1.00004493410440

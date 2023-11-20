@@ -1,0 +1,3 @@
+problem: Sum(-2*cos(pi*(4*x - 3)), (x, 1, 10))
+solution: 20
+evalf_avlue: 20.0000000000000

@@ -1,0 +1,3 @@
+problem: Sum(sin(pi*x/2) + 1, (x, 1, 10))
+solution: 11
+evalf_avlue: 11.0000000000000

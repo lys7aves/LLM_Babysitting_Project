@@ -1,0 +1,3 @@
+problem: Sum(x*cos(pi*x/2) + cos(pi*sin(pi/(2*x**5))/2), (x, 1, 10))
+solution: -6 + cos(pi*sin(pi/64)/2) + cos(pi*sin(pi/486)/2) + cos(pi*sin(pi/2048)/2) + cos(pi*sin(pi/6250)/2) + cos(pi*sin(pi/15552)/2) + cos(pi*sin(pi/33614)/2) + cos(pi*sin(pi/65536)/2) + cos(pi*sin(pi/118098)/2) + cos(pi*sin(pi/200000)/2)
+evalf_avlue: 2.99697633780403

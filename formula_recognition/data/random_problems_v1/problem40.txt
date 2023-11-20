@@ -1,0 +1,3 @@
+problem: Sum(2*x + 7, (x, 1, 10))
+solution: 180
+evalf_avlue: 180.000000000000

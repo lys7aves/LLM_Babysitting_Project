@@ -1,0 +1,3 @@
+problem: Sum(sin(pi*sin(pi*cos(2*pi*x)/2)*cos(10**x*pi/2)/2), (x, 1, 10))
+solution: 8
+evalf_avlue: 8.00000000000000

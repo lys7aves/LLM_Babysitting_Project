@@ -1,0 +1,3 @@
+problem: Sum(cos(pi*x/2) - 9, (x, 1, 10))
+solution: -91
+evalf_avlue: -91.0000000000000

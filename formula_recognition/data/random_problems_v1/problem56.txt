@@ -1,0 +1,3 @@
+problem: Sum(x**(x + 5) + cos(pi*x/2) + 1, (x, 1, 10))
+solution: 1023440762387574
+evalf_avlue: 1.02344076238757e+15

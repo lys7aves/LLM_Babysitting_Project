@@ -1,0 +1,3 @@
+problem: Sum(x**cos(pi*x/2), (x, 1, 10))
+solution: 533/30
+evalf_avlue: 17.7666666666667

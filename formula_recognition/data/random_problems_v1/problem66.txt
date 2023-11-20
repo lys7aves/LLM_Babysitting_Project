@@ -1,0 +1,3 @@
+problem: Sum(x*(x + sin(pi*sin(pi*x/2)/2)), (x, 1, 10))
+solution: 390
+evalf_avlue: 390.000000000000

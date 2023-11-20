@@ -1,0 +1,3 @@
+problem: Sum((x + 7)**sin(pi*x/2), (x, 1, 10))
+solution: 1441/35
+evalf_avlue: 41.1714285714286

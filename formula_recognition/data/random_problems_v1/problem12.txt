@@ -1,0 +1,3 @@
+problem: Sum(-5*x + sin(pi*x/2), (x, 1, 10))
+solution: -274
+evalf_avlue: -274.000000000000
