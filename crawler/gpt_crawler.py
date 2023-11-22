@@ -177,13 +177,22 @@ def get_message(driver=None, agent=None, tab_handle=None, url=None, turn=-1, wai
 def print_window_handles(driver=None):
     if driver is None: driver = DEFAULT_DRIVER
 
+    # get a current window handle and all of window handles
     window_handles = driver.window_handles
     current_window_handle = driver.current_window_handle
 
     print("current window handle:", current_window_handle)
-    print("window_handles:", window_handles)
+    print("current_window_url:", driver.current_url)
 
-    return window_handles, current_window_handle
+    # print all of window handles and each url
+    print("window_handles:")
+    for window_handle in window_handles:
+        # switch the window to get the url of the corresponding window
+        driver.switch_to.window(window_handle)
+        print("-", window_handle, driver.current_url)
+
+    # Return to the original window
+    driver.switch_to.window(current_window_handle)
         
 
 # not yet
