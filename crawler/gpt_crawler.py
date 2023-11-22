@@ -1,3 +1,4 @@
+# Last updated: 2023. 11. 23.
 
 # C:\Program Files\Google\Chrome\Application> chrome.exe --remote-debugging-port=9222
 
@@ -171,6 +172,18 @@ def get_message(driver=None, agent=None, tab_handle=None, url=None, turn=-1, wai
         return conversations[turn]
     except Exception:
         return f'No {turn}th conversation'
+    
+
+def print_window_handles(driver=None):
+    if driver is None: driver = DEFAULT_DRIVER
+
+    window_handles = driver.window_handles
+    current_window_handle = driver.current_window_handle
+
+    print("current window handle:", current_window_handle)
+    print("window_handles:", window_handles)
+
+    return window_handles, current_window_handle
         
 
 # not yet
@@ -184,6 +197,11 @@ def test_crawling():
     print('Setting up configuration...')
 
     connect_browser()
+
+    print_window_handles()
+
+    while True:
+        True
 
     # This is my tab handle during the test time. You can just write numbers and test them.
     tab_handles = [
