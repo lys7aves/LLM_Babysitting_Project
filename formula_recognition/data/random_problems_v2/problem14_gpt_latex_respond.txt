@@ -1,0 +1,3 @@
+ChatGPT
+The tasks have been completed with the following results:
+#problem: [\sum_{x=1}^{10} \cos\left(\frac{\pi x}{2}\right) \cos\left(\pi (10 - 5x)\right)

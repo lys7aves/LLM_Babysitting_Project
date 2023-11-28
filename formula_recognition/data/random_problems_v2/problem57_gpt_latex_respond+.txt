@@ -1,0 +1,15 @@
+ChatGPT
+The mathematical expression in LaTeX syntax is:
+latex
+Copy code
+\sum_{x=1}^{10} (-10) \sin^{ \left( \frac{\pi \cos \left(\frac{\pi x}{2}\right)}{2} \right) } (x)
+The exact solution is:
+latex
+Copy code
+-50 - 10 \sin(2)^{\left(-\frac{\pi}{2}\right)} - 10 \sin(8)^{\left(\frac{\pi}{2}\right)} - 10 \sin(6)^{\left(-\frac{\pi}{2}\right)} - 10 \sin(10)^{\left(-\frac{\pi}{2}\right)} - 10 \sin(4)^{\left(\frac{\pi}{2}\right)}
+The approximate value is a complex number: -94.9531674869879 - 91.3584867190295i
+Here are the requested outputs in the required format:
+scss
+Copy code
+#problem: \sum_{x=1}^{10} (-10) \sin^{ \left( \frac{\pi \cos \left(\frac{\pi x}{2}\right)}{2} \right) } (x)
+#solution: -50 - 10 \sin(2)^{\left(-\frac{\pi}{2}\right)} - 10 \sin(8)^{\left(\frac{\pi}{2}\right)} - 10 \sin(

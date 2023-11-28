@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \cos{\left(\frac{\pi \cos{\left(\frac{\pi \left(3 x + 24\right) \left(\sin{\left(\frac{\pi x}{2} \right)} + 5\right)}{2} \right)}}{2} \right)}
+solution: 0
+evalf_avlue: 0

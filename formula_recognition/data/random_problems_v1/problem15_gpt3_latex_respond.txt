@@ -1,0 +1,9 @@
+ChatGPT
+LaTeX syntax is 
+∑
+x=1
+10
+(sin(
+2
+πx
+)−3). The Answer is -29. 

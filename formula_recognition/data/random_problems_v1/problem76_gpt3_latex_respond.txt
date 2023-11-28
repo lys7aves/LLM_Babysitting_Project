@@ -1,0 +1,25 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+x=1
+∑
+10
+(x+10)(x+sin(
+2
+π
+))
+πcos(
+2
+πx
+)
+. The Answer is 
+20×11
+−π
++16×7
+−π
++12×3
+−π
++75+14×5
+π
++18×9
+π
+. 

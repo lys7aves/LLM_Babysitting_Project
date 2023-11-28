@@ -1,0 +1,5 @@
+ChatGPT
+Error analyzing
+#problem: \sum_{x=1}^{10} \cos^x(x) \left(\frac{\pi x}{2}\right)
+#solution: \frac{\pi (9\cos^{9}(9) + 3\cos^{3}(3) + 8\cos^{8}(8) + 5\cos^{5}(5) + 2\cos^{2}(2) + \cos(1) + 4\cos^{4}(4) + 7\cos^{7}(7) + 10\cos^{10}(10) + 6\cos^{6}(6))}{2}
+#evalf_value: 3.48846435865920 

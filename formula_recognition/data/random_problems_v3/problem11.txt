@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} \left(10 x - 50\right)^{\sin{\left(\frac{\pi}{2 x^{6}} \right)}}
+#solution: -40 + 50^{\sin{\left(\frac{\pi}{2000000} \right)}} + 40^{\sin{\left(\frac{\pi}{1062882} \right)}} + 30^{\sin{\left(\frac{\pi}{524288} \right)}} + 20^{\sin{\left(\frac{\pi}{235298} \right)}} + 10^{\sin{\left(\frac{\pi}{93312} \right)}} + \left(-10\right)^{\sin{\left(\frac{\pi}{8192} \right)}} + \left(-20\right)^{\sin{\left(\frac{\pi}{1458} \right)}} + \left(-30\right)^{\sin{\left(\frac{\pi}{128} \right)}}
+#evalf_avlue: -31.9086866452906 + 0.0917460348939549 i

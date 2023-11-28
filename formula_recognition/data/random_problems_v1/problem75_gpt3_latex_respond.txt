@@ -1,0 +1,10 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+cos(
+2
+πx
+). The Answer is 
+−1.000, considering the typical rounding for mathematical calculations. 

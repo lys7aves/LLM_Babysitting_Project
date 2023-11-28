@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \frac{1}{2}
+solution: 5
+evalf_avlue: 5.00000000000000

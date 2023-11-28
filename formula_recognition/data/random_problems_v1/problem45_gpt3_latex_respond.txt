@@ -1,0 +1,3 @@
+ChatGPT
+In the LaTeX syntax, the expression is \sum_{x=1}^{10} \cos\left(\frac{\pi x^2}{2}\right). The Answer is 
+5.00000000000000. 

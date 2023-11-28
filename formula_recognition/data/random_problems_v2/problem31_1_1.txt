@@ -1,0 +1,19 @@
+ChatGPT
+The tasks have been completed, and here are the results:
+The mathematical expression represented in LaTeX syntax as written in the image:
+cos(π(
+2
+x
++
+2
+sin(
+2
+πx
+)
+))
+The exact solution of the given summation is: -6
+The approximate value of the summation is: -6.00000000000000
+Using the format you've provided, here are the values:
+#problem: \cos\left(\pi \left(\frac{x}{2} + \frac{\sin\left(\frac{\pi x}{2} \right)}{2}\right) \right)
+#solution: -6
+#evalf_value: -6.00000000000000 

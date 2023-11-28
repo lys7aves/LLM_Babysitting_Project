@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \cos{\left(\frac{\pi \sin{\left(\frac{\pi \sin{\left(\frac{\pi \cos^{x}{\left(\frac{\pi \cos{\left(\frac{\pi x}{2} \right)}}{2} \right)}}{2} \right)}}{2} \right)}}{2} \right)}
+solution: 5
+evalf_avlue: 5.00000000000000

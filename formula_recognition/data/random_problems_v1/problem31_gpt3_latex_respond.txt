@@ -1,0 +1,9 @@
+ChatGPT
+LaTeX syntax is 
+x−sin(
+sin(
+2
+πx
+)
+x
+). T

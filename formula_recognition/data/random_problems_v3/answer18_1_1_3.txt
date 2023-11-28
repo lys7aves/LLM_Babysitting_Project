@@ -1,0 +1,3 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as seen in the image is:
+#problem: \sum_{x=1}^{10} \cos \left( \frac{\pi \sin

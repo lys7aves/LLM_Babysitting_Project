@@ -1,0 +1,9 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as it is written in the image is:
+latex
+Copy code
+\sum_{x=1}^{10} \cos{\left(\frac{\pi (7 x - 3) \cos{(\pi (\frac{x}{2} - 2) )}}{2} \right)}
+The exact solution to the expression is 5.
+The approximate value is also 5.00000000000000.
+Here are the requested values:
+#problem: \sum_{x=1}^{10} \cos{\left(\frac{\pi (7 x - 3) \cos{(\pi (\frac{x}{2

@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} 7^{\sin{\left(\frac{\pi \sin{\left(3 \pi x \right)}}{2} \right)}}
+solution: 10
+evalf_avlue: 10.0000000000000

@@ -1,0 +1,15 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+∑
+x=1
+10
+(x+4
+x
++cos(
+2
+πx
+))
+The exact solution is:
+#solution: 1398154
+The approximate value is:
+#evalf_value: 1398154.0 

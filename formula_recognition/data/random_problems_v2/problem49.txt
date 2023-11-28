@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \left(x^{4} + x\right)
+solution: 25388
+evalf_avlue: 25388.0000000000

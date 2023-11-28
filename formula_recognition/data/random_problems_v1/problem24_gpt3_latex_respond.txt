@@ -1,0 +1,2 @@
+ChatGPT
+It seems there was an issue with the OCR process as it did not return any readable text from the image. I'll manually inspect the image and transcribe the mathematical expression into LaTeX syntax and then sol

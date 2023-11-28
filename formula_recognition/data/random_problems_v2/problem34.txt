@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \left(\sin{\left(\frac{\pi \sin{\left(\frac{\pi x}{2} \right)}}{2} \right)} + 5\right)
+solution: 51
+evalf_avlue: 51.0000000000000

@@ -1,0 +1,7 @@
+ChatGPT
+I apologize for the inconvenience, but it seems there is an issue with the code execution service at the moment. Despite this, I can provide you with the LaTeX representation of the expression as seen in the image:
+#problem:
+scss
+Copy code
+\sum_{x=1}^{10} \cos\left( \frac{\pi((-8)^x - 1)}{2} \right)
+However, to find the exact solution and the approximate value of this expression, we would typically use a computer algebra system, such as Python with the SymPy library, which is currently not available. If the service becomes available again, I will be able to compl

@@ -1,0 +1,9 @@
+ChatGPT
+The tasks have been completed with the following results:
+#problem: 
+−8xcos(
+2x
+π
+)
+#solution: -72cos(pi/18) - 64cos(pi/16) - 56cos(pi/14) - 40sqrt(2)(\frac{1}{4} + \frac{\sqrt{5}}{4}) - 40sqrt(\frac{\sqrt{5}}{8} + \frac{5}{8}) - 40sqrt(2)\sqrt(\frac{5}{8} - \frac{\sqrt{5}}{8}) - 32sqrt(\frac{\sqrt{2}}{4} + \frac{1}{2}) - 12sqrt(6) - 20sqrt(2) - 12sqrt(3)
+#evalf_value: -413.356610036333 

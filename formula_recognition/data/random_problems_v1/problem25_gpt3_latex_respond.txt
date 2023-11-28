@@ -1,0 +1,2 @@
+ChatGPT
+LaTeX syntax is (\displaystyle \sum_{x=1}^{10} \sin{\left(\pi \cos{\left(

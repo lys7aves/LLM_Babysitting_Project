@@ -1,0 +1,19 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+x=1
+∑
+10
+cos(
+2
+π(sin(
+2
+πx
+)+5)cos(π(
+2
+3x
++12))
+)
+The exact solution is: 5
+The approximate value is: 5.00000000000000
+Formatted as required:
+#problem: \sum_{x=1}^{10} \cos\left(\frac{\pi \left(\sin\left(\frac{\pi x}{2} \

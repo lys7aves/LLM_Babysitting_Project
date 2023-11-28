@@ -1,0 +1,12 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+sin(
+2
+πsin(
+2
+πx
+)
+). The Answer is

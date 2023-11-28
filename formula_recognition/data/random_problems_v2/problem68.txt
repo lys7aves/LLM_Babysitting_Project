@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} x^{\sin{\left(\pi \left(\frac{\sin{\left(\frac{\pi \sin{\left(\frac{\pi x}{2} \right)}}{2} \right)}}{2} - 1\right) \right)}}
+solution: 734/45
+evalf_avlue: 16.3111111111111

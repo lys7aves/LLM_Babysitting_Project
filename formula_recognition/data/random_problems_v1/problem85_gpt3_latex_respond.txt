@@ -1,0 +1,17 @@
+ChatGPT
+To express the given mathematical expression in LaTeX syntax, we need to carefully transcribe all the elements in the image. The image shows a summation with an upper limit of 10 and a lower limit of 
+x=1. Inside the summation, there is a fraction with 
+πcos in the numerator and another fraction in the denominator. The fraction within the denominator has 
+πcos
+x
+ in the numerator and 
+2 in the denominator, and this entire fraction is added to another fraction with 
+πsin(
+2
+πx
+) in the numerator and 
+2 in the denominator.
+The LaTeX syntax for this expression would be:
+latex
+Copy code
+\sum_{x=1}^{10} \frac{\pi \cos}{\frac{\p

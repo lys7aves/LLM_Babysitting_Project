@@ -1,0 +1,10 @@
+ChatGPT
+Error analyzing
+It seems there was an internal error when trying to calculate the summation. I'll try the calculation again. 
+Error analyzing
+I apologize, but there seems to be a persistent issue with executing the calculation. However, I can still provide you with the LaTeX syntax for the expression. Let's proceed with that.
+The LaTeX syntax for the given expression is:
+latex
+Copy code
+\sum_{x=1}^{10} \cos\left((-10)^{\cos\left(\frac{\pi x}{2}\right)} \pi\right)
+Unfortunately, due to the technical issue, I cannot provide the numerical answer at this time. You could use a computational software like MATLAB, Python, or Mathematica to calculate the precise numerical result. If you have access to any of these tools, I can guide you on how to input the expression there. 

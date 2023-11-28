@@ -1,0 +1,2 @@
+ChatGPT
+In the LaTeX syntax, the expression is (\sum_{x=1}^{10} \sin^{x}{\left(\frac{\pi \sin{\left(\frac{\pi x}{2} \right)}}{2} - 1 \righ

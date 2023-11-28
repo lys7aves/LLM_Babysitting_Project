@@ -1,0 +1,8 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+(x
+x
+−8). The Answer is 10405071237. 

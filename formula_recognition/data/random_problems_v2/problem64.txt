@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} 9 x x^{x}
+solution: 932643572445
+evalf_avlue: 932643572445.000

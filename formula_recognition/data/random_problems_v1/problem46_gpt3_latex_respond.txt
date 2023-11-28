@@ -1,0 +1,9 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+xcos(
+2
+πx
+). The Answer is -6. 

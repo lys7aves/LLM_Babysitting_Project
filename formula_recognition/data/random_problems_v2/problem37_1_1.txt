@@ -1,0 +1,5 @@
+ChatGPT
+Here are the results for the given mathematical expression:
+#problem: \sum_{x=1}^{10} -6 \cos\left(\frac{\pi \sin\left(\frac{\pi x}{2}\right)}{2}\right)
+#solution: -30
+#evalf_value: -30

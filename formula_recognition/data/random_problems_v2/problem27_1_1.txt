@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+#problem: \sum_{{x=1}}^{{10}} (-5)^{{\cos\left(\frac{{\pi x}}{2}\right) + \cos\left(\pi \sin\left(\frac{{\pi x}}{2}\right)\right) - 17}}
+The exact solution of the expression is:
+#solution: -52/762939453125
+The approximate value of the solution is:
+#evalf_value

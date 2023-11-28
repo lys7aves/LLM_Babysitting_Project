@@ -1,0 +1,13 @@
+ChatGPT
+The mathematical expression, its exact solution, and the approximate value are as follows:
+#problem: 
+∑
+x=1
+10
+2
+−8x
+#solution: 
+1208925819614629174706176
+4740885567116192841985
+#evalf_value: 
+0.00392156862745098 

@@ -1,0 +1,6 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+xcos(
+2
+πx
+). The Answer is -6. 

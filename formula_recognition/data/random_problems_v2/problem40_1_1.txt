@@ -1,0 +1,5 @@
+ChatGPT
+Here are the requested values for the mathematical expression from the image:
+#problem: \sum_{x=1}^{10} -80x
+#solution: -4400
+#evalf_value: -4400.00000000000 

@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} - 80 x
+solution: -4400
+evalf_avlue: -4400.00000000000

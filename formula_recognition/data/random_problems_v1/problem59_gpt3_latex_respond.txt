@@ -1,0 +1,6 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+(2x+4). The Answer is 150. 

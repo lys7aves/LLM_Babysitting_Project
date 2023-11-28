@@ -1,0 +1,19 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+sin
+⎝
+⎛
+2
+πcos(
+2
+πsin(
+2
+9xπ
+)
+)
+⎠
+⎞
+. The Answer is 5.00000

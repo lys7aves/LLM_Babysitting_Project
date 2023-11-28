@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as seen in the image is:
+#problem: \sum_{x=1}^{10} x \cos \left( \pi \left( \frac{x}{2} + 5 \right) \right)
+The exact solution for the given summation is:
+#solution: 6
+And the approximate value is:
+#evalf_value: 6.0 

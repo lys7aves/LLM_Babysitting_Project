@@ -1,0 +1,6 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+1. The answ

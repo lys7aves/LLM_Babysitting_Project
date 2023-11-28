@@ -1,0 +1,2 @@
+ChatGPT
+LaTeX syntax is \sum_{x=1}^{10} \cos\left(\frac{\pi \sin\left(\frac{\pi x}{2}\right)}{2}\right). The Answer is 5.00000000000000. 

@@ -1,0 +1,2 @@
+ChatGPT
+LaTeX syntax is [\sum_{x=1}^{10} \sin\left(\frac{\pi \sin\left(\frac{\pi \cos(2\pi x)}{2}\right)}{2}\right)

@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} - 8 \cdot 8^{\cos{\left(\frac{\pi}{2 x} \right)}} x
+solution: -80*8**(sqrt(2)*sqrt(5/8 - sqrt(5)/8)/2 + sqrt(2)*(1/4 + sqrt(5)/4)/2) - 72*8**cos(pi/18) - 64*8**cos(pi/16) - 56*8**cos(pi/14) - 48*8**(sqrt(2)/4 + sqrt(6)/4) - 40*8**(sqrt(sqrt(5)/8 + 5/8)) - 32*8**(sqrt(sqrt(2)/4 + 1/2)) - 24*8**(sqrt(3)/2) - 16*8**(sqrt(2)/2) - 8
+evalf_avlue: -3187.31805986976

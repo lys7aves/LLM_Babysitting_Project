@@ -1,0 +1,6 @@
+ChatGPT
+Here are the requested details for the given mathematical expression:
+#problem: \sum_{x=1}^{10} \left( x^{2} + \sin{\left(\frac{5 \pi \sin{\left(\frac{\pi x}{2} \right)}}{2} \right)} \right)
+#solution: 386
+#evalf_value: 386.0
+The LaTeX expression seems to have a slight discrepancy with the image; it includes a plus sign within the sine function instead of a minus. However, the exact solution and the approximate value based on the corrected interpretation are both 386. 

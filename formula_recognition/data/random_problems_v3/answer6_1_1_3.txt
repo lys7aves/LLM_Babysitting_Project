@@ -1,0 +1,5 @@
+ChatGPT
+The requested values are:
+#problem: \sum_{x=1}^{10} \left( 6x \left( \sin\left(\frac{\pi x}{2}\right) + 10 \right)^8 - 8 \right)
+#solution: 39875102470
+#evalf_value: 39875102470.0 

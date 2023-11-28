@@ -1,0 +1,7 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+x+sin(
+2
+πx
+2
+). The answer is 60. 

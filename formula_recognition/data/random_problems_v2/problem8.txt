@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \left(4^{\cos{\left(\pi \cos{\left(\frac{\pi x}{2} \right)} \right)}} + x^{2} + 1\right)
+solution: 1665/4
+evalf_avlue: 416.250000000000

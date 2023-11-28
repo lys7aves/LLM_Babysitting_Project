@@ -1,0 +1,10 @@
+ChatGPT
+LaTeX syntax is 
+∑
+x=1
+10
+(x+
+(2x+10)
+5
+1
+). The Answer is (\frac{42781461311389

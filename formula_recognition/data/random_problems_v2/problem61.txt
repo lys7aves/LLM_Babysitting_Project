@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \cos{\left(\pi \left(\frac{\left(-9\right)^{x}}{2} + \frac{x}{2} + \frac{\sin{\left(\frac{\pi x}{2} \right)}}{2} + 2\right) \right)}
+solution: 0
+evalf_avlue: 0

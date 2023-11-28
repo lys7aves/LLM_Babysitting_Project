@@ -1,0 +1,3 @@
+ChatGPT
+LaTeX syntax is \sum_{x=1}^{10} 10 \cos(\pi x). The Answer is 
+0. 

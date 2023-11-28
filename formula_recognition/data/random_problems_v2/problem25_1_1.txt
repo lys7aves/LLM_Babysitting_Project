@@ -1,0 +1,5 @@
+ChatGPT
+Here are the requested values:
+#problem: \left(2 x + \cos{\left(\frac{\pi x}{2} \right)}\right) \cos{\left(\frac{3 \pi x}{2} \right)}
+#solution: -7
+#evalf_value: -7.0 

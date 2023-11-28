@@ -1,0 +1,11 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+cos(
+2
+π(x
+x
+)
+). The Answer is 5.00000000000000. 

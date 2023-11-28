@@ -1,0 +1,11 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as seen in the image is:
+∑
+x=1
+10
+x
+2
+The exact solution to this summation is 385.
+The approximate value (which in this case is the same as the exact value since the solution is an integer) is 385.
+#problem: \sum_{x=1}^{10} x^2
+#soluti

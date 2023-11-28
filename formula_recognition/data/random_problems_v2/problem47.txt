@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} - 9 x
+solution: -495
+evalf_avlue: -495.000000000000

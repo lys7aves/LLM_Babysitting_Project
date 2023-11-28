@@ -1,0 +1,2 @@
+ChatGPT
+LaTeX syntax is (\sum_{x=1}^{10} \sin{\left(6 \sin{\left(\pi \left(\frac{x}{2} - 0.25\right) \right)} \right

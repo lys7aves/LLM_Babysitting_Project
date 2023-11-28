@@ -1,0 +1,8 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+(−1)
+x
+cos(
+2
+πx
+)+5. The Answer is 49. 

@@ -1,0 +1,2 @@
+ChatGPT
+LaTeX syntax is \sum_{{x=1}}^{{10}} \cos \left( \pi \sin \left( \frac{\pi}{2} \left( \frac{x^2}{2} + \frac{x}{2} \right) \right) \right). The Answer is -2.00000000000000. 

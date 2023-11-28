@@ -1,0 +1,4 @@
+ChatGPT
+#problem: \sum_{x=1}^{10} \frac{\sin(x)}{2^x}
+#solution: \frac{\sin(1)}{2} + \frac{\sin(2)}{4} + \frac{\sin(3)}{8} + \frac{\sin(4)}{16} + \frac{\sin(5)}{32} + \frac{\sin(6)}{64} + \frac{\sin(7)}{128} + \frac{\sin(8)}{256} + \frac{\sin(9)}{512} + \frac{\sin(10)}{1024}
+#evalf_value: 0.5933384801722

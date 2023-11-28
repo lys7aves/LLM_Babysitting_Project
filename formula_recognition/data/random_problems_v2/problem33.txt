@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} x \sin{\left(\frac{\pi}{2 x^{7}} \right)}
+solution: 10*sin(pi/20000000) + 9*sin(pi/9565938) + 8*sin(pi/4194304) + 7*sin(pi/1647086) + 6*sin(pi/559872) + 5*sin(pi/156250) + 4*sin(pi/32768) + 3*sin(pi/4374) + 2*sin(pi/256) + 1
+evalf_avlue: 1.02723936782348

@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \cos{\left(3 \pi x \cos{\left(\frac{\pi x}{2} \right)} \right)}
+solution: 10
+evalf_avlue: 10.0000000000000

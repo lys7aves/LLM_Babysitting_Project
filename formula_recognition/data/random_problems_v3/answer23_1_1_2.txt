@@ -1,0 +1,3 @@
+ChatGPT
+The mathematical expression, the exact solution, and the approximate value are as follows:
+#problem: (\sum_{x=1}^

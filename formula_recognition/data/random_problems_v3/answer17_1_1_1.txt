@@ -1,0 +1,5 @@
+ChatGPT
+The mathematical expression in LaTeX syntax as depicted in the image is:
+latex
+Copy code
+\sum_{x=1}^{10} \cos \left( \frac{\sin \left( \frac{\pi x}{2

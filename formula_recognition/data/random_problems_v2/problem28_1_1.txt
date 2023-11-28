@@ -1,0 +1,6 @@
+ChatGPT
+The mathematical expression represented in the image is the sum of the squares of the first ten natural numbers.
+Here are the details in the requested format:
+#problem: \sum_{x=1}^{10} x^2
+#solution: 385
+#evalf_value: 385.0 

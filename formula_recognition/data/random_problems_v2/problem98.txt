@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} x \cos{\left(\pi \left(\frac{x}{2} + \frac{\cos{\left(\frac{\pi \cos{\left(\frac{\pi x}{2} \right)}}{2} \right)}}{2} - 2\right) \right)}
+solution: -11
+evalf_avlue: -11.0000000000000

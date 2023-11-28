@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \left(2 x + \cos{\left(\frac{\pi x}{2} \right)}\right) \cos{\left(\frac{3 \pi x}{2} \right)}
+solution: -7
+evalf_avlue: -7.00000000000000

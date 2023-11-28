@@ -1,0 +1,4 @@
+ChatGPT
+#problem: \sum_{x=1}^{10} x
+#solution: 55
+#evalf_value: 55.0 

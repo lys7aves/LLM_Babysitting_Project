@@ -1,0 +1,4 @@
+ChatGPT
+Error analyzing
+In the LaTeX syntax, the expression is \sin{\left(\frac{\pi \cos{\left(\frac{\pi x}{2} \right)}}{2} \right)}. The Answer is 
+−1. 

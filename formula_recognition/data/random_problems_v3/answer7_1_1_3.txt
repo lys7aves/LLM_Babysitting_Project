@@ -1,0 +1,5 @@
+ChatGPT
+The solution to the mathematical expression given in the image is as follows:
+#problem: \sum_{x=1}^{10} -9x^3 - 3
+#solution: -27255
+#evalf_value: -27255.0000000000 

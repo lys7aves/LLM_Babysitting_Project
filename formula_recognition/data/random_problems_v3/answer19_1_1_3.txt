@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression in LaTeX syntax is:
+#problem: \sum_{x=1}^{10} \frac{\pi x \cos{\left(\frac{\pi x}{2} \right)}}{2}
+The exact solution is:
+#solution: -3\pi
+The approximate value is:
+#evalf_value: -9.42477796076938 

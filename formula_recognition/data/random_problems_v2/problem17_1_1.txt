@@ -1,0 +1,5 @@
+ChatGPT
+The requested information is as follows:
+#problem: \sum_{x=1}^{10} \frac{1}{2^x}
+#solution: 1023/1024
+#evalf_value: 0.9990234375 

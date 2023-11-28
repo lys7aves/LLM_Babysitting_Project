@@ -1,0 +1,2 @@
+ChatGPT
+LaTeX syntax is \sum_{x=1}^{10} - 2 \cos{

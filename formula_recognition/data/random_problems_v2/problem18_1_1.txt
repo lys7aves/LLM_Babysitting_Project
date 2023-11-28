@@ -1,0 +1,8 @@
+ChatGPT
+The solution to the given mathematical expression is as follows:
+#problem: \sum_{x=1}^{10} \cos\left(\pi\left(\frac{-8x}{2} - 1\right)\right)
+#solution: -10
+#evalf_value: -10.0
+The LaTeX representation of the expression matches the one in the image, and the exact solution to the summation is 
+−10, with the approximate decimal value being 
+−10.0. 

@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as seen in the image is:
+#problem: \sum_{x=1}^{10} \left(x^2 - \sin\left(\frac{-5 \sin\left(\frac{\pi x}{2}\right)}{2}\right)\pi\right)
+The exact solution is:
+#solution: \sin(5) + 385
+The approximate value is:
+#evalf_value: 384.041075725337 

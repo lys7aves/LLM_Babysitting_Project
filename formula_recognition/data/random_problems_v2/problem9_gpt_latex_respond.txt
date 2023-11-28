@@ -1,0 +1,4 @@
+ChatGPT
+The given mathematical expression, its exact solution, and its approximate value are as follows:
+#problem: \sum_{x=1}^{10} \left( \frac{1}{4x} \cos^2\left(\frac{\pi x}{2}\right) \right)
+#solution: \frac{137}{480

@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \left(9^{x - 6} + \sin{\left(\frac{\pi \cos{\left(\frac{\pi x}{2} \right)}}{2} \right)}\right)
+solution: 435789001/59049
+evalf_avlue: 7380.12499788311

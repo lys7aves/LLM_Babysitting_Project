@@ -1,0 +1,5 @@
+ChatGPT
+The requested details for the provided mathematical expression are:
+#problem: \sum_{x=1}^{10} -8 (-1)^x \left( \cos\left(\frac{\pi x}{2}\right) + 10 \right)
+#solution: 8
+#evalf_value: 8.0 

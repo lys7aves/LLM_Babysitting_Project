@@ -1,0 +1,16 @@
+ChatGPT
+LaTeX syntax is 
+∑
+x=1
+10
+(sin(
+2
+πx
+3
+)+cos(
+2
+πcos(
+2
+πx
+)
+)). The Answer is 6. 

@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} x
+solution: 55
+evalf_avlue: 55.0000000000000

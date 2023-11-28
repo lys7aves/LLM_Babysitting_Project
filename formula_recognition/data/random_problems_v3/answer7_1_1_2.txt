@@ -1,0 +1,5 @@
+ChatGPT
+The requested values are as follows:
+#problem: \sum_{x=1}^{10} -9x^{-3}
+#solution: -19164113947/1778112000
+#evalf_value: -10.7777878710677 

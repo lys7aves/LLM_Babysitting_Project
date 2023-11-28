@@ -1,0 +1,31 @@
+ChatGPT
+In the LaTeX syntax, the expression is 
+∑
+x=1
+10
+xcos
+2
+πcos(
+2
+πx
+)
+(x). The Answer is 
+6cos(6)
+−
+2
+π
++25+4cos(4)
+2
+π
++8cos(8)
+2
+π
++2cos(2)
+−
+2
+π
++10cos(10)
+−
+2
+π
+. 

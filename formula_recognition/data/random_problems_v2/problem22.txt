@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \left(-2\right)^{\cos{\left(\frac{\pi \sin{\left(\frac{\pi \sin{\left(\pi \left(- \frac{3}{2} + \frac{1}{2 \left(x + 2\right)^{3}}\right) \right)}}{2} \right)}}{2} \right)}}
+solution: (-2)**cos(pi*sin(pi*sin(1727*pi/3456)/2)/2) + (-2)**cos(pi*sin(pi*sin(665*pi/1331)/2)/2) + (-2)**cos(pi*sin(pi*sin(999*pi/2000)/2)/2) + (-2)**cos(pi*sin(pi*sin(364*pi/729)/2)/2) + (-2)**cos(pi*sin(pi*sin(511*pi/1024)/2)/2) + (-2)**cos(pi*sin(pi*sin(171*pi/343)/2)/2) + (-2)**cos(pi*sin(pi*sin(215*pi/432)/2)/2) + (-2)**cos(pi*sin(pi*sin(62*pi/125)/2)/2) + (-2)**cos(pi*sin(pi*sin(63*pi/128)/2)/2) + (-2)**cos(pi*sin(pi*sin(13*pi/27)/2)/2)
+evalf_avlue: 10.0000039760069 + 1.8021417497846e-5*I

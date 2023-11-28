@@ -1,0 +1,6 @@
+ChatGPT
+Error analyzing
+Here are the details for the given mathematical expression:
+#problem: \sum_{x=1}^{10} \cos{\left(3 \pi x \cos{\left(\frac{\pi x}{2} \right)} \right)}
+#solution: 10
+#e

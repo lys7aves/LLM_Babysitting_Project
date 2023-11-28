@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression in LaTeX syntax is:
+#problem: \sum_{x=1}^{10} \cos\left(3 \pi x \cos\left(\frac{\pi x}{2}\right)\right)
+The exact solution is an integer in this case:
+#solution: 10
+The approximate value (which is the same as the exact value in this instance since the solution is an integer) is:
+#evalf_value: 10.0000000000000 

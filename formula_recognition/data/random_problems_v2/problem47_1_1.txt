@@ -1,0 +1,5 @@
+ChatGPT
+The given mathematical expression in LaTeX syntax, its exact solution, and the approximate value are as follows:
+#problem: \sum_{x=1}^{10} -9x
+#solution: -495
+#evalf_value: -495.0 

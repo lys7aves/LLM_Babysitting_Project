@@ -1,0 +1,12 @@
+ChatGPT
+LaTeX syntax is 
+x=1
+∑
+10
+cos(
+2
+πcos(
+2
+πx
+)
+). The Answer is 5. 

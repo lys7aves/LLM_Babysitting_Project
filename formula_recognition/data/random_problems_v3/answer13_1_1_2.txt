@@ -1,0 +1,20 @@
+ChatGPT
+The tasks are as follows:
+The LaTeX representation of the mathematical expression in the image is:
+x=1
+∑
+10
+−8(−1)
+x
+(cos(
+2
+πx
+)+10)
+The exact solution of the summation is 
+8.
+The approximate value of this summation is 
+8.0.
+Formatted as requested:
+#problem: \sum_{x=1}^{10} -8 (-1)^x \left( \cos\left(\frac{\pi x}{2}\right) + 10 \right)
+#solution: 8
+#evalf_value: 8.0 

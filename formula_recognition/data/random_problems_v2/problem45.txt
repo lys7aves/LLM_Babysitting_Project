@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} x^{x}
+solution: 10405071317
+evalf_avlue: 10405071317.0000

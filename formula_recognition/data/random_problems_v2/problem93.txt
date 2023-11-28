@@ -1,0 +1,3 @@
+problem: \sum_{x=1}^{10} \sin{\left(\frac{3 \cdot 10^{\sin{\left(\frac{\pi \cos{\left(\frac{\pi x}{2} \right)}}{2} \right)}} \pi}{2} \right)}
+solution: -5 + 3*sqrt(2)*(1/4 - sqrt(5)/4)/2 + 3*sqrt(2)*sqrt(sqrt(5)/8 + 5/8)/2
+evalf_avlue: -3.63802850078136

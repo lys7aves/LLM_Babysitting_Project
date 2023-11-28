@@ -21,6 +21,9 @@ def connect_browser():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 
+    chrome_driver_path = 'chromedriver_114.0.5735.90/chromedriver.exe' 
+    chrome_options.add_extension(chrome_driver_path)
+
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
 
@@ -36,17 +39,17 @@ def disconnect_browser(driver=None):
     driver.quit()
 
 
-def start_new_chat(driver=None, agent_name='', first_msg=' ', tab_handle=None, model=None):
+def start_new_chat(driver=None, agent_name='', first_msg=' ', first_image=None, window_handle=None, model=None):
     if driver is None: driver = DEFAULT_DRIVER
 
-    # if you know tab handle, then switch to the window
-    # else get a current tab handle
-    if tab_handle is not None:
-        # if you only know the number of tab, then find the tab handle
-        if isinstance(tab_handle, int): tab_handle = driver.window_handles[tab_handle]
-        driver.switch_to.window(tab_handle)
+    # if you know window handle, then switch to the window
+    # else get a current window handle
+    if window_handle is not None:
+        # if you only know the number of window, then find the window handle
+        if isinstance(window_handle, int): window_handle = driver.window_handles[window_handle]
+        driver.switch_to.window(window_handle)
     else:
-        tab_handle = driver.current_window_handle
+        window_handle = driver.current_window_handle
 
     gpt_url = 'https://chat.openai.com/'
     if model == 'gpt-3.5': gpt_url += '?model=text-davinci-002-render-sha'
@@ -56,6 +59,7 @@ def start_new_chat(driver=None, agent_name='', first_msg=' ', tab_handle=None, m
     time.sleep(3)
 
     # send the first message, and get a response
+    if first_image is not None: send_image(driver=driver, image_path=first_image)
     send_message(driver=driver, msg=first_msg)
     response = get_message(driver=driver)
     url = driver.current_url
@@ -63,7 +67,7 @@ def start_new_chat(driver=None, agent_name='', first_msg=' ', tab_handle=None, m
     agent_information = {
         'name': agent_name,
         'url': url,
-        'tab_handle': tab_handle,
+        'window_handle': window_handle,
         'conversations': [first_msg, response],
         'status': AgentStatus.WAITING
     }
@@ -71,27 +75,27 @@ def start_new_chat(driver=None, agent_name='', first_msg=' ', tab_handle=None, m
     return agent_information
 
 
-# Check that the driver's current tab and url are the same as the agent's information
-def check_tab_url(driver=None, agent=None, tab_handle=None, url=None):
+# Check that the driver's current window and url are the same as the agent's information
+def check_window_url(driver=None, agent=None, window_handle=None, url=None):
     if driver is None: driver = DEFAULT_DRIVER
     if agent is not None:
-        if driver.current_window_handle != agent['tab_handle']:
-            driver.switch_to.window(agent['tab_handle'])
+        if driver.current_window_handle != agent['window_handle']:
+            driver.switch_to.window(agent['window_handle'])
         if driver.current_url != agent['url']:
             driver.get(agent['url'])
     else:
-        if tab_handle is not None:
-            if isinstance(tab_handle, int): tab_handle = driver.window_handles[tab_handle]
-            driver.switch_to.window(tab_handle)
+        if window_handle is not None:
+            if isinstance(window_handle, int): window_handle = driver.window_handles[window_handle]
+            driver.switch_to.window(window_handle)
         if url is not None: driver.get(url)
 
 
 # send message
-def send_message(driver=None, agent=None, tab_handle=None, url=None, msg=' '):
+def send_message(driver=None, agent=None, window_handle=None, url=None, msg=' '):
     if driver is None: driver = DEFAULT_DRIVER
 
-    # if the agent already exists, check the tab handle and the url
-    check_tab_url(driver=driver, agent=agent, tab_handle=tab_handle, url=url)
+    # if the agent already exists, check the window handle and the url
+    check_window_url(driver=driver, agent=agent, window_handle=window_handle, url=url)
 
     # if msg has some '\n', then replace it to ' '
     msg = msg.replace('\n', ' ')
@@ -105,11 +109,11 @@ def send_message(driver=None, agent=None, tab_handle=None, url=None, msg=' '):
     send_button.click()
 
 
-def send_image(driver=None, agent=None, tab_handle=None, url=None, image_path=None):
+def send_image(driver=None, agent=None, window_handle=None, url=None, image_path=None):
     if driver is None: driver = DEFAULT_DRIVER
     
-    # if the agent already exists, check the tab handle and the url
-    check_tab_url(driver=driver, agent=agent, tab_handle=tab_handle, url=url)
+    # if the agent already exists, check the window handle and the url
+    check_window_url(driver=driver, agent=agent, window_handle=window_handle, url=url)
 
     file_input = driver.find_element(By.CSS_SELECTOR, "input[type=file]")
     file_input.send_keys(image_path)
@@ -127,12 +131,10 @@ def is_response_complete(conversation):
 
 
 # get conversations and status
-def get_conversations(driver=None, agent=None, tab_handle=None, url=None):
+def get_conversations(driver=None, agent=None, window_handle=None, url=None):
     if driver is None: driver = DEFAULT_DRIVER
 
-    check_tab_url(driver=driver, agent=agent, tab_handle=tab_handle, url=url)
-
-    driver.find_elements(By.CSS_SELECTOR, 'div[data-testid]')
+    check_window_url(driver=driver, agent=agent, window_handle=window_handle, url=url)
 
     conversations = driver.find_elements(By.CSS_SELECTOR, 'div[data-testid]')
 
@@ -157,13 +159,18 @@ def get_conversations(driver=None, agent=None, tab_handle=None, url=None):
 
 
 # get message
-def get_message(driver=None, agent=None, tab_handle=None, url=None, turn=-1, waiting_time=1):
+def get_message(driver=None, agent=None, window_handle=None, url=None, turn=-1, waiting_time=1):
     if driver is None: driver = DEFAULT_DRIVER
 
     conversations = []
     status = AgentStatus.RESPONDING
-    while (turn == -1 or turn == len(conversations)-1) and status == AgentStatus.RESPONDING:
-        conversations, status = get_conversations(driver=driver, agent=agent, tab_handle=tab_handle, url=url)
+    error = False
+    while (turn == -1 or turn == len(conversations)-1) and status == AgentStatus.RESPONDING and not error:
+        try:
+            conversations, status = get_conversations(driver=driver, agent=agent, window_handle=window_handle, url=url)
+            error = False
+        except Exception:
+            error = True
         time.sleep(waiting_time)
     
     # if there is any conversation, then return "Not Started"
@@ -181,6 +188,7 @@ def print_window_handles(driver=None):
     window_handles = driver.window_handles
     current_window_handle = driver.current_window_handle
 
+    print()
     print("current window handle:", current_window_handle)
     print("current_window_url:", driver.current_url)
 
@@ -189,7 +197,14 @@ def print_window_handles(driver=None):
     for window_handle in window_handles:
         # switch the window to get the url of the corresponding window
         driver.switch_to.window(window_handle)
-        print("-", window_handle, driver.current_url)
+        # current_url = None if the window is not connected to any url
+        try:
+            current_url = driver.current_url
+        except Exception:
+            current_url = None
+
+        print("-", window_handle, current_url)
+    print()
 
     # Return to the original window
     driver.switch_to.window(current_window_handle)
@@ -205,23 +220,19 @@ def delete_all_chat(driver):
 def test_crawling():
     print('Setting up configuration...')
 
-    connect_browser()
+    driver = connect_browser()
 
-    print_window_handles()
+    #print_window_handles()
 
-    while True:
-        True
+    # This is my window handle during the test time. You can just write numbers and test them.
 
-    # This is my tab handle during the test time. You can just write numbers and test them.
-    tab_handles = [
-        'F65E8FC652A11AD9CCFAC0236FFE45CB',
-        '4009CC6D7F54B17A60613A7B23C87FF5',
-        'D07396DD033300671244E237B4EA74D6',
-        '6A56C100AF73AF501458324C93AD97F4',
-    ]
 
     agent_name = 'ChatGPT'
-    agent = start_new_chat(agent_name=agent_name, tab_handle=tab_handles[2], model='gpt-4')
+    first_msg = 'Solve it'
+    first_image = r'C:\Users\SAMSUNG\OneDrive\바탕 화면\Lecture\2023-2\2023-2 Natural Language Processing (001)\project\LLM_Babysitting_Project\formula_recognition\data\random_problems_v1\problem1.png'
+    window_handle = 'D428C9864603DD6539A6E1D6A919A585'
+    model = 'gpt-4'
+    agent = start_new_chat(driver=driver, agent_name=agent_name, first_msg=first_msg, first_image=first_image, window_handle=window_handle, model=model)
 
     print('Ready for conversation!')
     print()

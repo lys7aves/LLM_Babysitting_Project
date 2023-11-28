@@ -1,0 +1,4 @@
+ChatGPT
+Error analyzing
+LaTeX syntax is:
+\frac{9 \cos^{9}{\left(9 \right)}}{\pi} + \frac{3 \cos^{3}{\left(3 \right)}}{\pi} + \left(\frac{1}{2} + \frac{8}{\pi}\right) \cos^{8}{\left(8 \right)} + \frac{5 \cos^{5}{\left(5 \right)}}{\pi} + \left(- \frac{1}{2} + \frac{2}{\pi}\right) \cos^{2}{\left(2 \right)} + \frac{\cos{\left(1 \
