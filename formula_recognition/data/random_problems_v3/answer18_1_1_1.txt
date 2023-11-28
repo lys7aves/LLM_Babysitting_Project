@@ -1,4 +1,5 @@
 ChatGPT
-#problem: \sum_{x=1}^{10} \cos\left(\frac{\pi \sin\left(\pi\left(\frac{x^3}{2} - 1\right)\right)}{2}\right)
-#solution: -5 + 5\cos\left(\sqrt{2}\frac{\pi}{2}\right)
-#evalf_valu
+The requested details for the mathematical expression in the image are as follows:
+#problem: \cos{\left(\pi \sin{\left(\pi \left(\frac{x^{3}}{4} - \frac{1}{2}\right) \right)} \right)}
+#solution: -5 + 5\cos{\left(\frac{\sqrt{2}\pi}{2}\right)}
+#evalf_value: -8.02849933539407 

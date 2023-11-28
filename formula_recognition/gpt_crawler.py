@@ -1,4 +1,4 @@
-# Last updated: 2023. 11. 28. 15:31
+# Last updated: 2023. 11. 28. 16:08
 
 # C:\Program Files\Google\Chrome\Application> chrome.exe --remote-debugging-port=9222
 
@@ -171,6 +171,12 @@ def send_image(driver=None, agent=None, window_handle=None, url=None, image_path
         #file_input.send_keys(image_paths)
         #time.sleep(1)
         for image_path in image_paths:
+            # I don't know why it is duplicate, so before to upload files, delete all of the files.
+            delete_buttons = driver.find_elements(By.CSS_SELECTOR, 'button[class="absolute right-1 top-1 -translate-y-1/2 translate-x-1/2 rounded-full border border-white bg-gray-500 p-0.5 text-white transition-colors hover:bg-black hover:opacity-100 group-hover:opacity-100 md:opacity-0"]')
+            for delete_button in delete_buttons:
+                delete_button.click()
+                time.sleep(1)
+
             file_input.send_keys(image_path)
             time.sleep(1)
 
@@ -312,3 +318,131 @@ def get_message(driver=None, agent=None, window_handle=None, url=None, turn=-1):
         
         if not error_flag: break
 
+        agent['lock'].release()
+        time.sleep(1)
+        agent['lock'].acquire()
+        time.sleep(1)
+
+    if status != AgentStatus.WAITING:
+        print(status.value)
+
+    # if there is any conversation, then return "Not Started"
+    if status == AgentStatus.NOT_STARTED: return status.value
+
+    try:
+        return conversations[turn]
+    except Exception:
+        return f'No {turn}th conversation'
+    
+
+def print_window_handles(driver=None):
+    if driver is None: driver = DEFAULT_DRIVER
+
+    # get a current window handle and all of window handles
+    window_handles = driver.window_handles
+    current_window_handle = driver.current_window_handle
+
+    print()
+    print("current window handle:", current_window_handle)
+    print("current_window_url:", driver.current_url)
+
+    # print all of window handles and each url
+    print("window_handles:")
+    for window_handle in window_handles:
+        # switch the window to get the url of the corresponding window
+        driver.switch_to.window(window_handle)
+        # current_url = None if the window is not connected to any url
+        try:
+            current_url = driver.current_url
+        except Exception:
+            current_url = None
+
+        print("-", window_handle, current_url)
+    print()
+
+    # Return to the original window
+    driver.switch_to.window(current_window_handle)
+        
+
+# Delete agent from the chatGPT page.
+# If the agent is None, then delete all of the agent.
+def delete_agent(driver=None, agent=None, window_handle=None):
+    if driver is None: driver = DEFAULT_DRIVER
+    check_window_url(driver=driver, agent=agent, window_handle=window_handle)
+    
+    # Go to the chatGPT page
+    url = "https://chat.openai.com/"
+    driver.get(url)
+
+    # Wait until the left bar appears.
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, 'div[class="group relative active:opacity-90"]'))
+    )
+
+    # Get chat elements
+    cnt=0
+    chat_elements = driver.find_elements(By.CSS_SELECTOR, 'div[class="group relative active:opacity-90"]')
+    for chat_element in chat_elements:
+        cnt += 1
+        if cnt > 10: break
+        chat_url = chat_element.find_element(By.XPATH, './*').get_attribute('href')
+
+        if agent is None or chat_url == agent['url']:
+            # Sometimes it doesn't work. so try 10 times.
+            for i in range(10):
+                try:
+                    chat_element.click()
+                    time.sleep(1)
+
+                    button = chat_element.find_element(By.TAG_NAME, 'button')
+                    button.click()
+                    time.sleep(1)
+
+                    menuitems = driver.find_elements(By.CSS_SELECTOR, 'div[role="menuitem"]')
+                    menuitems[2].click()
+                    time.sleep(1)
+
+                    delete_button = driver.find_element(By.CSS_SELECTOR, 'button[class="btn relative btn-danger"]')
+                    delete_button.click()
+                    time.sleep(1)
+
+                    break
+                except:
+                    time.sleep(1)
+
+            agent['status'] = AgentStatus.FREE
+
+
+# This is the test function
+def test_crawling():
+    global DEFAULT_DRIVER
+
+    driver = connect_browser()
+    DEFAULT_DRIVER = driver
+
+    # If you don't know window handle informations, then you can use this function.
+    print_window_handles()
+
+    first_msg = "Read the mathematical expression from the image and represent it in LaTeX syntax."
+    first_msg = "This message\ninvolves\nnew line character."
+    print(first_msg)
+    first_image = r"C:\Users\SAMSUNG\OneDrive\바탕 화면\Lecture\2023-2\2023-2 Natural Language Processing (001)\project\LLM_Babysitting_Project\formula_recognition\data\random_problems_v1\problem2.png"
+    #first_image = None
+    window_handle = "15B0E65320786235702C99D0E052DC23"
+    #window_handle = "FDB349224C84327A6F4A8A8CFF9CB800"
+    #window_handle = "ED3227B313044425861E668679444408"      # desktop yuseop window
+    model = "gpt-4"
+    model = "gpt-3.5"
+    #agent = start_new_chat(driver=driver, first_msg=first_msg, first_image=first_image, window_handle=window_handle, model=model)
+
+    agent = {
+        'url': 'https://chat.openai.com/c/1085b077-a3f4-4803-aced-3a90a4452869'
+    }
+    delete_agent(driver=driver, agent=agent, window_handle=window_handle)
+
+    
+
+if __name__ == "__main__":
+    test_crawling()
+
+    print('finish')
