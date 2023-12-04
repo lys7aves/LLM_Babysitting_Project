@@ -1,0 +1,18 @@
+ChatGPT
+It seems that the OCR process did not successfully extract the text from the images. Since the images contain mathematical expressions, I will manually transcribe and solve the given expression based on the provided images.
+The expression from the image is:
+x=1
+∑
+10
+−9x
+−3
+Let's calculate the exact solution and its approximate value. 
+The results for the given mathematical expression are as follows:
+#problem: 
+∑
+x=1
+10
+−9x
+−3
+#solution: -19164113947/1778112000
+#evalf_value: -10.7777878710677 

@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+#problem: \sum_{{x=1}}^{{10}} (-3x^2 + x)
+The exact solution of the sum is:
+#solution: -1100
+And the approximate value (which in this case is the same as the exact value since it's an integer) is:
+#evalf_value: -1100 

@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+#problem: \sum_{x=1}^{10} (10 + x - 2x^2)
+The exact solution of the sum is:
+#solution: -615
+The approximate value is:
+#evalf_value: -615.0 

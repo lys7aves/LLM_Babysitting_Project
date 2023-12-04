@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+#problem: \sum_{x=1}^{10} \cos \left( \pi \sin \left( \frac{\pi}{2} \left( \frac{x^3}{2} - 1 \right) \right) \right)
+The exact solution is:
+#solution: -5 + 5\cos\left(\frac{\sqrt{2}\pi}{2}\right)
+The approximate value is:
+#evalf_value: -8.02849933539407 

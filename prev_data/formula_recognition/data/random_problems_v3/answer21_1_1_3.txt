@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+#problem: \sum_{x=1}^{10} \cos\left(\frac{\pi \sin\left(\pi \left(\frac{x}{2} + \frac{3}{2}\right)\right)}{2}\right)
+The exact solution of the summation is:
+#solution: 3\cos\left(\frac{\sqrt{2}\pi}{2}\right) + \cos\left(\pi\sin\left(0.75\pi\right)\right) + \cos\left(\pi\sin\left(1.75\pi\right)\right) + 1
+The approximate value of the summation is:
+#evalf_value: -2.02849933539407 

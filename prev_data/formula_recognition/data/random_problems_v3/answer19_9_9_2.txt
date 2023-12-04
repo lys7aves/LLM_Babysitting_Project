@@ -1,0 +1,5 @@
+ChatGPT
+The mathematical expression, its exact solution, and an approximate value are as follows:
+#problem: \sum_{x=1}^{10} (\pi^2 x^2 \cos(\frac{\pi x}{2}))^2
+#solution: 220 \pi^2
+#evalf_value: 2171.

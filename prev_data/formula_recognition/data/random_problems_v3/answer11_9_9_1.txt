@@ -1,0 +1,5 @@
+ChatGPT
+The requested values are as follows:
+#problem: \sum_{x=1}^{10} (10x - 50) \sin \left( \frac{\pi}{2x^6} \right)
+#solution: -40 - 30\sin\left(\frac{\pi}{128}\right) - 20\sin\left(\frac{\pi}{1458}\right) - 10\sin\left(\frac{\pi}{8192}\right) + 50\sin\left(\frac{\pi}{2000000}\right) + 40\sin\left(\frac{\pi}{1062882}\right) + 30\sin\left(\frac{\pi}{524288}\right) + 20\sin\left(\frac{\pi}{235298}\right) + 10\sin\left(\frac{\pi}{93312}\right)
+#evalf_value: -40.7821860841047 

@@ -1,0 +1,32 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+#problem: 
+∑
+x=1
+10
+cos(
+2
+πx
+πsin(
+2
+πx
+)
+)
+The exact solution is a sum of cosine values at different points plus 5, because for 
+x>5, the sine function will produce values that cause the cosine function to repeat its values due to periodicity:
+#solution: 
+cos(2)+cos(
+3
+2
+)+cos(
+5
+2
+)+cos(
+7
+2
+)+cos(
+9
+2
+)+5
+The approximate value of the summation is:
+#evalf_value: 8.22567208473406 

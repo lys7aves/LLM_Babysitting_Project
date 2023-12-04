@@ -1,0 +1,5 @@
+ChatGPT
+The requested values are as follows:
+#problem: \sum_{x=1}^{10} ((-7)^x - 9)
+#solution: 247165752
+#evalf_value: 247165752.0 

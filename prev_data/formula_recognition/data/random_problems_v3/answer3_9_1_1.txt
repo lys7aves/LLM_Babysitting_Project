@@ -1,0 +1,5 @@
+ChatGPT
+Here are the requested values for the mathematical expression given in the images:
+#problem: \sum_{x=1}^{10} (-3x^2 + x)
+#solution: -1100
+#evalf_value: -11

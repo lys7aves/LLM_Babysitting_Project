@@ -1,0 +1,6 @@
+ChatGPT
+Error analyzing
+Here are the requested values:
+#problem: \sum_{x=1}^{10} 6 x \left(\sin{\left(\frac{\pi x}{2} \right)} + 10\right)^{8} - 8
+#solution: 39875102470
+#evalf_value: 39875102470.0000 

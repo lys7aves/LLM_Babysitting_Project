@@ -1,0 +1,13 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as seen in the image is:
+#problem: 
+∑
+x=1
+10
+(x+x
+x
++2)
+The exact solution for the summation is:
+#solution: 10405071392
+The approximate value is:
+#evalf_value: 10405071392.0000 

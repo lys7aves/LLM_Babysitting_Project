@@ -1,0 +1,5 @@
+ChatGPT
+Here are the values you requested:
+#problem: \sum_{x=1}^{10} (10 + x - 2^x)
+#solution: -1891
+#evalf_value: -1891.00000000000 

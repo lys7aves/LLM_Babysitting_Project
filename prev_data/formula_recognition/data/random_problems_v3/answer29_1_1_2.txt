@@ -1,0 +1,14 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+latex
+Copy code
+#problem: \sum_{x=1}^{10} \sin\left(\frac{\pi \cos\left(\frac{\pi x}{2}\right)}{2^x}\right)
+The exact solution, in terms of trigonometric functions and constants, is:
+latex
+Copy code
+#solution: -\frac{\sqrt{2}}{2} - \sin\left(\frac{\pi}{64}\right) - \sin\left(\frac{\pi}{1024}\right) + \sin\left(\frac{\pi}{256}\right) + \sin\left(\frac{\pi}{16}\right)
+The approximate numerical value is:
+latex
+Copy code
+#evalf_value: -0.551880551975083
+``` &#8203;``【oaicite:0】``&#8203;

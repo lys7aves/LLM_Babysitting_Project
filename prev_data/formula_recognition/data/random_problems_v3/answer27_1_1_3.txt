@@ -1,0 +1,5 @@
+ChatGPT
+The requested values for the given mathematical expression are:
+#problem: \sum_{x=1}^{10} \frac{\pi \sin^{x}{\left(x \right)} \cos{\left(\frac{\pi x}{2} \right)}}{2}
+#solution: \pi(-\sin(2)^2 - \sin(10)^{10} - \sin(6)^6 + \sin(4)^4 + \sin(8)^8)/2
+#evalf_value: 0.654149468381636 

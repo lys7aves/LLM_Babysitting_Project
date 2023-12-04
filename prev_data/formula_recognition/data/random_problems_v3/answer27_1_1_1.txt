@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression in LaTeX syntax as seen in the image is:
+#problem: \sum_{x=1}^{10} \frac{\pi \sin^{x}{\left(x \right)} \cos{\left(\frac{\pi x}{2} \right)}}{2}
+The exact solution to the expression is:
+#solution: \frac{\pi(-\sin(2)^2 - \sin(10)^{10} - \sin(6)^6 + \sin(4)^4 + \sin(8)^8)}{2}
+The approximate value of the sum is:
+#evalf_value: 0.654149468381636 

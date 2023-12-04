@@ -1,0 +1,5 @@
+ChatGPT
+The LaTeX representation, exact solution, and approximate value of the given mathematical expression are as follows:
+#problem: \frac{\sum_{x=1}^{10} \cos^{x} \left(\frac{\pi x}{2}\right)}{2}
+#solution: \frac{5}{2}
+#evalf_value: 2.5 

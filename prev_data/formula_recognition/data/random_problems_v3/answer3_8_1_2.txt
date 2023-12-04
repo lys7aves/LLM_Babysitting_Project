@@ -1,0 +1,16 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as written in the image is:
+∑
+x=1
+10
+(−3x
+2
++x)
+The exact solution to the summation is:
+−1100
+The approximate value is:
+−1100.0
+Here are the values in the requested format:
+#problem: \sum_{x=1}^{10} (-3x^2 + x)
+#solution: -1100
+#evalf_value: -1100.0 

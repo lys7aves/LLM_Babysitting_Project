@@ -1,0 +1,5 @@
+ChatGPT
+Here are the details for the mathematical expression in the image:
+#problem: \sum_{x=1}^{10} -9x^2 - 3
+#solution: -3495
+#evalf_value: -3495.00000000000 

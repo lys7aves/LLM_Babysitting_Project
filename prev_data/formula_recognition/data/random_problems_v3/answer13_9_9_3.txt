@@ -1,0 +1,7 @@
+ChatGPT
+The mathematical expression represented in LaTeX syntax as seen in the image is:
+#problem: \sum_{x=1}^{10} -8 (-1)^x \left(\cos\left(\frac{\pi x}{2}\right) + 10\right)
+The exact solution to the summation is:
+#solution: 8
+The approximate value of the sum is:
+#evalf_value: 8.0 

@@ -1,0 +1,4 @@
+ChatGPT
+#problem: \sum_{x=1}^{10} \sin\left(\frac{\pi \cos\left(\pi \left(x + \frac{1}{2x^5}\right)\right)}{2}\right)
+#solution: -\sin\left(\frac{\pi \cos\left(\frac{\pi}{33614}\right)}{2}\right) - \sin\left(\frac{\pi \cos\left(\frac{\pi}{118098}\right)}{2}\right) - \sin\left(\frac{\pi \cos\left(\frac{\pi}{6250}\right)}{2}\right) - \sin\left(\frac{\pi \cos\left(\frac{\pi}{486}\right)}{2}\right) + \sin\left(\frac{\pi \cos\left(\frac{129\pi}{64}\right)}{2}\right) + \sin\left(\frac{\pi \cos\left(\frac{8193\pi}{2048}\right)}{2}\right) + \sin\left(\frac{\pi \cos\left(\frac{93313\pi}{15552}\right)}{2}\right) + \sin\left(\frac{\pi \cos\left(\frac{524289\pi}{65536}\right)}{2}\right) + \sin\left(\frac{\pi \cos\left(\frac{2000001\pi}{200000}\right)}{2}\right)
+#evalf_value: 0.999998210529464 

@@ -1,0 +1,5 @@
+ChatGPT
+The values obtained are as follows:
+#problem: \sum_{x=1}^{10} (10 - x)
+#solution: 45
+#evalf_value: 45.0 

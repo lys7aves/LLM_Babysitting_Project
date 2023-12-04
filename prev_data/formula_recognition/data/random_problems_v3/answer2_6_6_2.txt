@@ -1,0 +1,5 @@
+ChatGPT
+Here are the requested values for the given mathematical expression:
+#problem: \sum_{x=1}^{10} (10 + x - 2x^2)
+#solution: -615
+#evalf_value: -615.000000000000 
