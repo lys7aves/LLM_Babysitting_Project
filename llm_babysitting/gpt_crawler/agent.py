@@ -1,12 +1,18 @@
 # Last updated: 2023. 12. 03.
 
+from crawler import GptCrawler, GptCrawlerState
+
 import pkg_resources
 from enum import Enum
 import colorama
 from colorama import Fore
 import textwrap
-import gpt_crawler.crawler as crawler
+import time
+import threading
+import traceback
 
+
+colorama.init()
 
 def print_all_module_versions():
     print("Installed Packages:")
@@ -40,7 +46,7 @@ class GptAgent:
     max_attempts: int
     '''
     def __init__(self, gpt_crawler=None, tab_index=-1, url=None, model='gpt-3.5', name='chatGPT', conversations=[], state=GptAgentState.PREPARATION):
-        if gpt_crawler is None: self.gpt_crawler = crawler.GptCrawler()
+        if gpt_crawler is None: self.gpt_crawler = GptCrawler()
         else: self.gpt_crawler = gpt_crawler
 
         self.tab_index = tab_index
@@ -55,8 +61,6 @@ class GptAgent:
 
         self.error_message = None
         self.max_attempts = 99999
-
-        colorama.init()
 
 
     def __str__(self):
@@ -98,7 +102,7 @@ class GptAgent:
                 self.print_lines(line, width=width, front=front+'| ')
 
         else:
-            self.print_lines("lines should be either a string or a list of strings.", width=width, front=front)
+            self.print_lines(f"lines should be either a string or a list of strings.\nlines: {lines}", width=width, front=front)
 
 
     def is_valid_model(self, model):
@@ -131,8 +135,12 @@ class GptAgent:
                 self.state = GptAgentState.INPUTTING
                 self.gpt_crawler.start_new_chat(tab_index=self.tab_index, model=self.model, message=message, files=files, max_attempts=self.max_attempts)
                 self.state = GptAgentState.RESPONDING
+                # 스레드 만들어서 응답 기다리기
+                thread = threading.Thread(target=self.wait_for_respond, args=())
+                thread.start()
             except Exception as e:
-                self.error_message = e
+                self.state = GptAgentState.ERROR
+                self.error_message = "In the gpt_crawler.agent.start: " + str(e)
     
     
     def update_state(self):
@@ -142,8 +150,27 @@ class GptAgent:
                 return
             
             if self.tab_index == -1:
+                print("No assigned tab found.")
                 return
             
+            self.gpt_crawler.update_state(self.tab_index)
+            crawler_state = self.gpt_crawler.get_state(self.tab_index)
+            if crawler_state == GptCrawlerState.NEW_CHAT: self.state = GptAgentState.START
+            elif crawler_state == GptCrawlerState.AWAITING_INPUT: self.state = GptAgentState.AWAITING_INPUT
+            elif crawler_state == GptCrawlerState.INPUTTING: self.state = GptAgentState.INPUTTING
+            elif crawler_state == GptCrawlerState.RESPONDING: self.state = GptAgentState.RESPONDING
+            elif crawler_state == GptCrawlerState.DELETING: self.state = GptAgentState.FINISHED
+            elif crawler_state == GptCrawlerState.DELETED: self.state = GptAgentState.PREPARATION
+            elif (crawler_state == GptCrawlerState.ERROR
+                  or crawler_state == GptCrawlerState.REGENERATE_ERROR
+                  or crawler_state == GptCrawlerState.LIMIT_ERROR):
+                self.error_message = self.gpt_crawler.error_messages[self.tab_index]
+                self.state = GptAgentState.ERROR
+            else:
+                self.error_message = f"Undefined crawler state: {crawler_state.name}"
+                self.state = GptAgentState.ERROR
+
+
             if self.state == GptAgentState.PREPARATION:
                 url = None
             if self.url is None:
@@ -154,17 +181,12 @@ class GptAgent:
 
             self.conversations = self.gpt_crawler.get_conversations(self.tab_index)
 
-            if self.state == GptAgentState.RESPONDING:
-                crawler_state = self.gpt_crawler.get_state(self.tab_index)
-                #self.gpt_crawler.
-                True
-
             if self.state != GptAgentState.ERROR:
                 self.error_message = None
         
         except Exception as e:
             self.state = GptAgentState.ERROR
-            self.error_message = e
+            self.error_message = "In the gpt_crawler.agent.update_state function: " + str(e)
 
 
     def send_message(self, message='', files=[]):
@@ -180,18 +202,75 @@ class GptAgent:
             self.state = GptAgentState.INPUTTING
             self.gpt_crawler.send_message(tab_index=self.tab_index, message=message, files=files, max_attempts=self.max_attempts)
             self.state = GptAgentState.RESPONDING
+            # 스레드 만들어서 응답 기다리기
+            thread = threading.Thread(target=self.wait_for_respond, args=())
+            thread.start()
 
         except Exception as e:
-            self.error_message = e
+            self.state = GptAgentState.ERROR
+            self.error_message = "In the gpt_crawler.agent.send_message function: " + str(e)
 
 
+    def wait_for_respond(self, max_attempts=99999):
+        attempts = 0
+        while attempts < max_attempts:
+            self.update_state()
+            self.conversations = self.gpt_crawler.get_conversations(tab_index=self.tab_index)
+
+            if self.state != GptAgentState.RESPONDING:
+                break
+
+            attempts += 1
+            time.sleep(1)
+
+        if attempts == max_attempts:
+            raise ValueError(f"Tried {max_attempts} times but couldn't receive a response.")
+        
+
+    def get_message(self):
+        if len(self.conversations)%2 == 0:
+            return self.conversations[-1]
+        else:
+            return ''
 
     
+def print_agents(agents=[]):
+    for agent in agents:
+        agent.print_info()
+
+
+def find_free_agent(agents=[]):
+    for agent in agents:
+        if agent.state == GptAgentState.PREPARATION:
+            return agent
+    
+    return None
+
+
+def do_task(agent, message='', files=[]):
+    print('message:', message)
+    print('files:', files)
+    agent.start(message=message, files=files)
+
+    while agent.state == GptAgentState.RESPONDING:
+        time.sleep(1)
+    
+
+    if agent.state == GptAgentState.AWAITING_INPUT:
+        print(agent.conversations[-1])
+    else:
+        print(Fore.RED, end='')
+        print('Error on do_task :(')
+        print(str(agent))
+        print(agent.state.name)
+        print(agent.error_message)
+        traceback.print_exc()
+        print(Fore.RESET)
 
 
 
 def main():
-    gpt_crawler = crawler.GptCrawler()
+    gpt_crawler = GptCrawler()
 
     agent = GptAgent(gpt_crawler=gpt_crawler)
 

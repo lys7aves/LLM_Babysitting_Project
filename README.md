@@ -20,17 +20,19 @@ LLM_Babysitting_Project
 │   ├── gpt_cralwer
 │   	├── crawler.py
 │   	└── agent.py
-│   ├── data_generators
+│   ├── tasks_generators
 │   	├── sudoku_generator.py
 │   	└── expression_generator.py
 │   ├── data_augmentors
 │   	├── lattice_augmentor.py
 │   	└── mask_augmentor.py
-│   ├── experiments
-│   	├── .py
-│   	└── .py
+│   ├── methods
+│   	├── step_by_step_method.py
+│   	├── lattice_method.py
+│   	└── mask_metho.py
 │   ├── data
 │   ├── results
+│   ├── experiment.py
 │   ├── config.py
 │   └── main.py
 │
@@ -42,3 +44,8 @@ LLM_Babysitting_Project
 ├── requirements.txt
 └── README.md
 ```
+
+
+
+
+

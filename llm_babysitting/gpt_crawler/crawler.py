@@ -10,6 +10,8 @@ from selenium.common.exceptions import NoSuchElementException
 import threading
 import time
 from enum import Enum, auto
+import colorama
+from colorama import Fore
 
 
 def print_all_module_versions():
@@ -29,7 +31,14 @@ class CrawlerState(Enum):
     COMPLETED = auto()
     ERROR = auto()
 
-class GptCrawlerState(CrawlerState):
+class GptCrawlerState(Enum):
+    INITIALIZING = auto()
+    IDLE = auto()
+    RUNNING = auto()
+    PAUSED = auto()
+    COMPLETED = auto()
+    ERROR = auto()
+
     NEW_CHAT = auto()
     AWAITING_INPUT = auto()
     INPUTTING = auto()
@@ -55,8 +64,9 @@ class Crawler:
     lock: threading.RLock
     current_lock_index: int
     lock_counter: int
+    debug_mode: bool
     '''
-    def __init__(self, num_tabs=0, tabs=[], start=True, use_debugger=True, use_haedless=False, implicityly_wait=10):
+    def __init__(self, num_tabs=0, tabs=[], start=True, use_debugger=True, use_haedless=False, implicityly_wait=10, debug_mode=False):
         self.num_tabs = max(num_tabs, len(tabs))
         self.tabs = tabs
         while len(self.tabs) < self.num_tabs:
@@ -67,6 +77,8 @@ class Crawler:
         self.lock = threading.RLock()
         self.current_lock_index = -1
         self.lock_counter = 0
+
+        self.debug_mode = debug_mode
 
         if start: self.start_chrome_driver(use_debugger=use_debugger, use_headless=use_haedless, implicityly_wait=implicityly_wait)
         else: self.driver = None
@@ -96,16 +108,10 @@ class Crawler:
 
 
     def switch_tab(self, tab_index):
-        self.lock_acquire(tab_index)
-
-        try:
-            if 0 <= tab_index < len(self.tabs):
-                self.driver.switch_to.window(self.tabs[tab_index])
-            else:
-                raise ValueError("No tab assigned. Please select a valid tab index.")
-            
-        finally:
-            self.lock_release()
+        if 0 <= tab_index < len(self.tabs):
+            self.driver.switch_to.window(self.tabs[tab_index])
+        else:
+            raise ValueError(f"No tab assigned. Please select a valid tab index: {tab_index}")
 
     
     def get_url(self, tab_index):
@@ -126,7 +132,40 @@ class Crawler:
             self.tabs = []
 
 
+    def print_window_handles(self):
+        self.lock.acquire()
+
+        try:
+            # get a current window handle and all of window handles
+            window_handles = self.driver.window_handles
+            current_window_handle = self.driver.current_window_handle
+
+            print("current window handle:", current_window_handle)
+            print("current_window_url:", self.driver.current_url)
+
+            # print all of window handles and each url
+            print("window_handles:")
+            for window_handle in window_handles:
+                # switch the window to get the url of the corresponding window
+                self.driver.switch_to.window(window_handle)
+                # current_url = None if the window is not connected to any url
+                try:
+                    current_url = self.driver.current_url
+                except Exception:
+                    current_url = None
+
+                print("-", window_handle, current_url)
+            print()
+
+            # Return to the original window
+            self.driver.switch_to.window(current_window_handle)
+        
+        finally:
+            self.lock.release()
+
+
     def lock_acquire(self, index):
+        if self.debug_mode: print(Fore.BLUE, 'function: lock_acquire', Fore.RESET)
         self.lock.acquire()
         self.current_lock_index = index
         self.lock_counter += 1
@@ -136,7 +175,7 @@ class Crawler:
 
     def lock_release(self):
         self.lock_counter -= 1
-        if self.lock_count == 0:
+        if self.lock_counter == 0:
             self.current_lock_index = -1
         self.lock.release()
 
@@ -162,9 +201,9 @@ class Crawler:
     
     def get_state(self, tab_index):
         if 0 <= tab_index < len(self.tabs):
-            self.driver.switch_to.window(self.tabs[tab_index])
+            return self.state[tab_index]
         else:
-            raise ValueError("No tab assigned. Please select a valid tab index.")
+            raise ValueError(f"No tab assigned. Please select a valid tab index: {tab_index}")
 
 
 
@@ -172,10 +211,12 @@ class GptCrawler(Crawler):
 
     def start_new_chat(self, tab_index=-1, model='gpt-3.5', message='', files=[], max_attempts=99999):
         if tab_index < 0 or tab_index >= len(self.tabs):
-            raise ValueError("No tab assigned. Please select a valid tab index.")
+            raise ValueError(f"No tab assigned. Please select a valid tab index: {tab_index}")
         if not message and not files:
             raise ValueError("Please provide either a message or an file(s).")
         
+        if self.debug_mode: print(Fore.BLUE, 'function: start_new_chat', Fore.RESET)
+
         self.lock_acquire(index=tab_index)
         
         try:
@@ -185,6 +226,7 @@ class GptCrawler(Crawler):
             elif model == 'gpt-4': gpt_url += '?model=gpt-4'
             else: raise ValueError("The model provided is invalid. Please check the model.")
             self.driver.get(gpt_url)
+            if self.debug_mode: print(Fore.BLUE, gpt_url, Fore.RESET)
 
             # Find 'How can I help you today?' and 'Message ChatGPT…' strings
             attempts = 0
@@ -198,6 +240,7 @@ class GptCrawler(Crawler):
             if attempts == max_attempts:
                 raise NoSuchElementException(f"Tried {max_attempts} times but couldn't find the 'How can I help you today' and 'Message ChatGPT...' strings.")
             self.state[tab_index] = GptCrawlerState.NEW_CHAT
+            if self.debug_mode: print(Fore.BLUE, 'success for connect to chatGPT', Fore.RESET)
 
             self.send_message(tab_index=tab_index, message=message, files=files, max_attempts=max_attempts)
 
@@ -212,7 +255,7 @@ class GptCrawler(Crawler):
     
     def send_message(self, tab_index=-1, message='', files=[], max_attempts=99999):
         if tab_index < 0 or tab_index >= len(self.tabs):
-            raise ValueError("No tab assigned. Please select a valid tab index.")
+            raise ValueError(f"No tab assigned. Please select a valid tab index: {tab_index}")
         if not message and not files:
             raise ValueError("Please provide either a message or an image(s).")
         
@@ -236,6 +279,8 @@ class GptCrawler(Crawler):
 
 
     def input_files(self, tab_index=-1, files=[], max_attempts=99999):
+        if not files: return
+
         self.lock_acquire(index=tab_index)
 
         try:
@@ -267,6 +312,7 @@ class GptCrawler(Crawler):
 
     def input_message(self, tab_index=-1, message='', max_attempts=99999):
         self.lock_acquire(index=tab_index)
+        if self.debug_mode: print(Fore.BLUE, 'function: input_message', Fore.RESET)
 
         try:
             # find a text input area, and input a message
@@ -280,6 +326,7 @@ class GptCrawler(Crawler):
                     self.wait(wait_time=1)
             if attempts == max_attempts:
                 raise NoSuchElementException(f"Tried {max_attempts} times but couldn't find the 'prompt-textarea' element.")
+            if self.debug_mode: print(Fore.BLUE, '- Find a text area!', Fore.RESET)
 
 
             # If message contains '\n' characters, change '\n' to Shift+Enter.
@@ -287,6 +334,8 @@ class GptCrawler(Crawler):
                 text_area.send_keys(line)
                 text_area.send_keys(Keys.SHIFT + Keys.ENTER)
             text_area.send_keys(Keys.BACKSPACE)
+
+            if self.debug_mode: print(Fore.BLUE, '- Success to input the message!', Fore.RESET)
 
         finally:
             self.lock_release()
@@ -354,16 +403,57 @@ class GptCrawler(Crawler):
         finally:
             self.lock_release()
 
+    
+    def get_conversations(self, tab_index):
+        self.lock_acquire(tab_index)
+
+        try:
+            # Get conversation elements
+            conversation_elements = self.driver.find_elements(By.CSS_SELECTOR, 'div[data-testid^="conversation-turn-"]')
+
+            # if there is any conversation, then return "Not Started"
+            if len(conversation_elements) == 0: return []
+
+            # Extracting text from elements.
+            conversations = []
+            for conversation_element in conversation_elements:
+                try:
+                    conversation = conversation_element.text
+                except:
+                    conversation = 'Error :('
+                
+                conversations.append(conversation)
+            
+            return conversations
+
+        except Exception as e:
+            self.state[tab_index] = GptCrawlerState.ERROR
+            self.error_messages[tab_index] = e
+            raise e
+
+        finally:
+            self.lock_release()
 
 
-def test():
+
+
+def test_crawler():
     print_all_module_versions()
 
-    crawler = Crawler()
+    tabs = [
+        'F634AA33A771E0B357AB34456D632A51',
+        '503CF570207676C37CA2147F76A5C955',
+        '3C48605445BF58A6DB186249AAFC21FC',
+        '799D9EFB9D69C473688CD64135C93D42',
+        '69539F4F2B3D522C56564BA0744F3D49'
+    ]
+
+    crawler = Crawler(tabs=tabs)
+    crawler.print_window_handles()
 
 
 if __name__ == "__main__":
-    test()
+    test_crawler()
 
 
 
