@@ -12,6 +12,7 @@ import time
 from enum import Enum, auto
 import colorama
 from colorama import Fore
+import traceback
 
 
 def print_all_module_versions():
@@ -21,6 +22,11 @@ def print_all_module_versions():
     for package in installed_packages:
         print(f"{package.key} : {package.version}")
     print()
+
+
+def make_error_message(trace, error):
+    filename = trace.filename.split('LLM_Babysitting_Project\\')[-1]
+    return f"File: {filename}, Method: {trace.name}, Line: {trace.lineno}\n{error}"
 
 
 class CrawlerState(Enum):
@@ -66,15 +72,16 @@ class Crawler:
     lock_counter: int
     debug_mode: bool
     '''
-    def __init__(self, num_tabs=0, tabs=[], start=True, use_debugger=True, use_haedless=False, implicityly_wait=10, debug_mode=False):
+    def __init__(self, num_tabs=0, tabs=[], lock=None, start=True, use_debugger=True, use_haedless=False, implicityly_wait=10, debug_mode=False):
         self.num_tabs = max(num_tabs, len(tabs))
         self.tabs = tabs
         while len(self.tabs) < self.num_tabs:
             self.tabs.append(None)
         self.state = [CrawlerState.INITIALIZING for _ in range(self.num_tabs)]
         self.error_messages = [None for _ in range(self.num_tabs)]
-            
-        self.lock = threading.RLock()
+
+        if lock is None: self.lock = threading.RLock()
+        else: self.lock = lock
         self.current_lock_index = -1
         self.lock_counter = 0
 
@@ -85,6 +92,8 @@ class Crawler:
 
 
     def start_chrome_driver(self, use_debugger=True, use_headless=False, implicityly_wait=10):
+        self.print_debug_message(f"function: start_chrome_driver")
+
         chrome_options = webdriver.ChromeOptions()
 
         if use_debugger:
@@ -93,8 +102,12 @@ class Crawler:
         if use_headless:
             chrome_options.add_argument("--headless")
 
+        self.print_debug_message(f"- Finish to set options")
+
         self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.implicitly_wait(implicityly_wait)
+
+        self.print_debug_message(f"- Success for connecting to chrome driver")
 
         if not use_debugger:
             self.num_tabs = 1
@@ -110,7 +123,9 @@ class Crawler:
     def switch_tab(self, tab_index):
         if 0 <= tab_index < len(self.tabs):
             self.driver.switch_to.window(self.tabs[tab_index])
+            self.print_debug_message('function: switch_tab (Success)')
         else:
+            self.print_debug_message('function: switch_tab (Fail)')
             raise ValueError(f"No tab assigned. Please select a valid tab index: {tab_index}")
 
     
@@ -163,40 +178,58 @@ class Crawler:
         finally:
             self.lock.release()
 
+    
+    def print_debug_message(self, debug_message=''):
+        if not self.debug_mode: return
+        base = f'{Fore.BLUE}#{self.current_lock_index:2d}-{self.lock_counter}({threading.current_thread().name}) {Fore.RESET}'
+        debug_message = base + debug_message.replace('\n','\n'+base)
+        print(debug_message)
+
 
     def lock_acquire(self, index):
-        if self.debug_mode: print(Fore.BLUE, 'function: lock_acquire', Fore.RESET)
         self.lock.acquire()
+
         self.current_lock_index = index
         self.lock_counter += 1
-        
+
+        self.print_debug_message(f'{Fore.YELLOW}function: lock_acquire #{index}{Fore.RESET}')
         self.switch_tab(tab_index=index)
 
 
     def lock_release(self):
         self.lock_counter -= 1
+
+        self.print_debug_message(f'{Fore.GREEN}function: lock_relese #{self.current_lock_index}{Fore.RESET}')
+
         if self.lock_counter == 0:
             self.current_lock_index = -1
         self.lock.release()
 
 
     def wait(self, wait_time=1):
+        self.print_debug_message('function: wait')
         lock_index = self.current_lock_index
         lock_counter = self.lock_counter
+        self.print_debug_message(f'- lock index: {lock_index}')
+        self.print_debug_message(f'- lock counter: {lock_counter}')
 
         self.current_lock_index = -1
         self.lock_counter = 0
 
-        for _ in range(lock_counter): self.lock.release()
+        for _ in range(lock_counter):
+            self.lock.release()
 
         time.sleep(wait_time)
 
-        while lock_counter > 0:
+        for _ in range(lock_counter):
             self.lock.acquire()
-            lock_counter -= 1
+
         self.current_lock_index = lock_index
+        self.lock_counter = lock_counter
         
         self.switch_tab(tab_index=lock_index)
+
+        self.print_debug_message("Finish to wait")
 
     
     def get_state(self, tab_index):
@@ -211,11 +244,13 @@ class GptCrawler(Crawler):
 
     def start_new_chat(self, tab_index=-1, model='gpt-3.5', message='', files=[], max_attempts=99999):
         if tab_index < 0 or tab_index >= len(self.tabs):
-            raise ValueError(f"No tab assigned. Please select a valid tab index: {tab_index}")
+            current_trace = traceback.extract_stack()[-1]
+            raise ValueError(make_error_message(current_trace, f"No tab assigned. Please select a valid tab index: {tab_index}"))
         if not message and not files:
-            raise ValueError("Please provide either a message or an file(s).")
+            current_trace = traceback.extract_stack()[-1]
+            raise ValueError(make_error_message(current_trace, "Please provide either a message or an file(s)."))
         
-        if self.debug_mode: print(Fore.BLUE, 'function: start_new_chat', Fore.RESET)
+        self.print_debug_message(f'function: start_new_chat')
 
         self.lock_acquire(index=tab_index)
         
@@ -226,7 +261,7 @@ class GptCrawler(Crawler):
             elif model == 'gpt-4': gpt_url += '?model=gpt-4'
             else: raise ValueError("The model provided is invalid. Please check the model.")
             self.driver.get(gpt_url)
-            if self.debug_mode: print(Fore.BLUE, gpt_url, Fore.RESET)
+            self.print_debug_message(f'{gpt_url}')
 
             # Find 'How can I help you today?' and 'Message ChatGPT…' strings
             attempts = 0
@@ -238,19 +273,24 @@ class GptCrawler(Crawler):
                     attempts += 1
                     self.wait(wait_time=1)
             if attempts == max_attempts:
-                raise NoSuchElementException(f"Tried {max_attempts} times but couldn't find the 'How can I help you today' and 'Message ChatGPT...' strings.")
+                current_trace = traceback.extract_stack()[-1]
+                raise NoSuchElementException(make_error_message(current_trace, f"Tried {max_attempts} times but couldn't find the 'How can I help you today' and 'Message ChatGPT...' strings."))
+            
             self.state[tab_index] = GptCrawlerState.NEW_CHAT
-            if self.debug_mode: print(Fore.BLUE, 'success for connect to chatGPT', Fore.RESET)
+            self.print_debug_message(f'success for connect to chatGPT')
 
             self.send_message(tab_index=tab_index, message=message, files=files, max_attempts=max_attempts)
 
         except Exception as e:
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(current_trace, str(e))
+
             self.state[tab_index] = GptCrawlerState.ERROR
-            self.error_messages[tab_index] = e
-            raise e
+            self.error_messages[tab_index] = error_message
+            raise error_message
         
         finally:
-            self.lock.release()
+            self.lock_release()
 
     
     def send_message(self, tab_index=-1, message='', files=[], max_attempts=99999):
@@ -312,7 +352,7 @@ class GptCrawler(Crawler):
 
     def input_message(self, tab_index=-1, message='', max_attempts=99999):
         self.lock_acquire(index=tab_index)
-        if self.debug_mode: print(Fore.BLUE, 'function: input_message', Fore.RESET)
+        self.print_debug_message(f'function: input_message')
 
         try:
             # find a text input area, and input a message
@@ -326,7 +366,7 @@ class GptCrawler(Crawler):
                     self.wait(wait_time=1)
             if attempts == max_attempts:
                 raise NoSuchElementException(f"Tried {max_attempts} times but couldn't find the 'prompt-textarea' element.")
-            if self.debug_mode: print(Fore.BLUE, '- Find a text area!', Fore.RESET)
+            self.print_debug_message(f'- Find a text area!')
 
 
             # If message contains '\n' characters, change '\n' to Shift+Enter.
@@ -335,7 +375,7 @@ class GptCrawler(Crawler):
                 text_area.send_keys(Keys.SHIFT + Keys.ENTER)
             text_area.send_keys(Keys.BACKSPACE)
 
-            if self.debug_mode: print(Fore.BLUE, '- Success to input the message!', Fore.RESET)
+            self.print_debug_message(f'- Success to input the message!')
 
         finally:
             self.lock_release()
@@ -343,6 +383,7 @@ class GptCrawler(Crawler):
     
     def click_send_button(self, tab_index=-1, max_attempts=99999):
         self.lock_acquire(index=tab_index)
+        self.print_debug_message('function: click_send_button')
 
         try:
             # find a text input area, and input a message
@@ -374,7 +415,7 @@ class GptCrawler(Crawler):
                 # regenerate error
                 regenerate_button = self.driver.find_elements(By.CSS_SELECTOR, 'button[class="btn relative btn-primary m-auto"]')
                 if len(regenerate_button) == 1:
-                    regenerate_button.click()
+                    regenerate_button[0].click()
                     self.state[tab_index] = GptCrawlerState.REGENERATE_ERROR
                 
                 # limit error
@@ -430,6 +471,66 @@ class GptCrawler(Crawler):
             self.state[tab_index] = GptCrawlerState.ERROR
             self.error_messages[tab_index] = e
             raise e
+
+        finally:
+            self.lock_release()
+
+            
+    def delete_chat(self, tab_index, target_url=None, max_attempts=99999):
+        self.lock_acquire(tab_index)
+
+        try:
+            self.print_debug_message('function: delete_chat')
+            if target_url is None:
+                target_url = self.get_url(tab_index)
+            
+            # Go to the chatGPT page
+            url = "https://chat.openai.com/"
+            self.driver.get(url)
+
+            # Wait until the left bar appears.
+            attempts = 0
+            while attempts < max_attempts:
+                try:
+                    bar_element = self.driver.find_element(By.CSS_SELECTOR, 'div[class="group relative active:opacity-90"]')
+                    break
+                except:
+                    attempts += 1
+                    self.wait(wait_time=1)
+            if attempts == max_attempts:
+                current_trace = traceback.extract_stack()[-1]
+                raise NoSuchElementException(make_error_message(current_trace, f"Tried {max_attempts} times but couldn't find the left bar"))
+
+            # Get chat elements
+            cnt=0
+            chat_elements = self.driver.find_elements(By.CSS_SELECTOR, 'div[class="group relative active:opacity-90"]')
+            for chat_element in chat_elements:
+                cnt += 1
+                if cnt > 10: break
+                chat_url = chat_element.find_element(By.XPATH, './*').get_attribute('href')
+
+                if target_url is None or chat_url == target_url:
+                    # Sometimes it doesn't work. so try 10 times.
+                    for i in range(10):
+                        try:
+                            chat_element.click()
+                            time.sleep(1)
+
+                            button = chat_element.find_element(By.TAG_NAME, 'button')
+                            button.click()
+                            time.sleep(1)
+
+                            menuitems = self.driver.find_elements(By.CSS_SELECTOR, 'div[role="menuitem"]')
+                            menuitems[2].click()
+                            time.sleep(1)
+
+                            delete_button = self.driver.find_element(By.CSS_SELECTOR, 'button[class="btn relative btn-danger"]')
+                            delete_button.click()
+                            time.sleep(1)
+
+                            break
+                        except:
+                            self.wait(1)
 
         finally:
             self.lock_release()

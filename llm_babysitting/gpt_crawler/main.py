@@ -28,15 +28,20 @@ def main() -> int:
         '69539F4F2B3D522C56564BA0744F3D49'
     ]
     gpt3_tabs = [
-        '3F049EE98ADB613066652F61AD79200E',
-        '3D897ACC0E634348A31B9299A0BE431E',
-        '676187D98B32EB6A19A648C50E1562B2',
-        'CEACA1BD56CED3DE648F7C0D9E2047EB',
-        'FB27AE25BC446E90BFC27D518E79680B'
+        '1B4DF690BC13AB0DE7DE6BEC0CF47056',
+        'A55BA2FEFE22D6D7A66B2F465165A6D3',
+        '908A929A40B6355A0378D9124D068882',
+        '7BACE35FE8FA29B4060B1C2F0D1A6AB8',
+        'FF7A3BA01EB2D47ACDF0045DFD9C8B80'
     ]
+    lock = threading.RLock()
 
-    gpt_crawler = Crawler.GptCrawler(tabs=gpt3_tabs, debug_mode=True)
-    #gpt_crawler.print_window_handles()
+    print('!')
+
+    gpt_crawler = Crawler.GptCrawler(tabs=gpt3_tabs, lock=lock, debug_mode=False)
+    
+    print('!')
+    gpt_crawler.print_window_handles()
 
     num_agents = 5
     agents = []
@@ -49,10 +54,10 @@ def main() -> int:
         agent = Agent.find_free_agent(agents=agents)
         if agent is not None:
             print('find free agent!')
-            thread = threading.Thread(target=Agent.do_task, args=(agent, 'tell me some story.'))
+            thread = threading.Thread(target=Agent.do_task, args=(agent, 'tell me some story.', [], lock))
             thread.start()
 
-        time.sleep(10)
+        time.sleep(1)
 
     return 0
 

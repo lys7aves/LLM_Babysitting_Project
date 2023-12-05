@@ -23,6 +23,11 @@ def print_all_module_versions():
     print()
 
 
+def make_error_message(trace, error):
+    filename = trace.filename.split('LLM_Babysitting_Project\\')[-1]
+    return f"File: {filename}, Method: {trace.name}, Line: {trace.lineno}\n{error}"
+
+
 class GptAgentState(Enum):
     PREPARATION = 1
     START = 2
@@ -67,7 +72,7 @@ class GptAgent:
         return f"Agent #{self.name}"
     
 
-    def print_info(self, width=80):
+    def print_info(self, width=80, detail=False):
         if self.tab_index == self.gpt_crawler.current_lock_index:
             print(Fore.YELLOW, end='')
 
@@ -76,12 +81,16 @@ class GptAgent:
         print(f"Tab index: {self.tab_index}")
         print(f"URL: {self.url}")
         print(f"Model: {self.model}")
-        print(f"Conversations:")
-        self.print_lines(lines=self.conversations, width=width)
+        if detail:
+            print(f"Conversations:")
+            self.print_lines(lines=self.conversations, width=width)
+        else:
+            print(f"Conversations: {len(self.conversations)}")
         print(f"State: {self.state}")
         if self.state == GptAgentState.ERROR:
-            print(f"Error message:")
+            print(f"{Fore.RED}Error message:")
             self.print_lines(self.error_message, width=width)
+            print(Fore.RESET, end='')
         print()
 
         print(Fore.RESET, end='')
@@ -92,17 +101,17 @@ class GptAgent:
             print(front + 'None')
 
         elif isinstance(lines, str):
-            wrapped_lines = textwrap.fill(lines, width=width-len(front))
+            wrapped_lines = textwrap.fill(lines, width=width-len(front), replace_whitespace=False)
             formatted_lines = front + wrapped_lines.replace('\n', '\n'+front)
             print(formatted_lines)
 
         elif isinstance(lines, list):
             for i, line in enumerate(lines):
-                if i > 0: print(front[:-3])
+                if i > 0: print(front)
                 self.print_lines(line, width=width, front=front+'| ')
 
         else:
-            self.print_lines(f"lines should be either a string or a list of strings.\nlines: {lines}", width=width, front=front)
+            self.print_lines(f"{Fore.RED}lines should be either a string or a list of strings.\nlines: {lines}{Fore.RESET}", width=width, front=front)
 
 
     def is_valid_model(self, model):
@@ -114,7 +123,17 @@ class GptAgent:
 
     def check_model(self, model):
         if not self.is_valid_model(model=model):
-            raise ValueError("The model provided is invalid. Please check the model.")
+            error_message = ''
+            # Retrieve the current stack trace information
+            current_trace = traceback.extract_stack()
+            
+            # Print file name, method name, and line number of each method in the stack trace (excluding the current method)
+            for trace in current_trace[:-1]:
+                error_message += f"File: {trace.filename}, Method: {trace.name}, Line: {trace.lineno}\n"
+            
+            error_message += "The model provided is invalid. Please check the model."
+
+            raise ValueError(error_message)
 
     
     def start(self, message='', files=[]):
@@ -129,7 +148,8 @@ class GptAgent:
         self.state = GptAgentState.START
 
         if not message and not files:
-            self.state = GptAgentState.AWAITING_INPUT
+            self.error_message = "Please provide either a message or an file(s)."
+            self.state = GptAgentState.ERROR
         else:
             try:
                 self.state = GptAgentState.INPUTTING
@@ -138,9 +158,13 @@ class GptAgent:
                 # 스레드 만들어서 응답 기다리기
                 thread = threading.Thread(target=self.wait_for_respond, args=())
                 thread.start()
+
             except Exception as e:
+                current_trace = traceback.extract_stack()[-1]
+                error_message = make_error_message(trace=current_trace, error=str(e))
+                
+                self.error_message = error_message
                 self.state = GptAgentState.ERROR
-                self.error_message = "In the gpt_crawler.agent.start: " + str(e)
     
     
     def update_state(self):
@@ -155,6 +179,8 @@ class GptAgent:
             
             self.gpt_crawler.update_state(self.tab_index)
             crawler_state = self.gpt_crawler.get_state(self.tab_index)
+            self.conversations = self.gpt_crawler.get_conversations(self.tab_index)
+
             if crawler_state == GptCrawlerState.NEW_CHAT: self.state = GptAgentState.START
             elif crawler_state == GptCrawlerState.AWAITING_INPUT: self.state = GptAgentState.AWAITING_INPUT
             elif crawler_state == GptCrawlerState.INPUTTING: self.state = GptAgentState.INPUTTING
@@ -174,19 +200,27 @@ class GptAgent:
             if self.state == GptAgentState.PREPARATION:
                 url = None
             if self.url is None:
-                if self.state == GptAgentState.AWAITING_INPUT or self.state == GptAgentState.RESPONDING or self.state == GptAgentState.FINISHED:
+                if self.state == GptAgentState.AWAITING_INPUT or self.state == GptAgentState.FINISHED:
                     self.url = self.gpt_crawler.get_url(self.tab_index)
 
             self.check_model(model=self.model)
-
-            self.conversations = self.gpt_crawler.get_conversations(self.tab_index)
 
             if self.state != GptAgentState.ERROR:
                 self.error_message = None
         
         except Exception as e:
             self.state = GptAgentState.ERROR
-            self.error_message = "In the gpt_crawler.agent.update_state function: " + str(e)
+            error_message = ''
+            # Retrieve the current stack trace information
+            current_trace = traceback.extract_stack()
+            
+            # Print file name, method name, and line number of each method in the stack trace (excluding the current method)
+            for trace in current_trace[:-1]:
+                error_message += f"File: {trace.filename}, Method: {trace.name}, Line: {trace.lineno}\n"
+            
+            error_message += str(e)
+            
+            self.error_message = error_message
 
 
     def send_message(self, message='', files=[]):
@@ -208,7 +242,17 @@ class GptAgent:
 
         except Exception as e:
             self.state = GptAgentState.ERROR
-            self.error_message = "In the gpt_crawler.agent.send_message function: " + str(e)
+            error_message = ''
+            # Retrieve the current stack trace information
+            current_trace = traceback.extract_stack()
+            
+            # Print file name, method name, and line number of each method in the stack trace (excluding the current method)
+            for trace in current_trace[:-1]:
+                error_message += f"File: {trace.filename}, Method: {trace.name}, Line: {trace.lineno}\n"
+            
+            error_message += str(e)
+            
+            self.error_message = error_message
 
 
     def wait_for_respond(self, max_attempts=99999):
@@ -224,8 +268,22 @@ class GptAgent:
             time.sleep(1)
 
         if attempts == max_attempts:
-            raise ValueError(f"Tried {max_attempts} times but couldn't receive a response.")
+            error_message = ''
+            # Retrieve the current stack trace information
+            current_trace = traceback.extract_stack()
+            
+            # Print file name, method name, and line number of each method in the stack trace (excluding the current method)
+            for trace in current_trace[:-1]:
+                error_message += f"File: {trace.filename}, Method: {trace.name}, Line: {trace.lineno}\n"
+            
+            error_message += f"Tried {max_attempts} times but couldn't receive a response."
+            
+            raise ValueError(error_message)
         
+        else:
+            if self.url is None:
+                self.url = self.gpt_crawler.get_url(self.tab_index)
+
 
     def get_message(self):
         if len(self.conversations)%2 == 0:
@@ -233,8 +291,22 @@ class GptAgent:
         else:
             return ''
 
+
+    def close(self):
+        self.state = GptAgentState.FINISHED
+
+        self.gpt_crawler.delete_chat(self.tab_index)
+
+        self.url = None
+        self.conversations = []
+        self.state = GptAgentState.PREPARATION
+        self.error_message = None
+
+
+
     
 def print_agents(agents=[]):
+    print('================================================================================')
     for agent in agents:
         agent.print_info()
 
@@ -247,7 +319,7 @@ def find_free_agent(agents=[]):
     return None
 
 
-def do_task(agent, message='', files=[]):
+def do_task(agent, message='', files=[], lock=None):
     print('message:', message)
     print('files:', files)
     agent.start(message=message, files=files)
@@ -257,15 +329,37 @@ def do_task(agent, message='', files=[]):
     
 
     if agent.state == GptAgentState.AWAITING_INPUT:
-        print(agent.conversations[-1])
-    else:
-        print(Fore.RED, end='')
-        print('Error on do_task :(')
-        print(str(agent))
-        print(agent.state.name)
-        print(agent.error_message)
-        traceback.print_exc()
+        print(Fore.BLUE)
+        print(f'Agent #{str(agent)}')
+        print(agent.conversations)
         print(Fore.RESET)
+
+        if len(agent.conversations) == 0:
+            print(Fore.RED)
+            print('Error: There is no conversation')
+            print(Fore.RESET)
+            while True:
+                True
+        agent.close()
+
+    else:
+        if lock is not None:
+            lock.acquire()
+
+        try:
+            print(Fore.RED, end='')
+            print('Error on do_task :(')
+            print(str(agent))
+            print(agent.state.name)
+            print(agent.error_message)
+            traceback.print_exc()
+            print(Fore.RESET)
+
+        finally:
+            if lock is not None:
+                lock.release()
+
+
 
 
 
