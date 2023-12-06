@@ -1,9 +1,9 @@
 # Last updated: 2023. 12. 03.
 
-from crawler import GptCrawler, GptCrawlerState
+from gpt_crawler.crawler import GptCrawler, GptCrawlerState
 
 import pkg_resources
-from enum import Enum
+from enum import Enum, auto
 import colorama
 from colorama import Fore
 import textwrap
@@ -29,13 +29,17 @@ def make_error_message(trace, error):
 
 
 class GptAgentState(Enum):
-    PREPARATION = 1
-    START = 2
-    AWAITING_INPUT = 3
-    INPUTTING = 4
-    RESPONDING = 5
-    FINISHED = 6
-    ERROR = 7
+    PREPARATION = auto()
+    START = auto()
+    AWAITING_INPUT = auto()
+    INPUTTING = auto()
+    RESPONDING = auto()
+    FINISHED = auto()
+
+    ERROR = auto()
+    REGENERATE_ERROR = auto()
+    LIMIT_ERROR = auto()
+    ERROR_HANDLED = auto()
 
 
 class GptAgent:
@@ -148,7 +152,10 @@ class GptAgent:
         self.state = GptAgentState.START
 
         if not message and not files:
-            self.error_message = "Please provide either a message or an file(s)."
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(trace=current_trace, error="Please provide either a message or an file(s).")
+            
+            self.error_message = error_message
             self.state = GptAgentState.ERROR
         else:
             try:
@@ -187,13 +194,25 @@ class GptAgent:
             elif crawler_state == GptCrawlerState.RESPONDING: self.state = GptAgentState.RESPONDING
             elif crawler_state == GptCrawlerState.DELETING: self.state = GptAgentState.FINISHED
             elif crawler_state == GptCrawlerState.DELETED: self.state = GptAgentState.PREPARATION
-            elif (crawler_state == GptCrawlerState.ERROR
-                  or crawler_state == GptCrawlerState.REGENERATE_ERROR
-                  or crawler_state == GptCrawlerState.LIMIT_ERROR):
+
+            elif crawler_state == GptCrawlerState.ERROR:
                 self.error_message = self.gpt_crawler.error_messages[self.tab_index]
                 self.state = GptAgentState.ERROR
+            elif crawler_state == GptCrawlerState.REGENERATE_ERROR:
+                self.error_message = self.gpt_crawler.error_messages[self.tab_index]
+                self.state = GptAgentState.REGENERATE_ERROR
+            elif crawler_state == GptCrawlerState.LIMIT_ERROR:
+                self.error_message = self.gpt_crawler.error_messages[self.tab_index]
+                self.state = GptAgentState.LIMIT_ERROR
+            elif crawler_state == GptCrawlerState.ERROR_HANDLED:
+                self.error_message = self.gpt_crawler.error_messages[self.tab_index]
+                self.state = GptAgentState.ERROR_HANDLED
+
             else:
-                self.error_message = f"Undefined crawler state: {crawler_state.name}"
+                current_trace = traceback.extract_stack()[-1]
+                error_message = make_error_message(trace=current_trace, error=f"Undefined crawler state: {crawler_state.name}")
+                
+                self.error_message = error_message
                 self.state = GptAgentState.ERROR
 
 
@@ -205,22 +224,15 @@ class GptAgent:
 
             self.check_model(model=self.model)
 
-            if self.state != GptAgentState.ERROR:
+            if "ERROR" not in self.state.name:
                 self.error_message = None
         
         except Exception as e:
-            self.state = GptAgentState.ERROR
-            error_message = ''
-            # Retrieve the current stack trace information
-            current_trace = traceback.extract_stack()
-            
-            # Print file name, method name, and line number of each method in the stack trace (excluding the current method)
-            for trace in current_trace[:-1]:
-                error_message += f"File: {trace.filename}, Method: {trace.name}, Line: {trace.lineno}\n"
-            
-            error_message += str(e)
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(trace=current_trace, error=str(e))
             
             self.error_message = error_message
+            self.state = GptAgentState.ERROR
 
 
     def send_message(self, message='', files=[]):
@@ -241,18 +253,11 @@ class GptAgent:
             thread.start()
 
         except Exception as e:
-            self.state = GptAgentState.ERROR
-            error_message = ''
-            # Retrieve the current stack trace information
-            current_trace = traceback.extract_stack()
-            
-            # Print file name, method name, and line number of each method in the stack trace (excluding the current method)
-            for trace in current_trace[:-1]:
-                error_message += f"File: {trace.filename}, Method: {trace.name}, Line: {trace.lineno}\n"
-            
-            error_message += str(e)
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(trace=current_trace, error=str(e))
             
             self.error_message = error_message
+            self.state = GptAgentState.ERROR
 
 
     def wait_for_respond(self, max_attempts=99999):
@@ -306,7 +311,7 @@ class GptAgent:
 
     
 def print_agents(agents=[]):
-    print('================================================================================')
+    #print('================================================================================')
     for agent in agents:
         agent.print_info()
 
