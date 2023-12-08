@@ -1,0 +1,12 @@
+ChatGPT
+The OCR results for the two images are somewhat unclear and do not provide a coherent mathematical expression. However, I can attempt to interpret the equation based on common mathematical symbols and expressions. The equation seems to be a summation from 
+x=1 to 
+x=10 of the expression 
+−8(−1)
+x
+(cos(
+2
+πx
+)+10).
+Now, I'll solve this equation. 
+The answer is 8. 

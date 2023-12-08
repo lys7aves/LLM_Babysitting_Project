@@ -1,0 +1,11 @@
+ChatGPT
+The OCR (Optical Character Recognition) results are not accurate for the second image with the lattice overlay, as expected due to the complexity of the background. However, the expression from the first image is clear and appears to be:
+∑
+x=1
+10
+(−3x
+2
++x)
+Let's calculate this expression to find the correct sum. 
+The answer is 
+−1100. 

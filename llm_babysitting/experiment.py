@@ -29,11 +29,11 @@ colorama.init()
 
 def set_agents(lock):
     gpt4_tabs = [
-        'AE292161600FD398810045AB7773F96F',
-        '5C502F1DCDC95920EEAD616471421ADA',
-        '4832771EE74B156EFCA3F83E560DE07C',
-        'EF1AD1D8848655121CD989AF3E29EC24',
-        'E3621B6F531FA2094BF32C9896E34B56'
+        '6AE7FD505865F589CF21EB0815274ACD',
+        '33C322877B760EF3C906A3A7505BCCAF',
+        '0ECB85764F6D372DCED2E7D78EFCD6DA',
+        '3504F117CCA00699331FE86D9F611DEF',
+        'BECB5E9E8EBBEE562B4A72C22D78EC56'
     ]
     gpt3_tabs = [
         '1B4DF690BC13AB0DE7DE6BEC0CF47056',
@@ -59,10 +59,34 @@ def set_agents(lock):
 
 
 
-def run_task(lock=None, agent=None, message='', files=[], result_path=None):
+def run_task(lock=None, agent=None, message='', files=[], result_path=None, max_attempts=9999):
     agent.start(message=message, files=files)
 
-    while agent.state == GptAgentState.RESPONDING:
+    attempts = 0
+    generate_error_cnt = 0
+    generate_error_attempts = 0
+    while attempts < max_attempts and agent.state != GptAgentState.AWAITING_INPUT:
+        if agent.state == GptAgentState.ERROR_HANDLED:
+            agent.close()
+            time.sleep(1)
+            agent.start(message=message, files=files)
+        
+        if agent.state == GptAgentState.REGENERATE_ERROR:
+            generate_error_attempts += 1
+            if generate_error_attempts == 100:
+                generate_error_attempts = 0
+                generate_error_cnt += 1
+                if generate_error_cnt == 10:
+                    break
+
+                agent.close()
+                time.sleep(1)
+                agent.start(message = message, files=files)
+
+        else:
+            generate_error_attempts = 0
+
+        attempts += 1
         time.sleep(1)
     
     if agent.state == GptAgentState.AWAITING_INPUT:
@@ -100,46 +124,45 @@ def run_tasks(lock=None, agents=None, task_path=None, experiments_per_task=3):
     #tasks = os.listdir(task_path+'tasks/')
     file_base_path = 'C:/Users/LeeYuseop/OneDrive/바탕 화면/Lecture/2023-2/2023-2 Natural Language Processing (001)/project/LLM_Babysitting_Project/llm_babysitting/data/task_1/'
     
-    h = 5
-    w = 5
+
+    hws = [(5,5), (7,7), (6,6), (5,1), (1,5)]
     cnt = 0
-    for h in [5, 7, 3]:
-        for w in [h, h+1, h-1]:
-            for i in range(2, 31):
-                for j in range(1, 3):
-                    message = f'One is the original image, and the other is an image with an {h} by {w} lattice drawn to provide hints about the location information.\nCalculate it.\nPlease respond in the form of "The answer is ..." or "The answer is approximately ..." at the end.'
-                    files = [file_base_path + f'tasks/problem{i}.png', file_base_path + f'tasks/problem{i}_{h}_{w}.png']
-                    result_path = file_base_path + f'results/result{i}_{h}_{w}_{j}.txt'
+    for h, w in hws:
+        for i in range(2, 31):
+            for j in range(1, 4):
+                message = f"The two images are of the same expression. One is the original image, and the other has a lattice of {h} by {w} for precise location information.\n\nFirst, compare the two images, taking into account the accurate positioning, and read the expression correctly.\n\nThen, calculate the expression.\n\nPlease conclude your answer with 'The answer is ...' or 'The answer is approximately ...'.\n\nLet's think step by step."
+                files = [file_base_path + f'tasks/problem{i}.png', file_base_path + f'tasks/problem{i}_{h}_{w}.png']
+                result_path = file_base_path + f'results/result{i}_{h}_{w}_{j}.txt'
 
-                    if os.path.exists(result_path):
-                        continue
+                if os.path.exists(result_path):
+                    continue
 
-                    while True:
-                        print('================================================================================')
-                        print(f'Next task: {i} {h} {w} {j}')
-                        Agent.print_agents(agents=agents)
+                while True:
+                    print('================================================================================')
+                    print(f'Next task: {i} {h} {w} {j}')
+                    Agent.print_agents(agents=agents)
 
-                        cnt += 1
-                        if cnt == 10:
-                            cnt = 0
+                    cnt += 1
+                    if cnt == 100:
+                        cnt = 0
 
-                            agent = Agent.find_free_agent(agents=agents)
-                            if agent is not None:
-                                print('find free agent!')
+                        agent = Agent.find_free_agent(agents=agents)
+                        if agent is not None:
+                            print('find free agent!')
 
+                            time.sleep(10)
+                            thread = threading.Thread(target=run_task, args=(lock, agent, message, files, result_path))
+                            thread.start()
 
-                                thread = threading.Thread(target=run_task, args=(lock, agent, message, files, result_path))
-                                thread.start()
-
-                                break
-                            
-                            else:
-                                print('No free agent :(')
+                            break
                         
                         else:
-                            print(f'Wait {cnt}')
+                            print('No free agent :(')
+                    
+                    else:
+                        print(f'Wait {cnt}')
 
-                        time.sleep(1)
+                    time.sleep(3)
 
 
 def experiment(task_generator='calculate_expression', method='step_by_step', num_agents=5, num_data=30):

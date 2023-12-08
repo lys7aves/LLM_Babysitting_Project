@@ -13,6 +13,7 @@ from enum import Enum, auto
 import colorama
 from colorama import Fore
 import traceback
+import re
 
 
 def print_all_module_versions():
@@ -54,6 +55,7 @@ class GptCrawlerState(Enum):
 
     REGENERATE_ERROR = auto()
     LIMIT_ERROR = auto()
+    ERROR_HANDLED = auto()
 
 
 class Crawler:
@@ -122,6 +124,9 @@ class Crawler:
 
     def switch_tab(self, tab_index):
         if 0 <= tab_index < len(self.tabs):
+            if self.driver.current_window_handle != self.tabs[tab_index]:
+                time.sleep(3)
+                
             self.driver.switch_to.window(self.tabs[tab_index])
             self.print_debug_message('function: switch_tab (Success)')
         else:
@@ -310,9 +315,12 @@ class GptCrawler(Crawler):
             self.state[tab_index] = GptCrawlerState.RESPONDING
 
         except Exception as e:
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(trace=current_trace, error="Please provide either a message or an file(s).")
+            
+            self.error_messages[tab_index] = error_message
             self.state[tab_index] = GptCrawlerState.ERROR
-            self.error_messages[tab_index] = e
-            raise e
+            raise ValueError(e)
 
         finally:
             self.lock_release()
@@ -415,31 +423,58 @@ class GptCrawler(Crawler):
                 # regenerate error
                 regenerate_button = self.driver.find_elements(By.CSS_SELECTOR, 'button[class="btn relative btn-primary m-auto"]')
                 if len(regenerate_button) == 1:
-                    regenerate_button[0].click()
+                    current_trace = traceback.extract_stack()[-1]
+                    error_message = make_error_message(trace=current_trace, error='Regenerate error e.g. "Hmm...something seems to have gone wrong."')
+                    
+                    self.error_messages[tab_index] = error_message
                     self.state[tab_index] = GptCrawlerState.REGENERATE_ERROR
+
+                    regenerate_button[0].click()
+                    self.wait(1)
+
+                    return
                 
                 # limit error
                 limit_error_box = self.driver.find_elements(By.CSS_SELECTOR, 'div[class="flex items-center gap-6"]')
                 if len(limit_error_box) == 1:
-                    self.error_messages[tab_index] = limit_error_box[0].text
+                    limit_error_text = limit_error_box[0].text
+
+                    current_trace = traceback.extract_stack()[-1]
+                    error_message = make_error_message(trace=current_trace, error=limit_error_text)
+                    
+                    self.error_messages[tab_index] = error_message
                     self.state[tab_index] = GptCrawlerState.LIMIT_ERROR
-                    #stop_program(agent, error_text)
-                    #미완성
+                    
+                    self.wait_limit_error(limit_error_text)
+                    
+                    self.state[tab_index] = GptCrawlerState.ERROR_HANDLED
+
+                    return
                 
+                current_trace = traceback.extract_stack()[-1]
+                error_message = make_error_message(trace=current_trace, error="I don't know what is wrong :(")
+                
+                self.error_messages[tab_index] = error_message
                 self.state[tab_index] = GptCrawlerState.ERROR
 
             else:
                 send_button = self.driver.find_elements(By.CSS_SELECTOR, 'button[data-testid="send-button"]')
                 if len(send_button) == 1:
                     if self.state[tab_index] != GptCrawlerState.INPUTTING:
+                        self.error_messages[tab_index] = None
                         self.state[tab_index] = GptCrawlerState.AWAITING_INPUT
                 else:
+                    self.error_messages[tab_index] = None
                     self.state[tab_index] = GptCrawlerState.RESPONDING
 
         except Exception as e:
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(trace=current_trace, error=str(e))
+            
+            self.error_messages[tab_index] = error_message
             self.state[tab_index] = GptCrawlerState.ERROR
-            self.error_messages[tab_index] = e
-            raise e
+
+            raise ValueError(error_message)
 
         finally:
             self.lock_release()
@@ -468,9 +503,13 @@ class GptCrawler(Crawler):
             return conversations
 
         except Exception as e:
+            current_trace = traceback.extract_stack()[-1]
+            error_message = make_error_message(trace=current_trace, error=str(e))
+            
+            self.error_messages[tab_index] = error_message
             self.state[tab_index] = GptCrawlerState.ERROR
-            self.error_messages[tab_index] = e
-            raise e
+
+            raise ValueError(error_message)
 
         finally:
             self.lock_release()
@@ -537,6 +576,41 @@ class GptCrawler(Crawler):
 
 
 
+    def wait_limit_error(self, error_text):
+        # 시간 정보 추출을 위한 정규 표현식 패턴
+        time_pattern = r'after (\d+:\d+ [AP]M)'
+
+        # 정규 표현식을 사용하여 시간 정보 추출
+        match = re.search(time_pattern, error_text)
+
+        if match:
+            extracted_time = match.group(1)
+            print("추출된 시간 정보:", extracted_time)
+
+            # 시간 문자열을 파싱하여 시간 정보 추출
+            time_format = "%I:%M %p"  # 시간 형식 지정
+
+            # 현재 날짜와 시간으로 설정
+            current_time = time.localtime()
+            target_time = time.strptime(extracted_time + " " + time.strftime("%Y-%m-%d"), time_format + " %Y-%m-%d")
+
+            # 시간 비교를 위한 시간 차 계산
+            time_diff = time.mktime(target_time) - time.mktime(current_time)
+
+            if time_diff < 0:
+                time_diff += 86400
+
+            print(f"{time_diff}초 동안 대기합니다.")
+
+            self.wait(time_diff+60)  # 추출한 시간까지 대기
+
+            print("대기 완료!")
+
+        else:
+            print("시간 정보를 찾을 수 없습니다.")
+
+
+
 
 def test_crawler():
     print_all_module_versions()
@@ -560,43 +634,7 @@ if __name__ == "__main__":
 
 
 '''
-def stop_program(agent, error_text):
-    print(time.strftime('[%H:%M:%S]'), f"agent #{agent['id']} releases lock")
-    agent['lock'].release()
 
-    # 시간 정보 추출을 위한 정규 표현식 패턴
-    time_pattern = r'after (\d+:\d+ [AP]M)'
-
-    # 정규 표현식을 사용하여 시간 정보 추출
-    match = re.search(time_pattern, error_text)
-
-    if match:
-        extracted_time = match.group(1)
-        print("추출된 시간 정보:", extracted_time)
-
-        # 시간 문자열을 파싱하여 시간 정보 추출
-        time_format = "%I:%M %p"  # 시간 형식 지정
-
-        # 현재 날짜와 시간으로 설정
-        current_time = time.localtime()
-        target_time = time.strptime(extracted_time + " " + time.strftime("%Y-%m-%d"), time_format + " %Y-%m-%d")
-
-        # 시간 비교를 위한 시간 차 계산
-        time_diff = time.mktime(target_time) - time.mktime(current_time)
-
-        if time_diff < 0:
-            time_diff += 86400
-
-        print(f"{time_diff}초 동안 대기합니다.")
-        time.sleep(time_diff+60)  # 추출한 시간까지 대기
-        print("대기 완료!")
-
-    else:
-        print("시간 정보를 찾을 수 없습니다.")
-
-    agent['lock'].acquire()
-    print(time.strftime('[%H:%M:%S]'), f"agent #{agent['id']} acquires lock")
-    time.sleep(1)
 
 
 

@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} \left(x^{x} + 9\right)
+#solution: 10405071407
+#evalf_avlue: 10405071407.0

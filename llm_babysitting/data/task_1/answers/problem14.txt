@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} \left(x + x^{x} + 2\right)
+#solution: 10405071392
+#evalf_avlue: 10405071392.0

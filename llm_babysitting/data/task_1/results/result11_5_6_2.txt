@@ -1,0 +1,3 @@
+ChatGPT
+To solve the given equation, we first need to interpret it correctly. The equation shown is:
+\sum_{x=1}^{10} (10x - 50) \

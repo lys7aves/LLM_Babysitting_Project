@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} \left(\left(-7\right)^{x} - 9\right)
+#solution: 247165752
+#evalf_avlue: 247165752.0

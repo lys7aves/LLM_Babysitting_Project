@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} - 8 \left(-1\right)^{x} \left(\cos{\left(\frac{\pi x}{2} \right)} + 10\right)
+#solution: 8
+#evalf_avlue: 8.0

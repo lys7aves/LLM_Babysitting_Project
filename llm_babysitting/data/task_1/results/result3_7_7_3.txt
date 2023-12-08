@@ -1,0 +1,11 @@
+ChatGPT
+It appears that the OCR was not able to extract text from the image you provided. This may be due to the complexity of the mathematical expression or the quality of the image. However, I can manually read the expression and proceed with the calculation.
+The expression from the image appears to be a summation:
+∑
+x=1
+10
+(−3x
+2
++x)
+Let's calculate this expression step by step. 
+The answer is -1100. 
