@@ -1,0 +1,12 @@
+ChatGPT
+The OCR results for the original image appear to capture the mathematical expression correctly as 10 > (—3^2 + x) a=1, which seems to be a misinterpretation of the summation expression. The OCR for the lattice image did not produce a coherent result.
+Given that OCR has failed to correctly interpret the text, particularly from the image with the lattice, I will proceed to manually compare the two images. Based on the original image, the expression should be read as:
+∑
+x=1
+10
+(−3x
+2
++x)
+Now, I will calculate this expression. 
+The answer is 
+−1100. 

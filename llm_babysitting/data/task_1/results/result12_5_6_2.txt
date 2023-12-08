@@ -1,0 +1,3 @@
+ChatGPT
+The OCR process did not yield a readable result from the images, which makes it difficult to compare the two images for precise location information and to read the equation correctly.
+Given the failure of the OCR to ext

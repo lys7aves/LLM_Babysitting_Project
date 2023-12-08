@@ -217,7 +217,7 @@ class GptAgent:
 
 
             if self.state == GptAgentState.PREPARATION:
-                url = None
+                self.url = None
             if self.url is None:
                 if self.state == GptAgentState.AWAITING_INPUT or self.state == GptAgentState.FINISHED:
                     self.url = self.gpt_crawler.get_url(self.tab_index)
@@ -263,6 +263,7 @@ class GptAgent:
     def wait_for_respond(self, max_attempts=99999):
         attempts = 0
         while attempts < max_attempts:
+            time.sleep(1)
             self.update_state()
             self.conversations = self.gpt_crawler.get_conversations(tab_index=self.tab_index)
 
@@ -270,7 +271,6 @@ class GptAgent:
                 break
 
             attempts += 1
-            time.sleep(1)
 
         if attempts == max_attempts:
             error_message = ''

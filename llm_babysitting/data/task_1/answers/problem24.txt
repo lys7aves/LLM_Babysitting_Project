@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} \sin{\left(\pi \left(\frac{\cos{\left(\frac{\pi x}{2} \right)}}{2} + \frac{7}{2}\right) \right)}
+#solution: -5
+#evalf_avlue: -5.0

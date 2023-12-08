@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} - 9 x^{x - 3}
+#solution: - \frac{190203435}{2}
+#evalf_avlue: -95101717.5

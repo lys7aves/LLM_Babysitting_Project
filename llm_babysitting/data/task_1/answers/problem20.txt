@@ -1,0 +1,3 @@
+#problem: \sum_{x=1}^{10} \left(x + 1\right)
+#solution: 65
+#evalf_avlue: 65.0
