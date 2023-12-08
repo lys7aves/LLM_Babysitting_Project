@@ -300,7 +300,7 @@ class GptAgent:
     def close(self):
         self.state = GptAgentState.FINISHED
 
-        self.gpt_crawler.delete_chat(self.tab_index)
+        #self.gpt_crawler.delete_chat(self.tab_index)
 
         self.url = None
         self.conversations = []

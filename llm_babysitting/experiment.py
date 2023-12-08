@@ -143,7 +143,7 @@ def run_tasks(lock=None, agents=None, task_path=None, experiments_per_task=3):
                     Agent.print_agents(agents=agents)
 
                     cnt += 1
-                    if cnt == 10:
+                    if cnt == 100:
                         cnt = 0
 
                         agent = Agent.find_free_agent(agents=agents)
