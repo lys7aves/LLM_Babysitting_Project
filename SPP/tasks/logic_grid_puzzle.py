@@ -1,7 +1,7 @@
 import os
 import re
 from tasks.base import Task, DATA_PATH
-from prompts.logic_grid_puzzle import standard_prompt, cot_prompt, spp_prompt, spp_prompt_profile, spp_prompt_fixed_persona
+from prompts.logic_grid_puzzle import role_prompt, standard_prompt, cot_prompt, spp_prompt, spp_prompt_profile, spp_prompt_fixed_persona
 import json
 
 
@@ -47,6 +47,8 @@ class LogicGridPuzzleTask(Task):
             input_prompt = spp_prompt_fixed_persona.format(input=input_str)
         elif method == "spp_profile":
             input_prompt = spp_prompt_profile.format(input=input_str)
+        elif method == "role":
+            input_prompt = role_prompt.format(input=input_str)
         else:
             raise NotImplementedError(f"method {method} not implemented")
         
@@ -84,7 +86,7 @@ class LogicGridPuzzleTask(Task):
             else:
                 return response, False
         
-        elif method in ["spp", "spp_profile", "spp_fixed_persona"]:
+        elif method in ["role", "spp", "spp_profile", "spp_fixed_persona"]:
             if "Final answer:" in response:
                 return response.split("Final answer:")[1].strip(), True
             elif "final answer:" in response:

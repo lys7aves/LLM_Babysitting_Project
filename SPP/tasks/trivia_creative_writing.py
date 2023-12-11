@@ -1,7 +1,7 @@
 import os
 import re
 from tasks.base import Task, DATA_PATH
-from prompts.trivia_creative_writing import standard_prompt, cot_prompt, spp_prompt, spp_prompt_profile, spp_prompt_fixed_persona
+from prompts.trivia_creative_writing import role_prompt, standard_prompt, cot_prompt, spp_prompt, spp_prompt_profile, spp_prompt_fixed_persona
 import json
 # from models import gpt
 
@@ -35,6 +35,8 @@ class TriviaCreativeWritingTask(Task):
             input_prompt = spp_prompt_fixed_persona.format(n=n, questions=questions_str, topic=topic)
         elif method == "spp_profile":
             input_prompt = spp_prompt_profile.format(n=n, questions=questions_str, topic=topic)
+        elif method == "role":
+            input_prompt = role_prompt.format(n=n, questions=questions_str, topic=topic)
         else:
             raise NotImplementedError(f"method {method} not implemented")
         
@@ -73,7 +75,7 @@ class TriviaCreativeWritingTask(Task):
             else:
                 return response, False
         
-        elif method in ["spp","spp_profile","spp_fixed_persona"]:
+        elif method in ["role", "spp","spp_profile","spp_fixed_persona"]:
             if "Final answer:" in response:
                 return response.split("Final answer:")[1].strip(), True
             elif "final answer:" in response:

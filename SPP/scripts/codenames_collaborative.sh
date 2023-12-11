@@ -6,7 +6,7 @@ START_IDX=0
 END_IDX=50
 
 # choose method
-METHOD="spp" # ['standard','cot','spp', 'spp_profile', 'spp_fixed_persona']
+METHOD="role" # ['standard','cot','spp', 'spp_profile', 'spp_fixed_persona']
 
 # w/ or w/o system message (spp works better w/ system message)
 SYSTEM_MESSAGE="You are an AI assistant that helps people find information." # or "" (empty string)

@@ -69,6 +69,8 @@ class CodenamesCollaborativeTask(Task):
                 input_prompt = spp_prompt_guesser_fixed_persona.format(n = n, hint_word = hint_word, word_list = word_list_str)
             elif method == "spp_profile":
                 input_prompt = spp_prompt_guesser_profile.format(n = n, hint_word = hint_word, word_list = word_list_str)
+            elif method == "role":
+                input_prompt = role_prompt.format(n = n, hint_word = hint_word, word_list = word_list_str)
             else:
                 raise NotImplementedError(f"method {method} not implemented for guesser role")
         else:
@@ -111,7 +113,7 @@ class CodenamesCollaborativeTask(Task):
             else:
                 return response, True
         
-        elif method in ["spp", "spp_profile", "spp_fixed_persona"]:
+        elif method in ["role", "spp", "spp_profile", "spp_fixed_persona"]:
             if "Final answer:" in response:
                 return response.split("Final answer:")[1].strip(), True
             elif "final answer:" in response:

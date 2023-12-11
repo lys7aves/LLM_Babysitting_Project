@@ -5,7 +5,7 @@ DATA_FILE="logic_grid_puzzle_200.jsonl"
 START_IDX=0
 END_IDX=200
 
-METHOD="spp" # ['standard','cot','spp', 'spp_profile', 'spp_fixed_persona']
+METHOD="role" # ['standard','cot','spp', 'spp_profile', 'spp_fixed_persona']
 
 # w/ or w/o system message (spp works better w/o system message)
 SYSTEM_MESSAGE="" # or e.g., "You are an AI assistant that helps people find information."

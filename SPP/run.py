@@ -206,7 +206,7 @@ def parse_args():
     model_choices = list(gpt_configs.keys())
     args = argparse.ArgumentParser()
     args.add_argument('--model', type=str, choices=model_choices, required=True)
-    args.add_argument('--method', type=str, choices=['standard','cot','spp','spp_profile', 'spp_fixed_persona'], required=True)
+    args.add_argument('--method', type=str, choices=['role', 'standard','cot','spp','spp_profile', 'spp_fixed_persona'], required=True)
     args.add_argument('--task', type=str, choices=['trivia_creative_writing', 'logic_grid_puzzle', 'codenames_collaborative'], required=True)
     args.add_argument('--task_data_file', type=str, required=True)
     args.add_argument('--task_start_index', type=int, required=True)
