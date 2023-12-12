@@ -3,8 +3,8 @@ MODEL="gpt4-32k" # your engine name
 
 DATA_FILE="trivia_creative_writing_100_n_5.jsonl" # ['trivia_creative_writing_100_n_5.jsonl', 'trivia_creative_writing_100_n_10.jsonl']
 
-START_IDX=0
-END_IDX=10
+START_IDX=31
+END_IDX=60
 
 # choose method
 METHOD="role" # ['role', 'standard','cot','spp', 'spp_profile', 'spp_fixed_persona']

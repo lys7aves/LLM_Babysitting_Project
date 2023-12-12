@@ -2,8 +2,8 @@ MODEL="gpt4-32k" # your engine name
 
 DATA_FILE="logic_grid_puzzle_200.jsonl"
 
-START_IDX=0
-END_IDX=200
+START_IDX=31
+END_IDX=60
 
 METHOD="role" # ['standard','cot','spp', 'spp_profile', 'spp_fixed_persona']
 
