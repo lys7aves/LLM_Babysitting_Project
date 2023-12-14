@@ -1,0 +1,24 @@
+ChatGPT
+To calculate the expression shown in the image, we can follow these steps:
+Recognize that the expression is a sum from 
+x=1 to 
+x=10 of the sine function applied to some more complex trigonometric expression.
+The complex expression inside the sine function involves a fraction with a polynomial in the numerator and a constant in the denominator.
+The polynomial in the numerator is 
+π(70x+49).
+The denominator is just 2.
+Within the sine function, there's another trigonometric function, the cosine function, which itself has an exponentiation with base 
+π and an exponent that depends on 
+x as 
+2
+(−
+π
+6
+)
+x
+π
+.
+Let's compute this step by step using Python, starting by calculating the innermost part for each value of 
+x from 1 to 10, then applying the sine function, and finally summing all the terms together.
+The answer is approximately 
+−0.0359. 

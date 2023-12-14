@@ -1,0 +1,8 @@
+ChatGPT
+The answer is approximately -2.0285.
+Breaking it down, the exact symbolic result of the summation is 
+3cos(
+2
+2
+π
+)+cos(πsin(0.75π))+cos(πsin(1.75π))+1, which numerically evaluates to

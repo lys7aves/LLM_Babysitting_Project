@@ -1,0 +1,11 @@
+ChatGPT
+The comparison of the original and the lattice images confirms that the mathematical expression to be calculated is the same in both:
+x=1
+∑
+10
+(10+x−2
+x
+)
+Now, I will proceed to calculate the value of this expression. 
+The answer is 
+−1891. 

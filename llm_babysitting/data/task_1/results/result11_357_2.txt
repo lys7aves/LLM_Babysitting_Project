@@ -1,0 +1,19 @@
+ChatGPT
+The mathematical expression from the images can be read as follows:
+∑
+x=1
+10
+(10x−50)sin(
+2x
+π
+)
+This is a sum from 
+x=1 to 
+x=10 of the function 
+(10x−50)sin(
+2x
+π
+).
+To calculate this expression, we will plug in each integer value of 
+x from 1 to 10 into the function and sum the results. Let's proceed with the calculation.
+The answer is approximately -47.38. 

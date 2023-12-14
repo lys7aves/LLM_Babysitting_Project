@@ -1,9 +1,0 @@
-ChatGPT
-The calculated sum of the series 
-∑
-x=1
-10
-(10+x−2x
-2
-) is 
-−615. 

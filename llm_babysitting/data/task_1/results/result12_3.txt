@@ -1,0 +1,8 @@
+ChatGPT
+The calculated sum of the series 
+∑
+x=1
+10
+((−7)
+x
+−9) answer is 247,165,752. 

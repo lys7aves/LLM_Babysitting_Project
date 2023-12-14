@@ -1,2 +1,22 @@
 ChatGPT
-The answer is approximately 0.654. 
+The expression in the images is a summation that runs from 
+x=1 to 
+x=10, with the summand being 
+sin
+x
+(
+2
+πcos(
+2
+πx
+)
+).
+To calculate this expression, we need to compute the sum of the sin function raised to the x-th power, where the argument of the sin function is 
+2
+πcos(
+2
+πx
+)
+, for each integer value of 
+x from 1 to 10. Let's perform this calculation step by step using Python.
+The answer is exactly 5.0. 

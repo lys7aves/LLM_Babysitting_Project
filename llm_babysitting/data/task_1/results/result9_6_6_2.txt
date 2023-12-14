@@ -1,0 +1,5 @@
+ChatGPT
+The mathematical expression shown in the images is a summation expression. The summation sign (∑) indicates that we are adding up the values of sin(π(x + 3/2)) for each integer value of x from 1 to 10. The presence of π in the sine function argument suggests that the function's input is in radians.
+The expression inside the summation is sin(π(x + 3/2)). Since sine is a periodic function with a period of 
+2π, the values will repeat every 
+2π radians. Howev

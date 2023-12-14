@@ -1,0 +1,6 @@
+ChatGPT
+The sum of the given expression from 
+x=1 to 
+x=10 is 0. This is because the sine function is periodic, and the input to the sine function is an integer multiple of 
+π, which makes the sine of each term in the summation zero.
+The answer is 0. 

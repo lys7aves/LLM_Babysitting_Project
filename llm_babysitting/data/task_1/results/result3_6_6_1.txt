@@ -1,0 +1,16 @@
+ChatGPT
+To address your request, I will follow the steps you've outlined. Let's begin with the first part, which is to compare the two images and read the expression correctly.
+The expression in the images provided is a summation notation, which reads as:
+x=1
+∑
+10
+(3x
+2
++∣x∣)
+Now that we have accurately read the expression, we can proceed to calculate it. We will evaluate the sum of the function 
+3x
+2
++∣x∣ as 
+x ranges from 1 to 10.
+I will now use Python to calculate the final answer.
+The answer is 1210. 

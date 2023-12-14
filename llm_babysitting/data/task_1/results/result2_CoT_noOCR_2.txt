@@ -1,0 +1,11 @@
+ChatGPT
+The sum of the series 
+∑
+x=1
+10
+(10+x−2x
+2
+) from 
+x=1 to 
+x=10 is 
+−615. 

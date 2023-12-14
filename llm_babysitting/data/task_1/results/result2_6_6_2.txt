@@ -1,0 +1,18 @@
+ChatGPT
+Firstly, let's interpret the mathematical expression shown in the images. The expression is a summation:
+∑
+x=1
+10
+(10+x−2x)
+This expression tells us to sum up the values of 
+(10+x−2x) for each integer 
+x starting from 1 to 10.
+Before calculating, let's simplify the expression inside the summation:
+10+x−2x=10−x
+Now, the simplified expression we need to sum is:
+∑
+x=1
+10
+(10−x)
+We will calculate this using Python.
+The answer is 45. 

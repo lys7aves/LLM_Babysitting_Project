@@ -1,0 +1,33 @@
+ChatGPT
+The calculated value of the given expression 
+∑
+x=1
+10
+sin
+x
+(x)
+2
+πcos(
+2
+πx
+)
+ is:
+2
+π
+(−sin(2)
+2
+−sin(10)
+10
+−sin(6)
+6
++sin(4)
+4
++sin(8)
+8
+)
+This expression simplifies to involve the powers of sine for certain values of 
+x, which are then multiplied by 
+π
+2
+π
+. However, this result is a symbolic representation, and a numerical approximation might be more useful for interpretation. Would you like the numerical value of this expression? 

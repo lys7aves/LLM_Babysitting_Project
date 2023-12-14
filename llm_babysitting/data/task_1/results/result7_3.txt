@@ -1,0 +1,11 @@
+ChatGPT
+The sum of the expression 
+∑
+x=1
+10
+−9x
+2
+−3 from 
+x=1 to 
+x=10 is 
+−3495. 

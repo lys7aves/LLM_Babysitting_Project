@@ -1,0 +1,3 @@
+ChatGPT
+The OCR process did not produce a legible output from the images, which is likely due to the nature of the content (mathematical expressions) not being well-suited for text recognition software that is optimized for standard text. Since OCR is not effective here, I will proceed by manually comparing the images based on the lattice you mentioned for precise location information.
+Let me analyze the images directly to compare them and read the expression correctly before performing the ca

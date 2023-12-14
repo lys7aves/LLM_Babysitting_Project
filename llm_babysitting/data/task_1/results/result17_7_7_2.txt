@@ -1,0 +1,28 @@
+ChatGPT
+The expression provided in the images is a sum from 
+x=1 to 
+x=10 of the cosine of a fraction whose numerator is 
+sin(
+2
+πx
+) and whose denominator is 
+π
+2
+πx
+.
+The expression can be written as:
+x=1
+∑
+10
+cos(
+2
+πx
+sin(
+2
+πx
+)
+)
+To calculate this, we will evaluate the cosine of the expression inside the sum for each integer value of 
+x from 1 to 10, and then add them together. Let's proceed to calculate it using Python.
+The answer is approximately 
+9.767. 

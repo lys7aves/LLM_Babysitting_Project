@@ -1,0 +1,19 @@
+ChatGPT
+The comparison of the two images shows that they contain the same mathematical expression, which is:
+x=1
+∑
+10
+sin(
+2
+πcos(π(x+
+2
+5
+))
+)
+Now, let's proceed to calculate this expression. 
+The answer is approximately 
+0. The very small number (
+−2.14×10
+−14
+) we obtained is due to the limitations of floating-point arithmetic in computers and can be considered as 
+0 for all practical purposes. 

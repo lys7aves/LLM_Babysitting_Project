@@ -1,0 +1,41 @@
+ChatGPT
+To calculate the given expression, we'll break it down step by step. The expression is a summation from 
+x=1 to 
+x=10 of the function:
+f(x)=x
+2
+−sin(
+2
+−5
+sin(
+2
+πx
+))π
+Let's compute this step by step:
+Calculate 
+x
+2
+ for each 
+x from 1 to 10.
+Compute the sine function for each 
+x, specifically 
+sin(
+2
+πx
+).
+Multiply that result by 
+2
+−5
+ and then take the sine of the entire expression.
+Multiply that result by 
+π.
+Subtract the result from step 3 from 
+x
+2
+ to get the value of the function for each 
+x.
+Sum up all the function values from 
+x=1 to 
+x=10.
+Let's perform these calculations.
+The answer is approximately 386.88. 

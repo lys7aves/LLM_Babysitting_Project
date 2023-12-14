@@ -1,0 +1,29 @@
+ChatGPT
+To calculate the given expression:
+∑
+x=1
+10
+cos(
+2
+πsin(
+2
+πx
+)
+)
+We will evaluate the sum from 
+x=1 to 
+x=10. The key part of this expression is to understand how the sine function behaves when multiplied by 
+π
+2
+π
+, as this will influence the output of the cosine function.
+The sine function has a period of 
+2π, so when we multiply 
+x by 
+π
+2
+π
+, we are essentially looking at the sine function at different points of its period.
+Let's calculate this step by step using Python.
+The answer is 
+5. 

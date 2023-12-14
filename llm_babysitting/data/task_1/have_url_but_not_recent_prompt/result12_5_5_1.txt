@@ -1,0 +1,12 @@
+ChatGPT
+The two images display the mathematical expression:
+∑
+x=1
+10
+((−7)
+x
+−9)
+This expression is a summation that calculates the sum of the series where each term is 
+(−7)
+x
+−9 for (

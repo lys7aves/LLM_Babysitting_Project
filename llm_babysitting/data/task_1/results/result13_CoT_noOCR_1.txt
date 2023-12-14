@@ -1,0 +1,13 @@
+ChatGPT
+To calculate the sum of the series given in the image, we can write a Python function to evaluate it. The series is:
+x=1
+∑
+10
+−8(−1)
+x
+(cos(
+2
+πx
+)+10)
+Let's calculate this sum.
+The answer is 8. 

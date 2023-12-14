@@ -1,0 +1,14 @@
+ChatGPT
+To calculate the sum expressed by the notation:
+∑
+x=1
+10
+−9x
+−3
+we'll need to substitute the values of 
+x from 1 to 10 into the expression 
+−9x
+−3
+ and then sum up all the resulting terms.
+Let's compute this using Python.
+The answer is approximately -10.7778. 

@@ -1,0 +1,8 @@
+ChatGPT
+The OCR process did not successfully extract the text from the images provided. However, from the initial view, the expression appears to be a summation expression that runs from 
+x=1 to 
+x=10, and the function inside the summation is 
+−9x
+−3
+.
+Let's

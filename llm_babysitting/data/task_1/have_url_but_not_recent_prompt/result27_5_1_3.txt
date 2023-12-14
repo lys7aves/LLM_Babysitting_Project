@@ -1,0 +1,16 @@
+ChatGPT
+Both images represent the same mathematical expression. The expression is a summation from 
+x=1 to 
+x=10 of 
+sin
+x
+(
+2
+π
+).
+Now, we know that 
+sin(
+2
+π
+)=1, and since any number to the power of 
+x where the

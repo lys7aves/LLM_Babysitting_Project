@@ -1,0 +1,4 @@
+ChatGPT
+Given the two images, I'll first describe the mathematical expression as accurately as possible, using the lattice to judge the relative positions and sizes to ensure correct interpretation of superscripts, subscripts, and other formatting details.
+The expression is a fraction with a summation on the numerator and a number 2 on the denominator. The summation is from x equals 1 to 10 of cosine (cos) functions.
+The argument of the cosine function in the summation is a little complex. It contains another fraction inside it. The numerator of this inner fraction

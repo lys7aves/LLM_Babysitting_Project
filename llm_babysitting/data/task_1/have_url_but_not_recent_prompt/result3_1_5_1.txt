@@ -1,0 +1,16 @@
+ChatGPT
+The two images have been compared, and both contain the same mathematical expression, which is:
+x=1
+∑
+10
+(−3x
+2
++x)
+The expression is a summation from 
+x=1 to 
+x=10 of the quadratic polynomial 
+−3x
+2
++x.
+Next, let's calculate the value of this summation. 
+The answer is -1100. 

@@ -1,0 +1,6 @@
+ChatGPT
+The OCR results for the first image have captured some elements of the mathematical expression, indicating a summation from 
+x=1 to 
+10 and includes 
+(10x−50). However, the OCR results are incomplete and not clear for the trigonometric function part.
+The second image's OCR results are not useful as they have not captured any mathematical ex

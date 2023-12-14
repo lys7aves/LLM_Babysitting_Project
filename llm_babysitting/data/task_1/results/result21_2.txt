@@ -1,0 +1,15 @@
+ChatGPT
+The expression evaluates to 
+3cos(
+2
+2
+π
+)+cos(πsin(0.75π))+cos(πsin(1.75π))+1.
+However, the result contains trigonometric functions of trigonometric functions, which can often be simplified further. Let's see if we can simplify this result. 
+The expression remains the same after simplification, so the final result is:
+3cos(
+2
+2
+π
+)+cos(πsin(0.75π))+cos(πsin(1.75π))+1
+This result is already in its simplest form as far as symbolic computation is concerned. If you need a numerical approximation, let me know and I can calculate that for you. 

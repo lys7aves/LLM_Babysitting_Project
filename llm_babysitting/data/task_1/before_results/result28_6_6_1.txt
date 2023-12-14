@@ -1,0 +1,12 @@
+ChatGPT
+The images show the same mathematical expression, which is the sum from 
+x=1 to 
+10 of 
+x
+x
++9.
+To calculate this expression, we will compute the sum of each term 
+x
+x
++9 where 
+x goes

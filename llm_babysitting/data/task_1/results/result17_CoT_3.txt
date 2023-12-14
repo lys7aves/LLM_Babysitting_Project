@@ -1,0 +1,19 @@
+ChatGPT
+The expression evaluates to the sum of several cosine terms with different arguments, plus 5. The exact sum of terms is:
+cos(
+π
+2
+)+cos(
+3π
+2
+)+cos(
+5π
+2
+)+cos(
+7π
+2
+)+cos(
+9π
+2
+)+5
+And the approximate numerical value of the sum is:

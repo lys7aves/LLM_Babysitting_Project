@@ -1,0 +1,15 @@
+ChatGPT
+The mathematical expression provided in the images represents a summation. The expression inside the summation is 
+sin
+x
+(
+2
+πcos(
+2
+πx
+)
+), and we are summing this expression for 
+x going from 1 to 10.
+Now let's proceed to calculate the value of this summation.
+The answer is 
+5. 

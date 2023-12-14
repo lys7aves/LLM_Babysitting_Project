@@ -1,0 +1,21 @@
+ChatGPT
+The two images display the same mathematical expression with the lattice image providing a clear framework to help read the expression correctly.
+The expression is:
+x=1
+∑
+10
+sin(π(
+2
+cos(
+2
+πx
+)
++
+2
+7
+))
+Now, let's calculate this expression. We will compute the value of this summation from 
+x=1 to 
+x=10. 
+The answer is 
+−5. 

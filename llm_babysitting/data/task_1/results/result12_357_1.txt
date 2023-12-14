@@ -1,0 +1,11 @@
+ChatGPT
+The mathematical expression depicted in the images is a sum from 
+x=1 to 
+10 of the function 
+(−7)
+x
+−9. To calculate this expression, we will evaluate the function at each integer value of 
+x from 1 to 10 and then sum the results.
+Let me perform the calculation for you.
+The answer is 
+247,165,752. 

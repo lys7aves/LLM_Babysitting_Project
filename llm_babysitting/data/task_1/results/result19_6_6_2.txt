@@ -1,0 +1,21 @@
+ChatGPT
+The images contain a mathematical expression, which I will read and interpret. Here's the expression based on the provided images:
+2
+10∑
+x=1
+10
+cos
+x
+(
+2
+πx
+)
+This expression is a fraction where the numerator is the sum from 
+x=1 to 
+x=10 of 
+cos
+x
+(
+2
+πx
+) and the denominator is 2

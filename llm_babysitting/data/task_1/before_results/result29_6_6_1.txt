@@ -1,0 +1,16 @@
+ChatGPT
+The summation of the given expression from 
+x=1 to 
+x=10 is calculated as:
+x=1
+∑
+10
+sin(
+2
+πcos(
+2
+x
+)
+)
+The exact symbolic result is a sum of sine functions with different arguments:
+\sin\left(\frac{\pi \cos\left(\frac{3}{2}\right)}{2}\right) + \sin\left(\frac{\pi \cos\left(\frac{7}{2}\right)}{2}\r

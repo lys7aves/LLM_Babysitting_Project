@@ -1,0 +1,11 @@
+ChatGPT
+The result of the summation from 
+x=1 to 
+x=10 for the expression 
+(
+(x
+5
+1
++(x
+x
+)⋅x) is approximately ( 10

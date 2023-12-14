@@ -1,0 +1,20 @@
+ChatGPT
+It appears that the optical character recognition (OCR) was not able to read the expressions from the images successfully. This sometimes happens due to the quality of the images or the complexity of the mathematical expressions.
+However, based on the description you've provided, the mathematical expression in the images is:
+∑
+x=1
+10
+−9x
+−3
+This is a summation expression where 
+x ranges from 1 to 10, and the summand is 
+−9x
+−3
+, which simplifies to 
+−
+x
+3
+9
+.
+Let's calculate this expression step by step. 
+The answer is approximately -10.7778. 

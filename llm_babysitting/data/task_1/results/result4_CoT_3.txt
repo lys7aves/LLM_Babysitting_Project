@@ -1,0 +1,10 @@
+ChatGPT
+The summation of the given expression evaluates to a complex mathematical form which includes terms like 
+−sin(
+2
+πcos(
+33614
+π
+)
+) and others, but numerically it simplifies to an approximate value. The answer is approximately 
+0.999998. 

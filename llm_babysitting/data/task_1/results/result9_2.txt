@@ -1,0 +1,10 @@
+ChatGPT
+The result of the summation 
+∑
+x=1
+10
+sin(π(x+
+2
+3
+)) is 
+0. 

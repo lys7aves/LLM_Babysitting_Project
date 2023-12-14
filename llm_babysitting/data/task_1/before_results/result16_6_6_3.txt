@@ -1,0 +1,6 @@
+ChatGPT
+To begin with, let's compare the two images and read the mathematical expression correctly. The expression in the images appears to be a sum from 
+x=1 to 
+10 of a trigonometric function involving cosine and sine functions.
+The expression, as per the images, is:
+\sum_{x=1}^{10} \cos \left( \frac{\pi \sin \left(

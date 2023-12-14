@@ -1,0 +1,12 @@
+ChatGPT
+The text extracted from the original image is "10 > (—3x^2 + x) a=1", which seems to be a misinterpretation of the symbols by the OCR (Optical Character Recognition) software. For the lattice image, the OCR did not return meaningful results.
+Based on the standard notation for sums, the expression looks like it should be a summation from 
+x=1 to 
+x=10 of the expression 
+−3x
+2
++x.
+Given this, let's calculate the correct sum:
+\sum_{x=1}^{10} (-3x^2 + x)
+\] &#8203;``【oaicite:0】``&#8203;
+The answer is -1100. 

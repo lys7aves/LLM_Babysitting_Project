@@ -1,0 +1,4 @@
+ChatGPT
+First, let's carefully read the expression from the images. The expression is a summation that runs from 
+x=1 to 
+10, of the cosine of a fraction. The numerator of the fraction is ( \pi \sin \left( \frac{

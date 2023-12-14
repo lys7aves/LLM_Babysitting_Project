@@ -1,0 +1,18 @@
+ChatGPT
+To approach this task, we'll need to:
+Interpret the Expression: Understand the mathematical expression presented in the images.
+Calculate the Expression: Compute the value of the expression.
+Firstly, let's interpret the expression from the original image and the lattice images.
+The expression is a summation from 
+x=1 to 
+x=10 of 
+−3x
+2
++x.
+Now, we can calculate this expression using Python. We will write a loop to sum the value of 
+−3x
+2
++x for each integer value of 
+x from 1 to 10. Let's proceed with the calculation.
+The answer is 
+−1100. 

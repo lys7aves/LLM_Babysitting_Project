@@ -1,0 +1,3 @@
+ChatGPT
+The OCR results are not perfectly clear, but based on the two images, the expression seems to be:
+\sum_{x=1}^{10} \sin \left( \frac{\pi \cos \left( \pi \left( x

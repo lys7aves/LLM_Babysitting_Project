@@ -1,0 +1,13 @@
+ChatGPT
+After comparing the two images, the mathematical expression in both images can be read correctly as:
+∑
+x=1
+10
+−8(−1)
+x
+(cos(
+2
+πx
+)+10)
+Now, I will calculate the value of this expression. 
+The answer is 8. 

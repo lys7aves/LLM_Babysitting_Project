@@ -1,0 +1,45 @@
+ChatGPT
+To calculate the expression given in the image, let's break it down step by step.
+The expression is a sum from 
+x=1 to 
+x=10 of the following term:
+2
+cos(3πxcos
+⎝
+⎛
+2
+πsin(
+π
+7cos(
+2
+πx
+)
+)
+⎠
+⎞
+)
+We notice a nested trigonometric function, which we will need to simplify step by step.
+Starting from the innermost function:
+2
+πx
+ is an argument for the 
+cos function.
+The result of that 
+cos function is then multiplied by 7 and divided by 
+π, which simplifies to just 
+7cos(
+2
+πx
+).
+This result is then used as the argument for the 
+sin function.
+The 
+sin result is multiplied by 
+π and then used as the argument for the 
+cos function again.
+Finally, this result is multiplied by 
+3πx and taken as the argument for another 
+cos function, which is then divided by 2 to give us the term we add in our sum.
+Given the complexity of this expression, we can calculate the sum using Python. Let's do it step by step.
+The answer is approximately 
+−0.6315. 

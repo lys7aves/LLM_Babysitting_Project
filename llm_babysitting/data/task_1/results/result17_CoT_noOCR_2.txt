@@ -1,0 +1,48 @@
+ChatGPT
+Let's work through the calculation step by step.
+The given expression is a sum from 
+x=1 to 
+x=10 of the cosine of a fraction:
+∑
+x=1
+10
+cos
+⎝
+⎛
+2
+sin(
+πx
+πsin(
+2
+5πx
+)
+)
+⎠
+⎞
+The innermost part of this expression is 
+5
+2
+5πx
+, which is an argument to the sine function. We can evaluate this for 
+x from 1 to 10. Then, we multiply the result by 
+π and divide by 
+πx. However, since we multiply and then divide by 
+πx, these will cancel out, leaving us with just 
+sin(
+2
+5πx
+).
+Next, we take the sine of this result, and then we take the cosine of half of that.
+Since cosine is an even function, meaning that 
+cos(−θ)=cos(θ), we only need to calculate the sine values for 
+5
+2
+5πx
+ and determine whether they are positive or negative to know the value of the cosine after it is halved.
+Let's calculate the values of 
+sin(
+2
+5πx
+) for 
+x from 1 to 10, and then proceed with the sum.
+The answer is approximately 9.388. 

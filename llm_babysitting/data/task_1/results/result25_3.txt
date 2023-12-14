@@ -1,0 +1,6 @@
+ChatGPT
+The result of the expression 
+∑
+x=1
+10
+sin(x) is approximately 1.4112. 

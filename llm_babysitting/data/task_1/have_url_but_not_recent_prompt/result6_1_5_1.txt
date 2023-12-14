@@ -1,0 +1,22 @@
+ChatGPT
+The expression from both images can be read as follows:
+x=1
+∑
+10
+(6x(sin(
+2
+πx
+)+10)
+8
+−8)
+This is a summation that runs from 
+x=1 to 
+x=10, and within the summation, there is a multiplication of 
+6x and the eighth power of the sum of 
+sin(
+2
+πx
+) and 10, from which 8 is then subtracted.
+I will now calculate the value of this summation.
+The answer is 
+39875102470. 

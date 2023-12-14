@@ -1,0 +1,34 @@
+ChatGPT
+The expressions from the two images are as follows:
+x=1
+∑
+10
+cos(
+2
+πsin(π(
+2
+x
++
+2
+3
+))
+)
+Let's calculate this step by step.
+We evaluate the innermost part, which involves the variable 
+x. The expression 
+2
+x
++
+2
+3
+ will be evaluated for each integer value of 
+x from 1 to 10.
+We then take the sine of the result of the above expression, multiplied by 
+π.
+We then divide this result by 2 and take the cosine of that.
+Finally, we sum up all the cosine values we get from 
+x=1 to 
+x=10.
+Let's compute this using Python.
+The answer is 
+5.0. 

@@ -1,0 +1,12 @@
+ChatGPT
+Both images show the mathematical expression clearly, and the expression is the same in both images. The expression to be calculated is:
+∑
+x=1
+10
+(10x−50)sin(
+2x
+6
+π
+)
+Now I will compute the value of this expression. 
+The answer is approximately -40.782. 

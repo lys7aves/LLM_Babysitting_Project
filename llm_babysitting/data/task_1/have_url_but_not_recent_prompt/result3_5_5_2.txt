@@ -1,0 +1,12 @@
+ChatGPT
+The images have been displayed side by side. Both images show the mathematical expression:
+x=1
+∑
+10
+(−3x
+2
++x)
+Now, let's calculate the sum of this expression from 
+x=1 to 
+x=10. 
+The answer is -1100. 

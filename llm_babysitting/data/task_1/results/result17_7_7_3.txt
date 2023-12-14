@@ -1,0 +1,17 @@
+ChatGPT
+The mathematical expression shown in the images is:
+x=1
+∑
+10
+cos(
+2
+πx
+sin(
+2
+πx
+)
+)
+To calculate this expression, we need to compute the cosine of the inner fraction for each integer value of 
+x from 1 to 10, and then sum the results. I will now calculate this using Python.
+The answer is approximately 
+9.767. 

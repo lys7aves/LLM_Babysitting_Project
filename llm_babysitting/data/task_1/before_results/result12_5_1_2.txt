@@ -1,0 +1,8 @@
+ChatGPT
+The expression in both images is the same, and it reads as the summation from 
+x=1 to 
+10 of 
+((−7)
+x
+−9).
+Let's proceed to calculate this expr

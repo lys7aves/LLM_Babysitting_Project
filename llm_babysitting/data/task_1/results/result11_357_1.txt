@@ -1,0 +1,13 @@
+ChatGPT
+The mathematical expression you've provided is a summation from 
+x=1 to 
+x=10 of the function 
+(10x−50)sin(
+2x
+6
+π
+).
+To calculate the value of this expression, we'll sum the values of the function for each integer value of 
+x from 1 to 10. I will perform this calculation using Python. Let's proceed with the calculation.
+The answer is approximately 
+−40.78. 

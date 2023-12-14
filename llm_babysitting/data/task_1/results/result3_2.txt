@@ -1,0 +1,8 @@
+ChatGPT
+The sum of the series from 
+x=1 to 
+x=10 for the expression 
+−3x
+2
++x is 
+−1100. 

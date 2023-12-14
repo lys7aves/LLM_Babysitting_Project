@@ -1,0 +1,8 @@
+ChatGPT
+The sum of the series from 
+x=1 to 
+x=10 for the expression 
+(−7)
+x
+−9 answer is 
+247,165,752. 

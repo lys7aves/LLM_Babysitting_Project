@@ -1,0 +1,9 @@
+ChatGPT
+The OCR results from the images are not perfectly clear, but it seems that we are looking at a summation expression. The first image's OCR result suggests the expression might be 
+∑
+x=1
+10
+−9x
+3
+, while the second image's OCR text is less clear.
+Given the common mathematical notation and t

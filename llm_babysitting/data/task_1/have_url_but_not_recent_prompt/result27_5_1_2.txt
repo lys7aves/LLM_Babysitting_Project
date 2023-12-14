@@ -1,0 +1,16 @@
+ChatGPT
+The two images depict the same mathematical expression with a summation sign. The expression to be calculated is:
+x=1
+∑
+10
+sin
+x
+(
+2
+πcos(
+2
+πx
+)
+)
+We can now proceed to calculate this expression. 
+The answer is exactly 5.0. 

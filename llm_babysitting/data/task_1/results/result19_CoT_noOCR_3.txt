@@ -1,0 +1,59 @@
+ChatGPT
+To calculate the given expression, we must evaluate the following sum:
+∑
+x=1
+10
+cos
+x
+(
+2
+πxcos(
+2
+πx
+)
+)
+However, before we proceed with the computation, we should notice that the cosine function has a period of 
+2π, which means that 
+cos(θ+2πk)=cos(θ) for any integer 
+k. Furthermore, the cosine of an angle that is an integral multiple of 
+π will result in a value of either 
+1 or 
+−1, depending on whether the multiple is even or odd.
+Looking at the inner cosine term, 
+cos(
+2
+πx
+), for integer values of 
+x, this term will be zero when 
+x is an odd integer since it will represent cosine of 
+π
+2
+π
+, 
+3
+2
+3π
+, etc. And for even 
+x, it will take values of 
+1 or 
+−1 since it will represent cosine of 
+π, 
+2π, etc.
+This inner term, when zero, will make the whole term inside the cosine of the summand zero, and since 
+cos(0)=1, the power of cosine will be 
+1 for all odd 
+x.
+For even 
+x, since the cosine term will be 
+1 or 
+−1, it will be multiplied by 
+π
+2
+πx
+, which may result in a cosine value that is not trivially 
+1 or 
+−1. In these cases, the power of cosine will not necessarily be 
+1.
+Let's calculate this sum in Python step by step.
+The answer is 
+10.0. 

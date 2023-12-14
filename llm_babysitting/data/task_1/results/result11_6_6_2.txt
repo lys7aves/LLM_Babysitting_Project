@@ -1,0 +1,13 @@
+ChatGPT
+The expression in both images is a mathematical sum given by:
+x=1
+∑
+10
+(10x−50)sin(
+2x
+6
+π
+)
+This expression is a finite sum from 
+x=1 to 
+x=10 of the function (

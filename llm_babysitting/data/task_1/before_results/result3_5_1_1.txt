@@ -1,0 +1,3 @@
+ChatGPT
+The OCR process did not successfully read the expression from the original image, and it only partially read the expression from the image with the lattice, which is not sufficient to compare them accurately or to perform the calculation.
+Since the OCR was not successful, I will proceed t

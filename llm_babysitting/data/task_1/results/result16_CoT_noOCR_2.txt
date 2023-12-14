@@ -1,0 +1,15 @@
+ChatGPT
+To calculate the given expression step by step, let's first understand the mathematical notation and then proceed with the calculation:
+The given expression is a summation, indicated by the sigma notation 
+∑, which tells us to sum the values of the function to the right of it for the given range of x, which in this case is from 1 to 10.
+The function to sum is:
+cos(
+2
+πsin(
+2
+πx
+)
+)
+We will need to evaluate this function for each integer value of x from 1 to 10 and then sum those values.
+Let's proceed with the calculation using Python to perform the summation and cosine evaluations.
+The answer is 5.0. 

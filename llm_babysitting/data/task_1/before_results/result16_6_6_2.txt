@@ -1,0 +1,15 @@
+ChatGPT
+To begin with, I will compare the two images by examining the mathematical expression they contain and ensure it's read correctly for calculation.
+The expression looks like it is a summation where 
+x goes from 1 to 10. Inside the summation is a cosine function 
+cos(
+2
+πsin(
+2
+πx
+)
+).
+Now let's calculate this expression step by step. We will evaluate the inside of the cosine for each value of 
+x from 1 to 10, and then calculate the cosine of that result, summing it all up at the end.
+The answer is 
+5.0. 

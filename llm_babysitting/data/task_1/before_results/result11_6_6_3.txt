@@ -1,0 +1,4 @@
+ChatGPT
+The images have been compared, and the expression in both images is identical. The expression is a sum from 
+x=1 to 
+10 of the function (

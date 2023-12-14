@@ -1,0 +1,14 @@
+ChatGPT
+The OCR process was not successful in extracting the text from the images provided. This is not unexpected, as mathematical notation can be particularly challenging for OCR software to interpret correctly.
+Since I cannot read the expression directly from the images, I will proceed with the information that was visible in the thumbnails provided. The expression is a summation from 
+x=1 to 
+10 of 
+−8(−1)
+x
+(cos(
+2
+πx
+)+10).
+Now, I will calculate this expression step by step. 
+The answer is 
+8. 

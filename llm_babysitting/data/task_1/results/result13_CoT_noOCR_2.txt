@@ -1,0 +1,40 @@
+ChatGPT
+To calculate the expression given in the uploaded image, we'll follow the steps outlined in the summation. The expression is:
+x=1
+∑
+10
+−8(−1)
+x
+(cos(
+2
+πx
+)+10)
+This is a finite summation from 
+x=1 to 
+x=10 where each term involves an alternating factor of 
+−1 raised to the power of 
+x, a cosine function with argument 
+π
+2
+πx
+, and an addition of 10 inside the parentheses, all multiplied by -8.
+The cosine function has a period of 
+2π, so for 
+cos(
+2
+πx
+) the values will repeat every four terms. Specifically, the cosine of multiples of 
+π and 
+2
+π
+ can be either 0, 1, or -1. Since we're dealing with 
+π
+2
+πx
+, the value of the cosine function will be 0 when 
+x is odd, and ±1 when 
+x is even (positive when 
+x is a multiple of 4, negative when 
+x is even but not a multiple of 4).
+Let's calculate the sum using Python.
+The answer is 8. 

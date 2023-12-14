@@ -1,0 +1,12 @@
+ChatGPT
+The sum of the series 
+∑
+x=1
+10
+−9x
+−3
+ is 
+−
+1778112000
+19164113947
+, which is a fractional number. If you need a decimal approximation, let me know and I can provide that as well. 

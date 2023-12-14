@@ -1,0 +1,59 @@
+ChatGPT
+To calculate the expression in the image, let's break it down step by step:
+The expression can be described as follows:
+(
+2
+(
+9cos(
+2
+π
+cos(
+2
+πx
++sin(
+2
+πx
+)))
+πsin(π)
++
+2
+81
+)
+We will sum this expression from 
+x=1 to 
+x=10.
+Let's start by simplifying the inner parts of the expression before performing the summation:
+sin(π)=0 since the sine of pi is zero.
+cos(
+2
+π
+)=0 since the cosine of 
+π
+2
+π
+ is zero.
+Given that cosine of zero is 1, the term 
+9cos(0) simplifies to 9.
+With these simplifications, the fraction inside the summation simplifies greatly because the term involving sine and cosine in the numerator will become zero due to multiplication by 
+sin(π).
+This leaves us with:
+(
+2
+(0+
+2
+81
+)
+This simplifies to 
+81
+4
+81
+. Since this term does not depend on 
+x, the summation of 10 identical terms will just be 10 times the term. Thus, the final answer  is:
+10×
+4
+81
+=
+4
+810
+Now let's calculate the final answer.
+The answer is 202.5. 

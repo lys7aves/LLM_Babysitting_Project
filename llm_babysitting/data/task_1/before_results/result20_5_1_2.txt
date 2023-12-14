@@ -1,0 +1,6 @@
+ChatGPT
+The OCR results for the two images are not very clear, and the text extracted does not give a coherent mathematical expression. However, I can decipher from the given context that the expression is likely a summation from 
+x=1 to 
+10 of 
+(x+1).
+Now, I will calculate the sum of this expressio

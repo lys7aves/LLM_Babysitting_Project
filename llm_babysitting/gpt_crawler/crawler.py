@@ -124,10 +124,9 @@ class Crawler:
 
     def switch_tab(self, tab_index):
         if 0 <= tab_index < len(self.tabs):
+            self.driver.switch_to.window(self.tabs[tab_index])
             if self.driver.current_window_handle != self.tabs[tab_index]:
                 time.sleep(3)
-                
-            self.driver.switch_to.window(self.tabs[tab_index])
             self.print_debug_message('function: switch_tab (Success)')
         else:
             self.print_debug_message('function: switch_tab (Fail)')
@@ -499,6 +498,8 @@ class GptCrawler(Crawler):
                     conversation = 'Error :('
                 
                 conversations.append(conversation)
+
+            time.sleep(1)
             
             return conversations
 

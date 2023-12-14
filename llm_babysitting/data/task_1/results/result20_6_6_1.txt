@@ -1,0 +1,17 @@
+ChatGPT
+The expression shown in both images is a mathematical sum expressed as a sigma notation. The expression inside the sum is 
+(x+1), and the sum runs from 
+x=1 to 
+x=10.
+To calculate the sum, we will perform the following steps:
+Identify the expression to be summed: In this case, 
+(x+1).
+Plug in the values of 
+x from 1 to 10 into the expression 
+(x+1) and add them up.
+The sum can be calculated by evaluating the expression 
+(x+1) for each integer value of 
+x from 1 to 10 and adding the results together. This is equivalent to the sum of an arithmetic sequence where each term is one more than the previous term, starting at 2 and ending at 11.
+Let's calculate this using Python.
+The answer is 
+65. 
