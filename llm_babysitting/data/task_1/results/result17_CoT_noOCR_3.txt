@@ -1,0 +1,13 @@
+ChatGPT
+The expression you've provided appears to be a summation involving trigonometric functions. The summation is from 
+x=1 to 
+x=10 of the cosine of a function that itself involves the sine function.
+The expression inside the summation is:
+cos(
+2
+sin(πx)
+)
+To calculate this, we'll need to evaluate the cosine of the sine of each integer multiple of 
+π from 1 to 10, divide by 2, and then sum these results.
+Let's proceed with these calculations.
+The answer is exactly 10.0. 

@@ -1,0 +1,14 @@
+ChatGPT
+It seems that the OCR (Optical Character Recognition) was unable to accurately extract the text from the images. This is not uncommon with mathematical expressions, as they can be quite complex for OCR technology to interpret correctly, especially when the images contain grid lines which may interfere with the recognition.
+Since I cannot visually inspect the images, I'll rely on the description provided. The expression to calculate is a summation from 
+x=1 to 
+x=10 of the term 
+−8(−1)
+x
+(cos(
+2
+πx
+)+10).
+Let's calculate this expression step by step. 
+The answer is 
+8. 

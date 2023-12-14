@@ -1,0 +1,11 @@
+ChatGPT
+The OCR process was unable to extract text from the images provided. Since these are mathematical expressions, I will manually inspect the images and proceed with the calculation based on the expression I see.
+The expression provided is a summation from 
+x=1 to 
+x=10 of 
+(−3x
+2
++x).
+I will calculate this sum using Python. 
+The answer is 
+−1100. 

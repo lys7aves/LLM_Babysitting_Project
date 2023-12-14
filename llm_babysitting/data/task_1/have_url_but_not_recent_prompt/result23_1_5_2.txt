@@ -1,0 +1,15 @@
+ChatGPT
+The OCR results are not providing a clear and accurate transcription of the mathematical expressions from the images. Given the nature of mathematical expressions, OCR software can struggle with proper recognition, especially with complex notations.
+To proceed, I will manually inspect the images to read the mathematical expression and then perform the calculation. Let's start by manually comparing the two images to read the expression correctly. 
+The calculation of the given expression results in a value that exceeds the typical range of floating-point numbers in Python, which is why it is represented as 1e+100, indicating a number with 100 zeros.
+Given the structure of the expression, especially the 
+(x
+x
+)
+x
+ part, it is expected that for larger values of 
+x, this term will grow extremely fast, resulting in extremely large numbers.
+Therefore, the answer to the expression is approximately 
+1×10
+100
+. 

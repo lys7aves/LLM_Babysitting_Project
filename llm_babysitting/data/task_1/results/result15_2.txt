@@ -1,0 +1,4 @@
+ChatGPT
+The calculated sum of the given expression from 
+x=1 to 
+x=10 is approximately 1.5914. 

@@ -1,0 +1,21 @@
+ChatGPT
+The expression in both images is a mathematical summation formula, which appears to be:
+x=1
+∑
+10
+cos(
+2
+πsin(π(
+2
+x
++
+2
+3
+))
+)
+This formula represents the sum of the cosine of a function that is dependent on 
+x, from 
+x=1 to 
+x=10. The function inside the cosine involves the sine of a linear function in 
+x.
+To calculate this exp

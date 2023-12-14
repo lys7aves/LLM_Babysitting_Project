@@ -1,0 +1,3 @@
+ChatGPT
+The expression depicted in the images provided appears to be a mathematical summation formula, which includes trigonometric functions sin and cos. The expression is given as:
+\sum_{x=1}^{10} \sin \left( \pi \cos \left( \frac{\pi \sin \left( \frac{\pi \co

@@ -12,8 +12,7 @@ def generate_random_expression(level=1, length=None, problem_path='./random_prob
     if length == None: length = random.randint(3,10)
 
     x = sp.symbols('x')
-    operations = [sp.Add, sp.Mul, sp.Pow]  # 덧셈, 곱셈, 거듭제곱 중 랜덤 선택
-    #functions = [sp.sin, sp.cos, sp.exp, sp.log]  # 삼각함수, 지수함수, 로그함수 등을 추가할 수 있음
+    operations = [sp.Add, sp.Mul, sp.Pow]
     functions = [sp.sin, sp.cos]
 
     if save == True:

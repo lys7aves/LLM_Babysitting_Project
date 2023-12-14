@@ -1,0 +1,5 @@
+ChatGPT
+The OCR has not been successful in accurately capturing the mathematical expression from the images. This is common with complex mathematical notation, as OCR technology can struggle with symbols and formatting.
+Since OCR did not provide a usable result, I will manually transcribe and interpret the mathematical expression from the images, and then proceed to calculate it.
+From the images, the mathematical expression is a summation:
+\sum_{x=1}^{10} \cos \left( \frac{\sin(\pi x)}{\frac{\pi \sin(\frac{5\pi x}{2})

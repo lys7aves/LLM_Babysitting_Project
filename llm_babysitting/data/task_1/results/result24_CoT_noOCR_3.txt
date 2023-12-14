@@ -1,0 +1,17 @@
+ChatGPT
+The mathematical expression you've provided is a summation:
+x=1
+∑
+10
+sin(π(cos(
+2
+πx
+)+
+2
+7
+))
+To calculate this, we will consider each term in the summation individually for 
+x=1 to 
+x=10, and then sum the results. I'll use Python to do the calculation. Let's begin.
+The answer is 
+0. 

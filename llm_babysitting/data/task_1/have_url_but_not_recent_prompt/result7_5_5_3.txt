@@ -1,0 +1,16 @@
+ChatGPT
+The expression in both images is consistent and reads:
+∑
+x=1
+10
+(−9x
+−3
+)
+This is a summation expression that sums the function 
+−9x
+−3
+ from 
+x=1 to 
+x=10. Now let's calculate this expression step by step. 
+The answer is approximately 
+−10.778. 

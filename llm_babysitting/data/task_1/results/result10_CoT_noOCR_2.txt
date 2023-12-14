@@ -1,0 +1,41 @@
+ChatGPT
+Let's go through the expression step by step.
+The expression is a sum from 
+x=1 to 
+x=10 of a fraction. The numerator of the fraction is a product of 
+3πx and the cosine of a complex expression involving 
+x. The denominator is simply 
+2.
+The complex expression in the cosine function is itself the sum of two parts:
+The sine of 
+π
+2
+π
+, which is 
+1, multiplied by 
+π, giving us 
+π.
+A fraction where the numerator is 
+−cos(
+2
+πx
+) times 
+π and the denominator is 
+π. The 
+π in the numerator and denominator cancel out, leaving 
+−cos(
+2
+πx
+).
+Thus, the full expression inside the cosine is 
+π−cos(
+2
+πx
+).
+We can calculate this sum by iterating through the values of 
+x from 
+1 to 
+10 and evaluating the expression for each 
+x. Let's perform this calculation using Python.
+The answer is approximately 
+−194.19. 

@@ -1,0 +1,44 @@
+ChatGPT
+To solve the mathematical expression shown in the images, I will start by describing the expression as accurately as possible:
+The main structure is a fraction. The numerator consists of a sum, and the denominator is a product of two terms. We have:
+A summation from 
+x=1 to 
+10 is present, which suggests we will be summing over a series of ten terms.
+Inside the summation, there is a cosine function, which is not applied to a simple 
+x, indicating that the argument of the cosine function is more complex.
+There is a complex fraction within the brackets that seems to be added to the cosine function, which involves 
+π and 
+x, and a nested sine function which itself has 
+π
+2
+πx
+ as its argument.
+This entire expression is multiplied by 
+π sine 
+π outside of the summation.
+On the right side of the numerator, outside the summation, there is an addition of 
+81
+2
+81
+.
+The denominator is simply 2.
+Let's transcribe the expression in a mathematically accurate form based on these observations:
+(
+2
+(∑
+x=1
+10
+cos(πcos(
+2
+πx+sin(
+2
+πx
+)
+)))πsin(π)+
+2
+81
+The next step is to calculate this expression. Given the complexity, this will be done step by step using Python. We will calculate the summation part first and then the whole expression. Let's start by defining the function for the summation part.
+The calculated value of the expression is 
+20.25.
+So, the answer is 
+20.25. 

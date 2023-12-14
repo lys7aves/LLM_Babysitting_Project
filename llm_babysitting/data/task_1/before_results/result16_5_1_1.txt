@@ -1,0 +1,15 @@
+ChatGPT
+First, let's compare the two images to ensure we have the mathematical expression correct.
+Given the expression:
+x=1
+∑
+10
+2
+cos(
+2
+πsin(
+2
+πx
+)
+)
+We need to calculate this summation. The expression inside the cosine function is dependent on the v

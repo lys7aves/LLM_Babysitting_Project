@@ -1,0 +1,7 @@
+ChatGPT
+The images you've uploaded contain a mathematical expression involving a sum from 
+x=1 to 
+x=10 of the function 
+(−7)
+x
+−9. To compare the two images and calculate the expression, I'll first ensure that the expression is in

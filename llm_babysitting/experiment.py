@@ -29,11 +29,11 @@ colorama.init()
 
 def set_agents(lock):
     gpt4_tabs = [
-        '6AE7FD505865F589CF21EB0815274ACD',
-        '33C322877B760EF3C906A3A7505BCCAF',
-        '0ECB85764F6D372DCED2E7D78EFCD6DA',
-        '3504F117CCA00699331FE86D9F611DEF',
-        'BECB5E9E8EBBEE562B4A72C22D78EC56'
+        '4664CA95776DFBF5A8232CA12C6A3935',
+        '16A2DCD8C2A069B93BCF706D66699FF4',
+        '35B5EDD409D6FDEB95DC3B4494C3120B',
+        '34CFE5A2EC3C68D6BBB4A6FA61E9773E',
+        'DC814929503E28937F532641A3A830A0'
     ]
     gpt3_tabs = [
         '1B4DF690BC13AB0DE7DE6BEC0CF47056',
@@ -89,6 +89,8 @@ def run_task(lock=None, agent=None, message='', files=[], result_path=None, max_
         attempts += 1
         time.sleep(1)
     
+    agent.update_state()
+
     if agent.state == GptAgentState.AWAITING_INPUT:
         if len(agent.conversations) == 0:
             print(Fore.RED)
@@ -96,8 +98,13 @@ def run_task(lock=None, agent=None, message='', files=[], result_path=None, max_
             print(Fore.RESET)
 
         else:
-            with open(result_path, 'w', encoding='utf-8') as file:
+            with open(result_path+'_url.txt', 'w', encoding='utf-8') as file:
+                file.write(agent.url)
+            with open(result_path+'.txt', 'w', encoding='utf-8') as file:
                 file.write(agent.conversations[-1])
+
+        
+        time.sleep(1)
 
         agent.close()
 
@@ -124,17 +131,57 @@ def run_tasks(lock=None, agents=None, task_path=None, experiments_per_task=3):
     #tasks = os.listdir(task_path+'tasks/')
     file_base_path = 'C:/Users/LeeYuseop/OneDrive/바탕 화면/Lecture/2023-2/2023-2 Natural Language Processing (001)/project/LLM_Babysitting_Project/llm_babysitting/data/task_1/'
     
+    
 
-    hws = [(5,5), (7,7), (6,6), (5,1), (1,5)]
-    cnt = 0
+    cnt = 99999
+    for i in range(1, 31):
+        break
+        for j in range(1, 4):
+            message = f"Calculate the expression. Please conclude your answer with 'The answer is …' or 'The answer is approximately …'.\n\nLet's think step by step."
+            files = [file_base_path + f'tasks/problem{i}.png']
+            result_path = file_base_path + f'results/result{i}_CoT_{j}'
+
+            if os.path.exists(result_path+'.txt'):
+                continue
+
+            while True:
+                print('================================================================================')
+                print(f'Next task: {i} +CoT {j}')
+                Agent.print_agents(agents=agents)
+
+                cnt += 1
+                if cnt >= 10:
+                    cnt = 0
+
+                    agent = Agent.find_free_agent(agents=agents)
+                    if agent is not None:
+                        print('find free agent!')
+
+                        time.sleep(10)
+                        thread = threading.Thread(target=run_task, args=(lock, agent, message, files, result_path))
+                        thread.start()
+
+                        break
+                    
+                    else:
+                        print('No free agent :(')
+                
+                else:
+                    print(f'Wait {cnt}')
+
+                time.sleep(3)
+    
+
+    hws = [(6,6)]
+    cnt = 99999
     for h, w in hws:
-        for i in range(2, 31):
-            for j in range(1, 4):
-                message = f"The two images are of the same expression. One is the original image, and the other has a lattice of {h} by {w} for precise location information.\n\nFirst, compare the two images, taking into account the accurate positioning, and read the expression correctly.\n\nThen, calculate the expression.\n\nPlease conclude your answer with 'The answer is ...' or 'The answer is approximately ...'.\n\nLet's think step by step."
+        for j in range(1, 4):
+            for i in range(1, 31):
+                message = f"The two images are of the same expression. One is the original image, and the other has a lattice of {h} by {w} for precise location information.\n\nFirst, compare the two images, taking into account the accurate positioning, and read the expression correctly.\n\nThen, calculate the expression.\n\nPlease conclude your answer with 'The answer is ...' or 'The answer is approximately ...'.\n\nDo not use python to read the images, but you can use python to calculate the final answer. Based on the lattice, accurately judge their relative positions and sizes to check superscripts and subscripts.\n\nLet's think step by step."
                 files = [file_base_path + f'tasks/problem{i}.png', file_base_path + f'tasks/problem{i}_{h}_{w}.png']
-                result_path = file_base_path + f'results/result{i}_{h}_{w}_{j}.txt'
+                result_path = file_base_path + f'results/result{i}_{h}_{w}_{j}'
 
-                if os.path.exists(result_path):
+                if os.path.exists(result_path+'.txt'):
                     continue
 
                 while True:
@@ -143,7 +190,7 @@ def run_tasks(lock=None, agents=None, task_path=None, experiments_per_task=3):
                     Agent.print_agents(agents=agents)
 
                     cnt += 1
-                    if cnt == 100:
+                    if cnt >= 10:
                         cnt = 0
 
                         agent = Agent.find_free_agent(agents=agents)
@@ -163,6 +210,120 @@ def run_tasks(lock=None, agents=None, task_path=None, experiments_per_task=3):
                         print(f'Wait {cnt}')
 
                     time.sleep(3)
+
+    return
+
+    cnt = 99999
+    for i in range(1, 31):
+        for j in range(1, 4):
+            message = f"Calculate the expression. Please conclude your answer with 'The answer is …' or 'The answer is approximately …'.\n\nDo not use python to read the images, but you can use python to calculate the final answer.\n\nLet's think step by step."
+            files = [file_base_path + f'tasks/problem{i}.png']
+            result_path = file_base_path + f'results/result{i}_CoT_noOCR_{j}'
+
+            if os.path.exists(result_path+'.txt'):
+                continue
+
+            while True:
+                print('================================================================================')
+                print(f'Next task: {i} +CoT -OCR {j}')
+                Agent.print_agents(agents=agents)
+
+                cnt += 1
+                if cnt >= 10:
+                    cnt = 0
+
+                    agent = Agent.find_free_agent(agents=agents)
+                    if agent is not None:
+                        print('find free agent!')
+
+                        time.sleep(10)
+                        thread = threading.Thread(target=run_task, args=(lock, agent, message, files, result_path))
+                        thread.start()
+
+                        break
+                    
+                    else:
+                        print('No free agent :(')
+                
+                else:
+                    print(f'Wait {cnt}')
+
+                time.sleep(3)
+    
+
+    cnt = 99999
+    for i in range(1, 31):
+        for j in range(1, 4):
+            message = f"Calculate the expression."
+            files = [file_base_path + f'tasks/problem{i}.png']
+            result_path = file_base_path + f'results/result{i}_{j}'
+
+            if os.path.exists(result_path+'.txt'):
+                continue
+
+            while True:
+                print('================================================================================')
+                print(f'Next task: {i} {j}')
+                Agent.print_agents(agents=agents)
+
+                cnt += 1
+                if cnt >= 10:
+                    cnt = 0
+
+                    agent = Agent.find_free_agent(agents=agents)
+                    if agent is not None:
+                        print('find free agent!')
+
+                        time.sleep(10)
+                        thread = threading.Thread(target=run_task, args=(lock, agent, message, files, result_path))
+                        thread.start()
+
+                        break
+                    
+                    else:
+                        print('No free agent :(')
+                
+                else:
+                    print(f'Wait {cnt}')
+
+                time.sleep(3)
+
+    cnt = 99999
+    for i in range(1, 31):
+        for j in range(1, 4):
+            message = f"The given images all represent the same expression. One is the original image, while the others are images represented on a 3 by 3, 5 by 5, and 7 by 7 lattice to provide precise location information.\n\nFirst, compare the two images, taking into account the accurate positioning, and read the expression correctly.\n\nThen, calculate the expression.\n\nPlease conclude your answer with 'The answer is ...' or 'The answer is approximately ...'.\n\nDo not use python to read the images, but you can use python to calculate the final answer. Based on the lattice, accurately judge their relative positions and sizes to check superscripts and subscripts.\n\nLet's think step by step."
+            files = [file_base_path + f'tasks/problem{i}.png', file_base_path + f'tasks/problem{i}_3_3.png', file_base_path + f'tasks/problem{i}_5_5.png', file_base_path + f'tasks/problem{i}_7_7.png']
+            result_path = file_base_path + f'results/result{i}_357_{j}'
+
+            if os.path.exists(result_path+'.txt'):
+                continue
+
+            while True:
+                print('================================================================================')
+                print(f'Next task: {i} 357 {j}')
+                Agent.print_agents(agents=agents)
+
+                cnt += 1
+                if cnt >= 10:
+                    cnt = 0
+
+                    agent = Agent.find_free_agent(agents=agents)
+                    if agent is not None:
+                        print('find free agent!')
+
+                        time.sleep(10)
+                        thread = threading.Thread(target=run_task, args=(lock, agent, message, files, result_path))
+                        thread.start()
+
+                        break
+                    
+                    else:
+                        print('No free agent :(')
+                
+                else:
+                    print(f'Wait {cnt}')
+
+                time.sleep(3)
 
 
 def experiment(task_generator='calculate_expression', method='step_by_step', num_agents=5, num_data=30):

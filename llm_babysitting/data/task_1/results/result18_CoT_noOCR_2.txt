@@ -1,0 +1,18 @@
+ChatGPT
+Let's start by analyzing the expression given in the image. It's a sum from 
+x=1 to 
+10 of the cosine of the following expression:
+cos(
+2
+πsin(
+2
+π
+(x
+3
+−1))
+)
+To calculate this sum, we'll evaluate the inner expression for each integer value of 
+x from 
+1 to 
+10, take the cosine of the result, and then sum all those cosine values together. I'll perform these steps using Python. Let's begin the calculation.
+The answer is 5.0. 

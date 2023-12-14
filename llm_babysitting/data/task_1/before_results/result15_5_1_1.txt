@@ -1,0 +1,5 @@
+ChatGPT
+The OCR has not successfully extracted text from the images provided. This could be due to the complexity of the mathematical expressions or the formatting of the images. Since I cannot extract the formula from the images directly, I will manually interpret the mathematical expression based on the initial image you've shown.
+The expression is a summation from 
+x=1 to 
+x=10 of

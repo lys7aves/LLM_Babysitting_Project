@@ -1,0 +1,17 @@
+ChatGPT
+The expression in the images is a summation:
+x=1
+∑
+10
+(10+x−2x)
+To simplify the expression inside the summation before calculating it:
+10
+10+x−2x=10−x
+Now we calculate the sum for 
+x from 1 to 10:
+x=1
+∑
+10
+(10−x)
+Let's compute this.
+The answer is 45. 

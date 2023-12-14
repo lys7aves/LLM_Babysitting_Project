@@ -1,0 +1,7 @@
+ChatGPT
+The expression given is the sum of a trigonometric function from 
+x=1 to 
+x=10. After evaluating this sum, the answer is approximately 
+−8.028.
+So, the answer is approximately 
+−8.028. 

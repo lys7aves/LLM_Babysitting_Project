@@ -1,0 +1,5 @@
+ChatGPT
+The OCR has not successfully read the mathematical expressions from the images. However, since the images are supposed to contain the same mathematical expression, I will manually interpret the expression from the first image, which appears to be a summation.
+The expression in question is a sum from 
+x=1 to 
+x=10 of ( (x +

@@ -1,0 +1,21 @@
+ChatGPT
+The expression in the image you uploaded is a summation from 
+x=1 to 
+10 of the function 
+sin(
+2
+π
+cos(π(x+
+2
+5
+))).
+To compute this, we'll evaluate the function for each integer value of 
+x from 
+1 to 
+10, and then sum up all the resulting values. Let's calculate this step by step using Python.
+The calculated sum of the expression is approximately 
+−2.14×10
+−14
+. Since this is a very small number close to zero, we can conclude that the expression is essentially zero within numerical precision.
+The answer is approximately 
+0. 

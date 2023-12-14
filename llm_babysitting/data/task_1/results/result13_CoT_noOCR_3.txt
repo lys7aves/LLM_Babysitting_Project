@@ -1,0 +1,32 @@
+ChatGPT
+To calculate the given expression, we will evaluate the summation. The expression inside the summation is 
+−8×(−1)
+x
+×(cos(
+2
+πx
+)+10), which we will evaluate for each integer value of 
+x from 1 to 10.
+Let's break it down:
+(−1)
+x
+ will alternate between -1 and 1 for odd and even values of 
+x, respectively.
+cos(
+2
+πx
+) will have a pattern depending on 
+x. Specifically, 
+cos of multiples of 
+π will be -1, 0, or 1. For 
+π
+2
+π
+, 
+3
+2
+3π
+, and so on, the cosine function will be 0.
+Adding 10 to the cosine function will shift the result of the cosine by 10 units up.
+Now, let's compute this in Python.
+The answer is 8. 

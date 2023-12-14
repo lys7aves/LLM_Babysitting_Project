@@ -1,0 +1,7 @@
+ChatGPT
+The two images displayed above are variations of the same mathematical expression. The expression depicted is a summation:
+∑
+x=1
+10
+(x+1)
+This expression instructs us to sum the values of ( x + 1

@@ -1,0 +1,15 @@
+ChatGPT
+The mathematical expression in the images can be interpreted as follows:
+x=1
+∑
+10
+2
+cos(3πxcos(πsin(
+π
+7cos(
+2
+πx
+)
+))
+Now, let's calculate this expression step by step. We will evaluate the cosine function inside the sum for each integer value of 
+x from 1 t

@@ -1,0 +1,8 @@
+ChatGPT
+The sum of the expression 
+−9x
+3
+−3 from 
+x=1 to 
+x=10 is 
+−27255. 

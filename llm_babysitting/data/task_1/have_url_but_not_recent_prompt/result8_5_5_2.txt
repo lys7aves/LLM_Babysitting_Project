@@ -1,0 +1,23 @@
+ChatGPT
+The comparison of the two images shows that the mathematical expression is the same in both. The lattice on the second image is for precise location information and does not alter the expression. The expression reads as follows:
+∑
+x=1
+10
+sin
+⎝
+⎛
+2sin(
+2
+πcos(
+2
+(−6)
+x
+π
+)
+)
+π(70x+49)
+⎠
+⎞
+Now let's calculate the value of this expression. 
+The answer is 
+2. 

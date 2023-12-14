@@ -1,0 +1,12 @@
+ChatGPT
+The OCR has failed to accurately extract the mathematical expression from the images. This sometimes happens with images of mathematical expressions because OCR technology is not always precise with such content. Given this, I will manually interpret the expression from the images and then proceed to calculate it.
+The expression seems to be a summation:
+∑
+x=1
+10
+−9x
+−3
+Now, I will calculate the value of this expression by evaluating the summation from 
+x=1 to 
+x=10. 
+The answer is approximately -10.78. 

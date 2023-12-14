@@ -1,0 +1,16 @@
+ChatGPT
+The expression in both images is the same, and it reads as follows:
+x=1
+∑
+10
+(−3x
+2
++x)
+This is a summation expression where 
+x takes on integer values from 1 to 10. For each value of 
+x, we calculate 
+−3x
+2
++x and then sum all these values together.
+Let's calculate the expression. 
+The answer is -1100. 

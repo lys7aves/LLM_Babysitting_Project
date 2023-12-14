@@ -1,0 +1,17 @@
+ChatGPT
+The expression in both images is:
+x=1
+∑
+10
+cos(
+2
+πsin(π(
+2
+x
++
+2
+3
+))
+)
+This is a summation expression where 
+x take

@@ -218,7 +218,7 @@ class GptAgent:
 
             if self.state == GptAgentState.PREPARATION:
                 self.url = None
-            if self.url is None:
+            if self.url is None or True:
                 if self.state == GptAgentState.AWAITING_INPUT or self.state == GptAgentState.FINISHED:
                     self.url = self.gpt_crawler.get_url(self.tab_index)
 

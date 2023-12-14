@@ -1,0 +1,26 @@
+ChatGPT
+The OCR process did not yield a clear transcription of the mathematical expressions from the images. It appears that the text is not being correctly recognized. Since the OCR has failed to provide an accurate result, I will proceed by manually inspecting the images to compare and read the expression correctly before calculating it. Let's first manually compare the two images to understand the expression. 
+After manually inspecting the images, the mathematical expression is:
+x=1
+∑
+10
+−8(−1)
+x
+(cos(
+2
+πx
+)+10)
+This is a summation expression where 
+x takes integer values from 1 to 10. For each value of 
+x, the term to be added to the sum is 
+−8 multiplied by 
+(−1)
+x
+ and then multiplied by the result of the cosine of 
+π
+2
+πx
+ added to 10.
+Now, I will calculate the value of this expression. 
+The answer is 
+8. 

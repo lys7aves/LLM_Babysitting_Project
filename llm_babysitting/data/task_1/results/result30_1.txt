@@ -1,0 +1,8 @@
+ChatGPT
+The calculated sum of the given expression from 
+x=1 to 
+x=10 is 
+πsin(5)+385.
+Since 
+sin(5) is the sine of 5 radians, the exact value of the sum involves this trigonometric function of 
+π. If you need a numerical approximation, I can calculate that as well. Would you like me to proceed with that? 

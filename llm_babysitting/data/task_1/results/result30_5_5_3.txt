@@ -1,2 +1,27 @@
 ChatGPT
-The answer is approximately 384.041. 
+To solve the mathematical expression given in the images, we should first interpret it correctly. The expression is a summation:
+x=1
+∑
+10
+(x
+2
+−sin(
+2
+−5sin(
+2
+πx
+)
+)π)
+To calculate this expression, we need to evaluate the sum for each integer value of 
+x from 1 to 10, calculate the square of 
+x, then calculate the sine of 
+π
+2
+πx
+, multiply that by -5, divide by 2, take the sine of the result, multiply by 
+π, and subtract from 
+x
+2
+. Finally, we sum all these values.
+Let's proceed to calculate this step by step using Python.
+The answer is approximately 386.88. 

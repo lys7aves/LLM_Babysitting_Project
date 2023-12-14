@@ -1,0 +1,9 @@
+ChatGPT
+The mathematical expression in both images is consistent and reads as follows:
+∑
+x=1
+10
+(x
+x
++9)
+This expression indicates a sum from ( x = 1

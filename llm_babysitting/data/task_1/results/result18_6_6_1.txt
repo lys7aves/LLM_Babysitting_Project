@@ -1,0 +1,26 @@
+ChatGPT
+The mathematical expression in both images is the same. It represents a summation where 
+x takes integer values from 1 to 10. The function inside the summation is the cosine of half the product of 
+π and the sine of 
+π times the quantity 
+2
+x
+3
+−1. Mathematically, this can be written as:
+x=1
+∑
+10
+cos
+⎝
+⎛
+2
+πsin(π(
+2
+x
+3
+−1))
+⎠
+⎞
+To calculate this expression, we will evaluate the cosine term for each integer value of 
+x from 1 to 10 and then sum the results. Let's proceed with the calculation using Python.
+The answer is exactly 5.0. 

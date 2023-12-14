@@ -1,0 +1,6 @@
+ChatGPT
+The sum of the given expression from 
+x=1 to 
+x=10 is 
+0. Therefore, the answer is 
+0. 

@@ -1,0 +1,3 @@
+ChatGPT
+The text extracted from the images using OCR is not clear or accurate enough to identify the mathematical expression correctly. This is a common issue with OCR and complex mathematical expressions or when the image quality is not optimal.
+To proceed with the calculation, I would need to visually inspect the images myself to understand the expression. Given that the OCR result is not usable, I

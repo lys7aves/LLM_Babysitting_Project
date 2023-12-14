@@ -1,0 +1,5 @@
+ChatGPT
+The OCR has not been successful in extracting the text from the images provided. This might be due to the complexity of the images, such as the presence of a grid overlay or the format of the mathematical expression.
+Since the OCR did not return a readable result, I will proceed by analyzing the images directly. I will compare the two images and identify the mathematical expression visually, and then calculate the sum. 
+The answer is 
+−1100. 

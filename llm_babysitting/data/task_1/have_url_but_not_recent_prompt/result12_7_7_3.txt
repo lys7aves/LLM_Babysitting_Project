@@ -1,0 +1,16 @@
+ChatGPT
+The expression from both images reads the same:
+x=1
+∑
+10
+((−7)
+x
+−9)
+This is a summation expression where 
+x takes on the values from 1 to 10. For each value of 
+x, we compute 
+(−7)
+x
+−9 and then sum up all these computed values.
+Now I will calculate the sum of this expression. 
+The answer is 247,165,752. 

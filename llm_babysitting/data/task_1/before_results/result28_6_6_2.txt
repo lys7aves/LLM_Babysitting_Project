@@ -1,0 +1,9 @@
+ChatGPT
+The images have been compared, and the mathematical expression is the same in both images. It is a summation expression:
+∑
+x=1
+10
+(x
+x
++9)
+This expression means that we need to calculate ( x^x +

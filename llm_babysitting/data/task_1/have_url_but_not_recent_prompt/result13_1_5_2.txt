@@ -1,0 +1,14 @@
+ChatGPT
+The OCR process did not yield a clear transcription of the mathematical expression from the images. Since OCR is not providing reliable results, I will manually interpret the expression based on the first image you've uploaded.
+The mathematical expression as per the first image appears to be:
+∑
+x=1
+10
+−8(−1)
+x
+(cos(
+2
+πx
+)+10)
+I will now calculate this expression. 
+The answer is 8. 

@@ -1,0 +1,14 @@
+ChatGPT
+The expression displayed in both images is:
+x=1
+∑
+10
+((−7)
+x
+−9)
+Now that we've verified the mathematical expression is the same in both images, let's proceed to calculate it. We will compute the sum of 
+(−7)
+x
+−9 for 
+x ranging from 1 to 10. 
+The answer is 247,165,752. 

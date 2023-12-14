@@ -1,0 +1,11 @@
+ChatGPT
+The OCR process did not successfully extract the text from the images, likely due to the nature of the content being mathematical notation, which can be challenging for OCR software to interpret accurately.
+Instead, I will manually transcribe the expression based on the images provided and calculate the sum.
+The expression appears to be a sum from 
+x=1 to 
+10 of 
+−9x
+−3
+.
+Now, I'll calculate this sum. 
+The answer is approximately -10.78. 

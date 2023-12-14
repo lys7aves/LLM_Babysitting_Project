@@ -1,0 +1,15 @@
+ChatGPT
+The mathematical expression in the images provided is a sum given by the sigma notation, which reads:
+x=1
+∑
+10
+((−7)
+x
+−9)
+This expression means we need to calculate the value of 
+(−7)
+x
+−9 for each integer value of 
+x from 1 to 10 and then sum all these values.
+Now, let's calculate the expression step by step using Python.
+The answer is 247,165,752. 

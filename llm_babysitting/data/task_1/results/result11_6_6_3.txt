@@ -1,0 +1,10 @@
+ChatGPT
+The expression from the images you've provided appears to be a summation:
+x=1
+∑
+10
+(10x−50)sin(
+2x
+6
+π
+)

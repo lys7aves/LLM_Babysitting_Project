@@ -1,0 +1,12 @@
+ChatGPT
+It seems that the OCR (Optical Character Recognition) process did not successfully extract text from the images provided. This can happen due to the complexity of mathematical expressions which are difficult for OCR to interpret accurately.
+Given that the OCR has not provided us with the required information, I will manually interpret the expressions from the images.
+The expression from the images appears to be a summation:
+∑
+x=1
+10
+(−9x
+−3
+)
+Now, I will calculate this sum manually. 
+The answer is approximately -10.7778. 

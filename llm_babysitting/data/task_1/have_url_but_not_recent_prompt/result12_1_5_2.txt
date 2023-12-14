@@ -1,0 +1,16 @@
+ChatGPT
+It appears that the text extraction from the images did not yield any readable output, which means I will not be able to directly compare the content of the two images or calculate the expression using this method.
+Since the OCR did not work as expected, I'll proceed by manually inspecting the files to read and compare the mathematical expressions. Let's start by examining the original image file to understand the expression. 
+The expression in the image is a summation formula:
+x=1
+∑
+10
+((−7)
+x
+−9)
+This means we need to calculate the sum of the sequence where each term is 
+(−7) raised to the power of 
+x minus 9, for 
+x ranging from 1 to 10. Let's proceed with the calculation. 
+The answer is 
+247,165,752. 
